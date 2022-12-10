@@ -9,5 +9,5 @@ import Foundation
 
 public protocol GetInitContent {
     typealias Result = Swift.Result<InitContentResponse, TabNewsError>
-    func get(completion: @escaping (Result) -> Void)
+    func get() async -> Result
 }
