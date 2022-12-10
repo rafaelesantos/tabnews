@@ -7,50 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C3FFC11294427D600B1918C /* TabNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC10294427D600B1918C /* TabNewsApp.swift */; };
-		6C3FFC13294427D600B1918C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC12294427D600B1918C /* ContentView.swift */; };
-		6C3FFC15294427D700B1918C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3FFC14294427D700B1918C /* Assets.xcassets */; };
-		6C3FFC19294427D700B1918C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3FFC18294427D700B1918C /* Preview Assets.xcassets */; };
-		6C3FFC2A2944280A00B1918C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; };
-		6C3FFC2B2944280A00B1918C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C307355294449A100D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307354294449A100D38F35 /* RefdsCore */; };
+		6C307357294449B700D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307356294449B700D38F35 /* RefdsCore */; };
+		6C380E1F29444ABF00366462 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C380E1E29444ABF00366462 /* MainApp.swift */; };
+		6C380E2129444ABF00366462 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C380E2029444ABF00366462 /* ContentView.swift */; };
+		6C380E2329444AC000366462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C380E2229444AC000366462 /* Assets.xcassets */; };
+		6C380E2729444AC000366462 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C380E2629444AC000366462 /* Preview Assets.xcassets */; };
+		6C380E2D29444AFC00366462 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C380E2C29444AFC00366462 /* RefdsCore */; };
+		6C380E2E29444AFC00366462 /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */; };
+		6C380E2F29444AFC00366462 /* UserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3229442A4600B1918C /* InitContentResponse.swift */; };
 		6C3FFC3629442A6D00B1918C /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3FFC3529442A6D00B1918C /* RefdsCore */; };
 		6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3829442A9D00B1918C /* Typealias.swift */; };
 		6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3B29442BD900B1918C /* GetInitContent.swift */; };
-		6C3FFC4829442CAE00B1918C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; };
-		6C3FFC4929442CAE00B1918C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C3FFC5029442CCD00B1918C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC4F29442CCD00B1918C /* Typealias.swift */; };
 		6C3FFC5329442CD700B1918C /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3FFC5229442CD700B1918C /* RefdsCore */; };
 		6C3FFC5529442D3600B1918C /* RemoteGetInitContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC5429442D3600B1918C /* RemoteGetInitContent.swift */; };
 		6C3FFC5629442D4400B1918C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; };
 		6C3FFC5729442D4400B1918C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6C3FFC6629442FBE00B1918C /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; };
-		6C3FFC6729442FBE00B1918C /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C3FFC6F29442FE400B1918C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC6E29442FE400B1918C /* Typealias.swift */; };
-		6C3FFC7B2944315E00B1918C /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; };
-		6C3FFC7C2944315E00B1918C /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6C3FFC89294431F200B1918C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; };
-		6C3FFC8A294431F300B1918C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C3FFC8F2944327A00B1918C /* InitContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC8E2944327A00B1918C /* InitContentInteractor.swift */; };
 		6C3FFC912944358B00B1918C /* InitContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC902944358B00B1918C /* InitContentPresenter.swift */; };
 		6C3FFC942944362300B1918C /* InitContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC932944362300B1918C /* InitContentViewModel.swift */; };
 		6C3FFC962944375100B1918C /* InitContentRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC952944375100B1918C /* InitContentRouterProtocol.swift */; };
+		6C3FFCAA29443C3E00B1918C /* InitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFCA929443C3E00B1918C /* InitContentView.swift */; };
+		6C3FFCAB29443C7900B1918C /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; };
+		6C3FFCAC29443C7900B1918C /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C3FFCB029443DAD00B1918C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; };
+		6C3FFCB129443DAD00B1918C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C3FFCB429443E3E00B1918C /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; };
+		6C3FFCB529443E3E00B1918C /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C3FFCB92944465E00B1918C /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3FFCB82944465E00B1918C /* RefdsCore */; };
+		6C3FFCBE2944485400B1918C /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; };
+		6C3FFCBF2944485400B1918C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C3FFCC22944485400B1918C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; };
+		6C3FFCC32944485400B1918C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CAF06842944525600465F34 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; };
+		6CAF06852944525600465F34 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CAF06882944525600465F34 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; };
+		6CAF06892944525600465F34 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6CAF068C2944525600465F34 /* Presentation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; };
+		6CAF068D2944525600465F34 /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6C3FFC282944280A00B1918C /* PBXContainerItemProxy */ = {
+		6C380E3029444AFC00366462 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6C3FFC232944280A00B1918C;
-			remoteInfo = Domain;
-		};
-		6C3FFC4629442CAE00B1918C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C3FFC4129442CAE00B1918C;
-			remoteInfo = Data;
+			remoteGlobalIDString = 6C3FFC9B29443B8300B1918C;
+			remoteInfo = UserInterface;
 		};
 		6C3FFC5829442D4400B1918C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -59,40 +65,75 @@
 			remoteGlobalIDString = 6C3FFC232944280A00B1918C;
 			remoteInfo = Domain;
 		};
-		6C3FFC6429442FBE00B1918C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6C3FFC5F29442FBE00B1918C;
-			remoteInfo = Infrastructure;
-		};
-		6C3FFC792944315E00B1918C /* PBXContainerItemProxy */ = {
+		6C3FFCAD29443C7900B1918C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C3FFC742944315E00B1918C;
 			remoteInfo = Presentation;
 		};
-		6C3FFC8B294431F300B1918C /* PBXContainerItemProxy */ = {
+		6C3FFCB229443DAE00B1918C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C3FFC4129442CAE00B1918C;
 			remoteInfo = Data;
 		};
+		6C3FFCB629443E3E00B1918C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC5F29442FBE00B1918C;
+			remoteInfo = Infrastructure;
+		};
+		6C3FFCC02944485400B1918C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC4129442CAE00B1918C;
+			remoteInfo = Data;
+		};
+		6C3FFCC42944485500B1918C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC232944280A00B1918C;
+			remoteInfo = Domain;
+		};
+		6CAF06862944525600465F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC4129442CAE00B1918C;
+			remoteInfo = Data;
+		};
+		6CAF068A2944525600465F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC5F29442FBE00B1918C;
+			remoteInfo = Infrastructure;
+		};
+		6CAF068E2944525600465F34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3FFC05294427D600B1918C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3FFC742944315E00B1918C;
+			remoteInfo = Presentation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6C3FFC2C2944280A00B1918C /* Embed Frameworks */ = {
+		6C380E3229444AFC00366462 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C3FFC6729442FBE00B1918C /* Infrastructure.framework in Embed Frameworks */,
-				6C3FFC4929442CAE00B1918C /* Data.framework in Embed Frameworks */,
-				6C3FFC7C2944315E00B1918C /* Presentation.framework in Embed Frameworks */,
-				6C3FFC2B2944280A00B1918C /* Domain.framework in Embed Frameworks */,
+				6CAF06892944525600465F34 /* Infrastructure.framework in Embed Frameworks */,
+				6CAF06852944525600465F34 /* Data.framework in Embed Frameworks */,
+				6CAF068D2944525600465F34 /* Presentation.framework in Embed Frameworks */,
+				6C380E2F29444AFC00366462 /* UserInterface.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,13 +149,27 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C3FFC8D294431F300B1918C /* Embed Frameworks */ = {
+		6C3FFCAF29443C7900B1918C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6C3FFC8A294431F300B1918C /* Data.framework in Embed Frameworks */,
+				6C3FFCB529443E3E00B1918C /* Infrastructure.framework in Embed Frameworks */,
+				6C3FFCB129443DAD00B1918C /* Data.framework in Embed Frameworks */,
+				6C3FFCAC29443C7900B1918C /* Presentation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3FFCC62944485500B1918C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6C3FFCC32944485400B1918C /* Domain.framework in Embed Frameworks */,
+				6C3FFCBF2944485400B1918C /* Data.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,12 +177,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6C3FFC0D294427D600B1918C /* TabNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C3FFC10294427D600B1918C /* TabNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNewsApp.swift; sourceTree = "<group>"; };
-		6C3FFC12294427D600B1918C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6C3FFC14294427D700B1918C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6C3FFC16294427D700B1918C /* TabNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TabNews.entitlements; sourceTree = "<group>"; };
-		6C3FFC18294427D700B1918C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C380E1C29444ABF00366462 /* Main.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Main.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C380E1E29444ABF00366462 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
+		6C380E2029444ABF00366462 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6C380E2229444AC000366462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C380E2429444AC000366462 /* Main.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Main.entitlements; sourceTree = "<group>"; };
+		6C380E2629444AC000366462 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C380E2B29444AF200366462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6C3FFC242944280A00B1918C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3FFC3229442A4600B1918C /* InitContentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentResponse.swift; sourceTree = "<group>"; };
 		6C3FFC3829442A9D00B1918C /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -142,17 +198,20 @@
 		6C3FFC902944358B00B1918C /* InitContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentPresenter.swift; sourceTree = "<group>"; };
 		6C3FFC932944362300B1918C /* InitContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentViewModel.swift; sourceTree = "<group>"; };
 		6C3FFC952944375100B1918C /* InitContentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentRouterProtocol.swift; sourceTree = "<group>"; };
+		6C3FFC9C29443B8300B1918C /* UserInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3FFCA929443C3E00B1918C /* InitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6C3FFC0A294427D600B1918C /* Frameworks */ = {
+		6C380E1929444ABF00366462 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3FFC6629442FBE00B1918C /* Infrastructure.framework in Frameworks */,
-				6C3FFC4829442CAE00B1918C /* Data.framework in Frameworks */,
-				6C3FFC7B2944315E00B1918C /* Presentation.framework in Frameworks */,
-				6C3FFC2A2944280A00B1918C /* Domain.framework in Frameworks */,
+				6CAF06842944525600465F34 /* Data.framework in Frameworks */,
+				6CAF06882944525600465F34 /* Infrastructure.framework in Frameworks */,
+				6C380E2D29444AFC00366462 /* RefdsCore in Frameworks */,
+				6CAF068C2944525600465F34 /* Presentation.framework in Frameworks */,
+				6C380E2E29444AFC00366462 /* UserInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +236,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFCB92944465E00B1918C /* RefdsCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,21 +244,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3FFC89294431F200B1918C /* Data.framework in Frameworks */,
+				6C3FFCC22944485400B1918C /* Domain.framework in Frameworks */,
+				6C3FFCBE2944485400B1918C /* Data.framework in Frameworks */,
+				6C307355294449A100D38F35 /* RefdsCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3FFC9929443B8300B1918C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3FFCB429443E3E00B1918C /* Infrastructure.framework in Frameworks */,
+				6C3FFCB029443DAD00B1918C /* Data.framework in Frameworks */,
+				6C307357294449B700D38F35 /* RefdsCore in Frameworks */,
+				6C3FFCAB29443C7900B1918C /* Presentation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C380E1D29444ABF00366462 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6C380E2B29444AF200366462 /* Info.plist */,
+				6C380E1E29444ABF00366462 /* MainApp.swift */,
+				6C380E2029444ABF00366462 /* ContentView.swift */,
+				6C380E2229444AC000366462 /* Assets.xcassets */,
+				6C380E2429444AC000366462 /* Main.entitlements */,
+				6C380E2529444AC000366462 /* Preview Content */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		6C380E2529444AC000366462 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6C380E2629444AC000366462 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6C3FFC04294427D600B1918C = {
 			isa = PBXGroup;
 			children = (
-				6C3FFC0F294427D600B1918C /* TabNews */,
 				6C3FFC252944280A00B1918C /* Domain */,
 				6C3FFC4329442CAE00B1918C /* Data */,
 				6C3FFC6129442FBE00B1918C /* Infrastructure */,
 				6C3FFC762944315E00B1918C /* Presentation */,
+				6C3FFC9D29443B8300B1918C /* UserInterface */,
+				6C380E1D29444ABF00366462 /* Main */,
 				6C3FFC0E294427D600B1918C /* Products */,
 				6C3FFC5129442CD700B1918C /* Frameworks */,
 			);
@@ -207,33 +302,14 @@
 		6C3FFC0E294427D600B1918C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C3FFC0D294427D600B1918C /* TabNews.app */,
 				6C3FFC242944280A00B1918C /* Domain.framework */,
 				6C3FFC4229442CAE00B1918C /* Data.framework */,
 				6C3FFC6029442FBE00B1918C /* Infrastructure.framework */,
 				6C3FFC752944315E00B1918C /* Presentation.framework */,
+				6C3FFC9C29443B8300B1918C /* UserInterface.framework */,
+				6C380E1C29444ABF00366462 /* Main.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6C3FFC0F294427D600B1918C /* TabNews */ = {
-			isa = PBXGroup;
-			children = (
-				6C3FFC10294427D600B1918C /* TabNewsApp.swift */,
-				6C3FFC12294427D600B1918C /* ContentView.swift */,
-				6C3FFC14294427D700B1918C /* Assets.xcassets */,
-				6C3FFC16294427D700B1918C /* TabNews.entitlements */,
-				6C3FFC17294427D700B1918C /* Preview Content */,
-			);
-			path = TabNews;
-			sourceTree = "<group>";
-		};
-		6C3FFC17294427D700B1918C /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6C3FFC18294427D700B1918C /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		6C3FFC252944280A00B1918C /* Domain */ = {
@@ -369,6 +445,30 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		6C3FFC9D29443B8300B1918C /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFCA829443BCA00B1918C /* Components */,
+				6C3FFCA729443BC000B1918C /* Scenes */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		6C3FFCA729443BC000B1918C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFCA929443C3E00B1918C /* InitContentView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		6C3FFCA829443BCA00B1918C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -400,29 +500,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C3FFC9729443B8300B1918C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6C3FFC0C294427D600B1918C /* TabNews */ = {
+		6C380E1B29444ABF00366462 /* Main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C3FFC1C294427D700B1918C /* Build configuration list for PBXNativeTarget "TabNews" */;
+			buildConfigurationList = 6C380E2829444AC000366462 /* Build configuration list for PBXNativeTarget "Main" */;
 			buildPhases = (
-				6C3FFC09294427D600B1918C /* Sources */,
-				6C3FFC0A294427D600B1918C /* Frameworks */,
-				6C3FFC0B294427D600B1918C /* Resources */,
-				6C3FFC2C2944280A00B1918C /* Embed Frameworks */,
+				6C380E1829444ABF00366462 /* Sources */,
+				6C380E1929444ABF00366462 /* Frameworks */,
+				6C380E1A29444ABF00366462 /* Resources */,
+				6C380E3229444AFC00366462 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C3FFC292944280A00B1918C /* PBXTargetDependency */,
-				6C3FFC4729442CAE00B1918C /* PBXTargetDependency */,
-				6C3FFC6529442FBE00B1918C /* PBXTargetDependency */,
-				6C3FFC7A2944315E00B1918C /* PBXTargetDependency */,
+				6C380E3129444AFC00366462 /* PBXTargetDependency */,
+				6CAF06872944525600465F34 /* PBXTargetDependency */,
+				6CAF068B2944525600465F34 /* PBXTargetDependency */,
+				6CAF068F2944525600465F34 /* PBXTargetDependency */,
 			);
-			name = TabNews;
-			productName = TabNews;
-			productReference = 6C3FFC0D294427D600B1918C /* TabNews.app */;
+			name = Main;
+			packageProductDependencies = (
+				6C380E2C29444AFC00366462 /* RefdsCore */,
+			);
+			productName = Main;
+			productReference = 6C380E1C29444ABF00366462 /* Main.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6C3FFC232944280A00B1918C /* Domain */ = {
@@ -483,6 +593,9 @@
 			dependencies = (
 			);
 			name = Infrastructure;
+			packageProductDependencies = (
+				6C3FFCB82944465E00B1918C /* RefdsCore */,
+			);
 			productName = Infrastructure;
 			productReference = 6C3FFC6029442FBE00B1918C /* Infrastructure.framework */;
 			productType = "com.apple.product-type.framework";
@@ -495,18 +608,45 @@
 				6C3FFC712944315E00B1918C /* Sources */,
 				6C3FFC722944315E00B1918C /* Frameworks */,
 				6C3FFC732944315E00B1918C /* Resources */,
-				6C3FFC8D294431F300B1918C /* Embed Frameworks */,
+				6C3FFCC62944485500B1918C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C3FFC8C294431F300B1918C /* PBXTargetDependency */,
+				6C3FFCC12944485400B1918C /* PBXTargetDependency */,
+				6C3FFCC52944485500B1918C /* PBXTargetDependency */,
 			);
 			name = Presentation;
 			packageProductDependencies = (
+				6C307354294449A100D38F35 /* RefdsCore */,
 			);
 			productName = Presentation;
 			productReference = 6C3FFC752944315E00B1918C /* Presentation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6C3FFC9B29443B8300B1918C /* UserInterface */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C3FFCA429443B8400B1918C /* Build configuration list for PBXNativeTarget "UserInterface" */;
+			buildPhases = (
+				6C3FFC9729443B8300B1918C /* Headers */,
+				6C3FFC9829443B8300B1918C /* Sources */,
+				6C3FFC9929443B8300B1918C /* Frameworks */,
+				6C3FFC9A29443B8300B1918C /* Resources */,
+				6C3FFCAF29443C7900B1918C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C3FFCAE29443C7900B1918C /* PBXTargetDependency */,
+				6C3FFCB329443DAE00B1918C /* PBXTargetDependency */,
+				6C3FFCB729443E3E00B1918C /* PBXTargetDependency */,
+			);
+			name = UserInterface;
+			packageProductDependencies = (
+				6C307356294449B700D38F35 /* RefdsCore */,
+			);
+			productName = UserInterface;
+			productReference = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -519,7 +659,7 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
-					6C3FFC0C294427D600B1918C = {
+					6C380E1B29444ABF00366462 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 					6C3FFC232944280A00B1918C = {
@@ -535,6 +675,10 @@
 						LastSwiftMigration = 1410;
 					};
 					6C3FFC742944315E00B1918C = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+					};
+					6C3FFC9B29443B8300B1918C = {
 						CreatedOnToolsVersion = 14.1;
 						LastSwiftMigration = 1410;
 					};
@@ -556,22 +700,23 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C3FFC0C294427D600B1918C /* TabNews */,
 				6C3FFC232944280A00B1918C /* Domain */,
 				6C3FFC4129442CAE00B1918C /* Data */,
 				6C3FFC5F29442FBE00B1918C /* Infrastructure */,
 				6C3FFC742944315E00B1918C /* Presentation */,
+				6C3FFC9B29443B8300B1918C /* UserInterface */,
+				6C380E1B29444ABF00366462 /* Main */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6C3FFC0B294427D600B1918C /* Resources */ = {
+		6C380E1A29444ABF00366462 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3FFC19294427D700B1918C /* Preview Assets.xcassets in Resources */,
-				6C3FFC15294427D700B1918C /* Assets.xcassets in Resources */,
+				6C380E2729444AC000366462 /* Preview Assets.xcassets in Resources */,
+				6C380E2329444AC000366462 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,15 +748,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C3FFC9A29443B8300B1918C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6C3FFC09294427D600B1918C /* Sources */ = {
+		6C380E1829444ABF00366462 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3FFC13294427D600B1918C /* ContentView.swift in Sources */,
-				6C3FFC11294427D600B1918C /* TabNewsApp.swift in Sources */,
+				6C380E2129444ABF00366462 /* ContentView.swift in Sources */,
+				6C380E1F29444ABF00366462 /* MainApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,42 +805,152 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C3FFC9829443B8300B1918C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3FFCAA29443C3E00B1918C /* InitContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6C3FFC292944280A00B1918C /* PBXTargetDependency */ = {
+		6C380E3129444AFC00366462 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6C3FFC232944280A00B1918C /* Domain */;
-			targetProxy = 6C3FFC282944280A00B1918C /* PBXContainerItemProxy */;
-		};
-		6C3FFC4729442CAE00B1918C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6C3FFC4129442CAE00B1918C /* Data */;
-			targetProxy = 6C3FFC4629442CAE00B1918C /* PBXContainerItemProxy */;
+			target = 6C3FFC9B29443B8300B1918C /* UserInterface */;
+			targetProxy = 6C380E3029444AFC00366462 /* PBXContainerItemProxy */;
 		};
 		6C3FFC5929442D4400B1918C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C3FFC232944280A00B1918C /* Domain */;
 			targetProxy = 6C3FFC5829442D4400B1918C /* PBXContainerItemProxy */;
 		};
-		6C3FFC6529442FBE00B1918C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6C3FFC5F29442FBE00B1918C /* Infrastructure */;
-			targetProxy = 6C3FFC6429442FBE00B1918C /* PBXContainerItemProxy */;
-		};
-		6C3FFC7A2944315E00B1918C /* PBXTargetDependency */ = {
+		6C3FFCAE29443C7900B1918C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C3FFC742944315E00B1918C /* Presentation */;
-			targetProxy = 6C3FFC792944315E00B1918C /* PBXContainerItemProxy */;
+			targetProxy = 6C3FFCAD29443C7900B1918C /* PBXContainerItemProxy */;
 		};
-		6C3FFC8C294431F300B1918C /* PBXTargetDependency */ = {
+		6C3FFCB329443DAE00B1918C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C3FFC4129442CAE00B1918C /* Data */;
-			targetProxy = 6C3FFC8B294431F300B1918C /* PBXContainerItemProxy */;
+			targetProxy = 6C3FFCB229443DAE00B1918C /* PBXContainerItemProxy */;
+		};
+		6C3FFCB729443E3E00B1918C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC5F29442FBE00B1918C /* Infrastructure */;
+			targetProxy = 6C3FFCB629443E3E00B1918C /* PBXContainerItemProxy */;
+		};
+		6C3FFCC12944485400B1918C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC4129442CAE00B1918C /* Data */;
+			targetProxy = 6C3FFCC02944485400B1918C /* PBXContainerItemProxy */;
+		};
+		6C3FFCC52944485500B1918C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC232944280A00B1918C /* Domain */;
+			targetProxy = 6C3FFCC42944485500B1918C /* PBXContainerItemProxy */;
+		};
+		6CAF06872944525600465F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC4129442CAE00B1918C /* Data */;
+			targetProxy = 6CAF06862944525600465F34 /* PBXContainerItemProxy */;
+		};
+		6CAF068B2944525600465F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC5F29442FBE00B1918C /* Infrastructure */;
+			targetProxy = 6CAF068A2944525600465F34 /* PBXContainerItemProxy */;
+		};
+		6CAF068F2944525600465F34 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3FFC742944315E00B1918C /* Presentation */;
+			targetProxy = 6CAF068E2944525600465F34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6C380E2929444AC000366462 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Main/Main.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Main/Preview Content\"";
+				DEVELOPMENT_TEAM = Q7QLR2PH2X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Main/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TabNews;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.Main;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C380E2A29444AC000366462 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Main/Main.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Main/Preview Content\"";
+				DEVELOPMENT_TEAM = Q7QLR2PH2X;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Main/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TabNews;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.Main;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		6C3FFC1A294427D700B1918C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -795,84 +1057,6 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-			};
-			name = Release;
-		};
-		6C3FFC1D294427D700B1918C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TabNews/TabNews.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TabNews/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7QLR2PH2X;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.TabNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6C3FFC1E294427D700B1918C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = TabNews/TabNews.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TabNews/Preview Content\"";
-				DEVELOPMENT_TEAM = Q7QLR2PH2X;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.TabNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1184,23 +1368,100 @@
 			};
 			name = Release;
 		};
+		6C3FFCA529443B8400B1918C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7QLR2PH2X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.UserInterface;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6C3FFCA629443B8400B1918C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Q7QLR2PH2X;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.rafaelescaleira.UserInterface;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C380E2829444AC000366462 /* Build configuration list for PBXNativeTarget "Main" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C380E2929444AC000366462 /* Debug */,
+				6C380E2A29444AC000366462 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6C3FFC08294427D600B1918C /* Build configuration list for PBXProject "TabNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C3FFC1A294427D700B1918C /* Debug */,
 				6C3FFC1B294427D700B1918C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C3FFC1C294427D700B1918C /* Build configuration list for PBXNativeTarget "TabNews" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C3FFC1D294427D700B1918C /* Debug */,
-				6C3FFC1E294427D700B1918C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1241,6 +1502,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6C3FFCA429443B8400B1918C /* Build configuration list for PBXNativeTarget "UserInterface" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3FFCA529443B8400B1918C /* Debug */,
+				6C3FFCA629443B8400B1918C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1255,12 +1525,32 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6C307354294449A100D38F35 /* RefdsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
+			productName = RefdsCore;
+		};
+		6C307356294449B700D38F35 /* RefdsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
+			productName = RefdsCore;
+		};
+		6C380E2C29444AFC00366462 /* RefdsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
+			productName = RefdsCore;
+		};
 		6C3FFC3529442A6D00B1918C /* RefdsCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
 			productName = RefdsCore;
 		};
 		6C3FFC5229442CD700B1918C /* RefdsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
+			productName = RefdsCore;
+		};
+		6C3FFCB82944465E00B1918C /* RefdsCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
 			productName = RefdsCore;

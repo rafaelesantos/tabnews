@@ -1,8 +1,8 @@
 //
 //  ContentView.swift
-//  TabNews
+//  Main
 //
-//  Created by Rafael Santos on 09/12/22.
+//  Created by Rafael Santos on 10/12/22.
 //
 
 import SwiftUI

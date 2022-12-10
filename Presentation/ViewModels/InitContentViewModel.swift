@@ -8,8 +8,9 @@
 import Foundation
 
 public struct InitContentViewModel {
-    let title: String
-    let updated_at: Date
-    let tabcoins: Int?
-    let owner_username: String?
+    public var id: UUID = UUID()
+    public let title: String?
+    public let updated_at: String?
+    public let tabcoins: Int?
+    public let owner_username: String?
 }

@@ -14,4 +14,5 @@ public typealias TabNewsHttpRequest = HttpRequest
 public typealias TabNewsHttpClient = HttpClient
 public typealias TabNewsHttpHeader = HttpHeader
 public typealias TabNewsHttpError = HttpError
+public typealias TabNewsHttpMethod = HttpMethod
 
