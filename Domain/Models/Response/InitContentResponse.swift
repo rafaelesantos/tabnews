@@ -8,18 +8,18 @@
 import Foundation
 
 public struct InitContentResponse: TabNewsModel {
-    let id: String
-    let owner_id: String
-    let parent_id: String?
-    let slug: String
-    let title: String
-    let status: String
-    let source_url: String?
-    let created_at: Date?
-    let updated_at: Date?
-    let published_at: Date?
-    let deleted_at: Date?
-    let tabcoins: Int?
-    let owner_username: String?
-    let children_deep_count: Int?
+    public let id: String
+    public let owner_id: String
+    public let parent_id: String?
+    public let slug: String
+    public let title: String
+    public let status: String
+    public let source_url: String?
+    public let created_at: Date?
+    public let updated_at: Date
+    public let published_at: Date?
+    public let deleted_at: Date?
+    public let tabcoins: Int?
+    public let owner_username: String?
+    public let children_deep_count: Int?
 }
