@@ -13,6 +13,10 @@
 		6C3FFC19294427D700B1918C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3FFC18294427D700B1918C /* Preview Assets.xcassets */; };
 		6C3FFC2A2944280A00B1918C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; };
 		6C3FFC2B2944280A00B1918C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3229442A4600B1918C /* InitContentResponse.swift */; };
+		6C3FFC3629442A6D00B1918C /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3FFC3529442A6D00B1918C /* RefdsCore */; };
+		6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3829442A9D00B1918C /* Typealias.swift */; };
+		6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3B29442BD900B1918C /* GetInitContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,9 @@
 		6C3FFC16294427D700B1918C /* TabNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TabNews.entitlements; sourceTree = "<group>"; };
 		6C3FFC18294427D700B1918C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6C3FFC242944280A00B1918C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3FFC3229442A4600B1918C /* InitContentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentResponse.swift; sourceTree = "<group>"; };
+		6C3FFC3829442A9D00B1918C /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		6C3FFC3B29442BD900B1918C /* GetInitContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInitContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFC3629442A6D00B1918C /* RefdsCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +117,43 @@
 		6C3FFC252944280A00B1918C /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				6C3FFC3A29442BC100B1918C /* UseCases */,
+				6C3FFC30294428BD00B1918C /* Models */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		6C3FFC30294428BD00B1918C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFC3729442A8E00B1918C /* Helpers */,
+				6C3FFC31294428D100B1918C /* Response */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6C3FFC31294428D100B1918C /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFC3229442A4600B1918C /* InitContentResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		6C3FFC3729442A8E00B1918C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFC3829442A9D00B1918C /* Typealias.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6C3FFC3A29442BC100B1918C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				6C3FFC3B29442BD900B1918C /* GetInitContent.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +202,9 @@
 			dependencies = (
 			);
 			name = Domain;
+			packageProductDependencies = (
+				6C3FFC3529442A6D00B1918C /* RefdsCore */,
+			);
 			productName = Domain;
 			productReference = 6C3FFC242944280A00B1918C /* Domain.framework */;
 			productType = "com.apple.product-type.framework";
@@ -178,6 +224,7 @@
 					};
 					6C3FFC232944280A00B1918C = {
 						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -190,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 6C3FFC04294427D600B1918C;
+			packageReferences = (
+				6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */,
+			);
 			productRefGroup = 6C3FFC0E294427D600B1918C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */,
+				6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */,
+				6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +412,7 @@
 		6C3FFC1D294427D700B1918C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabNews/TabNews.entitlements;
@@ -397,6 +451,7 @@
 		6C3FFC1E294427D700B1918C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TabNews/TabNews.entitlements;
@@ -435,6 +490,7 @@
 		6C3FFC2D2944280A00B1918C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -462,6 +518,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -472,6 +529,7 @@
 		6C3FFC2E2944280A00B1918C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -537,6 +595,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/refdsenterprise/refds-core.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C3FFC3529442A6D00B1918C /* RefdsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
+			productName = RefdsCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C3FFC05294427D600B1918C /* Project object */;
 }
