@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol GetInitContent {
-    typealias Result = Swift.Result<InitContentResponse, TabNewsError>
+    typealias Result = Swift.Result<[InitContentResponse], TabNewsError>
     func get() async -> Result
 }
