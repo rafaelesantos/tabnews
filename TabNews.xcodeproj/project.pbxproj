@@ -48,6 +48,12 @@
 		6C3FFCBF2944485400B1918C /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC4229442CAE00B1918C /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C3FFCC22944485400B1918C /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; };
 		6C3FFCC32944485400B1918C /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC242944280A00B1918C /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C704E2529454044007FD1A3 /* PaginationTabNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C704E2429454044007FD1A3 /* PaginationTabNewsView.swift */; };
+		6C704E2729457057007FD1A3 /* SegmentedControlTabNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C704E2629457057007FD1A3 /* SegmentedControlTabNews.swift */; };
+		6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
+		6CAD31A02944FF8700F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
+		6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A12945004700F16A01 /* CardInitContentView.swift */; };
+		6CAD31A42945015100F16A01 /* TagTabNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A32945015100F16A01 /* TagTabNewsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,6 +205,11 @@
 		6C3FFC952944375100B1918C /* InitContentRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentRouterProtocol.swift; sourceTree = "<group>"; };
 		6C3FFC9C29443B8300B1918C /* UserInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UserInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3FFCA929443C3E00B1918C /* InitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentView.swift; sourceTree = "<group>"; };
+		6C704E2429454044007FD1A3 /* PaginationTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationTabNewsView.swift; sourceTree = "<group>"; };
+		6C704E2629457057007FD1A3 /* SegmentedControlTabNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlTabNews.swift; sourceTree = "<group>"; };
+		6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentEndpoint.swift; sourceTree = "<group>"; };
+		6CAD31A12945004700F16A01 /* CardInitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInitContentView.swift; sourceTree = "<group>"; };
+		6CAD31A32945015100F16A01 /* TagTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTabNewsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +277,10 @@
 		6C266BBA29445B4B009236BB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6CAD319D2944FF0700F16A01 /* Endpoints */,
+				6CAD319C2944FEEF00F16A01 /* Proxies */,
+				6CAD319B2944FEE700F16A01 /* Decorators */,
+				6CAD319A2944FEE000F16A01 /* Factories */,
 				6C266BBB29445B4B009236BB /* MainApp.swift */,
 				6C266BBD29445B4B009236BB /* ContentView.swift */,
 				6C266BBF29445B4B009236BB /* Assets.xcassets */,
@@ -463,8 +478,41 @@
 		6C3FFCA829443BCA00B1918C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6CAD31A12945004700F16A01 /* CardInitContentView.swift */,
+				6CAD31A32945015100F16A01 /* TagTabNewsView.swift */,
+				6C704E2429454044007FD1A3 /* PaginationTabNewsView.swift */,
+				6C704E2629457057007FD1A3 /* SegmentedControlTabNews.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		6CAD319A2944FEE000F16A01 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		6CAD319B2944FEE700F16A01 /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
+		6CAD319C2944FEEF00F16A01 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Proxies;
+			sourceTree = "<group>";
+		};
+		6CAD319D2944FF0700F16A01 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -760,6 +808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */,
 				6C266BBE29445B4B009236BB /* ContentView.swift in Sources */,
 				6C266BBC29445B4B009236BB /* MainApp.swift in Sources */,
 			);
@@ -807,6 +856,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CAD31A02944FF8700F16A01 /* InitContentEndpoint.swift in Sources */,
+				6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */,
+				6CAD31A42945015100F16A01 /* TagTabNewsView.swift in Sources */,
+				6C704E2729457057007FD1A3 /* SegmentedControlTabNews.swift in Sources */,
+				6C704E2529454044007FD1A3 /* PaginationTabNewsView.swift in Sources */,
 				6C3FFCAA29443C3E00B1918C /* InitContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

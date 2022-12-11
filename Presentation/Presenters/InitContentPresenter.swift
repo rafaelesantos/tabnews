@@ -29,12 +29,17 @@ public final class InitContentPresenter: InitContentPresenterProtocol {
 
 public extension InitContentPresenter {
     private func makeInitContentViewModels(from initContentResponse: [InitContentResponse]) -> [InitContentViewModel] {
-        return initContentResponse.map({
-            InitContentViewModel(
-                title: $0.title,
-                updated_at: $0.updated_at,
-                tabcoins: $0.tabcoins,
-                owner_username: $0.owner_username
+        return initContentResponse.map({ content in
+            var updatedAt = content.updated_at?.replacingOccurrences(of: "T", with: " ")
+            for _ in 0...7 { _ = updatedAt?.removeLast() }
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            let updatedAtDate = dateFormatter.date(from: updatedAt ?? "")
+            return InitContentViewModel(
+                title: content.title,
+                updated_at: updatedAtDate,
+                tabcoins: content.tabcoins,
+                owner_username: content.owner_username
             )
         })
     }

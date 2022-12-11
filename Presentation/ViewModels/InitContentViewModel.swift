@@ -10,7 +10,7 @@ import Foundation
 public struct InitContentViewModel {
     public var id: UUID = UUID()
     public let title: String?
-    public let updated_at: String?
+    public let updated_at: Date?
     public let tabcoins: Int?
     public let owner_username: String?
 }
