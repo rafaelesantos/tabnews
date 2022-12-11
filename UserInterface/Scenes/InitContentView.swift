@@ -42,7 +42,7 @@ public struct InitContentView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .center, spacing: 12) {
                 ForEach(initContents, id: \.id) { content in
-                    CardInitContentView(title: content.title ?? "", user: content.owner_username ?? "", date: content.updated_at?.asString(withDateFormat: "dd/MM - HH:mm"), tabCoins: content.tabcoins)
+                    CardInitContentView(viewModel: content)
                         .frame(width: 250)
                         .frame(maxHeight: 150)
                 }
@@ -63,8 +63,10 @@ public struct InitContentView: View {
             
             Section(content: {
                 ForEach(initContents, id: \.id) { content in
-                    CardInitContentView(title: content.title ?? "", user: content.owner_username ?? "", date: content.updated_at?.asString(withDateFormat: "dd/MM - HH:mm"), tabCoins: content.tabcoins)
+                    CardInitContentView(viewModel: content)
                 }
+            }, header: {
+                Text("page \(currentPage) sort by \(currentStrategy.rawValue)")
             }, footer: {
                 VStack(alignment: .center, spacing: 0) {
                     if !initContents.isEmpty { pagination(proxy: proxy) }
