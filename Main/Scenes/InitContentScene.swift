@@ -6,15 +6,16 @@
 //
 
 import SwiftUI
-import Data
 import Presentation
-import Infrastructure
-import RefdsDomain
+import UserInterface
 
-public struct InitContentView: View {
+public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
     @State private var initContents: [InitContentViewModel] = []
     @State private var currentPage: Int = 1
+    @State private var currentPerPage = 6 {
+        didSet { Task { await loadData() } }
+    }
     @State private var currentStrategy: InitContentEndpointStrategy = .relevant
     @State private var isRelevant: Bool = true {
         didSet {
@@ -33,8 +34,10 @@ public struct InitContentView: View {
                 if initContents.isEmpty { ProgressView() }
                 else { contents(proxy: proxy) }
             }
-            .task { await loadData() }
             .navigationTitle("TabNews")
+        }
+        .task {
+            await loadData()
         }
     }
     
@@ -42,9 +45,11 @@ public struct InitContentView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHStack(alignment: .center, spacing: 12) {
                 ForEach(initContents, id: \.id) { content in
-                    CardInitContentView(viewModel: content)
-                        .frame(width: 250)
-                        .frame(maxHeight: 150)
+                    VStack {
+                        CardInitContentView(viewModel: content)
+                            .frame(width: 250)
+                            .frame(maxHeight: 150)
+                    }
                 }
             }
             .padding()
@@ -53,20 +58,34 @@ public struct InitContentView: View {
     
     public func contents(proxy: ScrollViewProxy) -> some View {
         List {
-            Section {
+            Section(content: {
                 HStack {
                     Text("Relevant News")
                     Spacer()
                     Toggle("", isOn: Binding(get: { isRelevant }, set: { isRelevant = $0 }))
                 }
-            }
+                
+                HStack {
+                    Text("Contents Per Page")
+                    Spacer()
+                    Stepper("", value: Binding(get: { currentPerPage }, set: { currentPerPage = $0 }), in: 3...30)
+                }
+            }, header: {
+                Text("Query Settings")
+            })
             
             Section(content: {
                 ForEach(initContents, id: \.id) { content in
-                    CardInitContentView(viewModel: content)
+                    if let user = content.owner_username, let slug = content.slug {
+                        NavigationLink(destination: contentDataScene(content: content, user: user, slug: slug)) {
+                            CardInitContentView(viewModel: content)
+                        }
+                    } else {
+                        CardInitContentView(viewModel: content)
+                    }
                 }
             }, header: {
-                Text("page \(currentPage) sort by \(currentStrategy.rawValue)")
+                Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
             }, footer: {
                 VStack(alignment: .center, spacing: 0) {
                     if !initContents.isEmpty { pagination(proxy: proxy) }
@@ -78,8 +97,22 @@ public struct InitContentView: View {
         
     }
     
+    private func contentDataScene(content: InitContentViewModel, user: String, slug: String) -> some View {
+        ContentDataScene(presenter: makeContentDataPresenter(endpoint: ContentDataEndpoint(user: user, slug: slug)))
+            .navigationTitle(content.title ?? "")
+            .toolbar {
+                if let user = content.owner_username {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {}) {
+                            TagTabNewsView(user, color: .randomColor)
+                        }
+                    }
+                }
+            }
+    }
+    
     public func pagination(proxy: ScrollViewProxy) -> some View {
-        PaginationTabNewsView(amountPagesView: 5, currentPage: currentPage) { page in
+        PaginationTabNewsView(currentPage: currentPage) { page in
             currentPage = page
             withAnimation {
                 guard let id = initContents.first?.id else { return }
@@ -89,28 +122,16 @@ public struct InitContentView: View {
                 Task { await loadData() }
             }
         }
-        .frame(maxWidth: .infinity)
     }
     
     private func loadData() async {
-        presenter = await InitContentView_Previews.makePresenter(page: currentPage, strategy: currentStrategy)
+        presenter = makeInitContentPresenter(endpoint: InitContentEndpoint(page: currentPage, perPage: currentPerPage, strategy: currentStrategy))
         initContents = (try? await presenter.showInitContents()) ?? []
     }
 }
 
-struct InitContentView_Previews: PreviewProvider {
-    public final class InitContentRouter: InitContentRouterProtocol {}
-    
-    static func makePresenter(page: Int = 1, strategy: InitContentEndpointStrategy = .relevant) -> InitContentPresenterProtocol {
-        let httpClient = TabNewsNetworkAdapter()
-        let httpEnpoint = InitContentEndpoint(page: page, strategy: strategy)
-        let useCase = RemoteGetInitContent(httpClient: httpClient, httpEndpoint: httpEnpoint)
-        let interactor = InitContentInteractor(useCase: useCase)
-        let router = InitContentRouter()
-        return InitContentPresenter(interactor: interactor, router: router)
-    }
-    
+struct InitContentScene_Previews: PreviewProvider {
     static var previews: some View {
-        InitContentView(presenter: makePresenter())
+        InitContentScene(presenter: makeInitContentPresenter())
     }
 }

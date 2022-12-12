@@ -21,7 +21,7 @@ public final class InitContentInteractor: InitContentInteractorProtocol {
     }
     
     public func getInitContent() async throws -> [InitContentResponse] {
-        let result = await useCase.get()
+        let result = await useCase.getInitContent()
         switch result {
         case .success(let response): return response
         case .failure(let error): throw error

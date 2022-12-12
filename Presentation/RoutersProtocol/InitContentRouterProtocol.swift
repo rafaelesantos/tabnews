@@ -7,6 +7,4 @@
 
 import Foundation
 
-public protocol InitContentRouterProtocol {
-    
-}
+public protocol InitContentRouterProtocol {}

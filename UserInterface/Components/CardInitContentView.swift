@@ -8,30 +8,21 @@
 import SwiftUI
 import Presentation
 
-struct CardInitContentView: View {
-    var viewModel: InitContentViewModel
-    let color: Color
-    var colors: [Color] = [
-        .orange,
-        .blue,
-        .green,
-        .cyan,
-        .red,
-        .indigo,
-        .pink
-    ]
+public struct CardInitContentView: View {
+    private let viewModel: InitContentViewModel
+    private let color: Color
     
-    init(viewModel: InitContentViewModel) {
+    public init(viewModel: InitContentViewModel) {
         self.viewModel = viewModel
-        color = colors[.random(in: 0...6)]
+        color = .randomColor
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(alignment: .center, spacing: 10) {
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .top, spacing: 5) {
-                    if let tabCoins = viewModel.tabcoins {
-                        Text("\(tabCoins)")
+                    if let tabCoins = viewModel.tabcoins, tabCoins > 0 {
+                        Text("\(tabCoins) COINS")
                             .bold()
                             .font(.system(size: 8))
                             .foregroundColor(.yellow)
@@ -56,14 +47,14 @@ struct CardInitContentView: View {
                             Text("\(childrenDeepCount)")
                                 .font(.system(size: 12))
                         }
-                        .padding([.leading, .top, .bottom], 6)
+                        .padding([.leading, .top, .bottom], 4)
                     }
                     
                     if let date = viewModel.updated_at?.asString(withDateFormat: "dd/MM - HH:mm"), !date.isEmpty {
                         Text(date)
                             .font(.system(size: 12))
                             .foregroundColor(.secondary)
-                            .padding(8)
+                            .padding(4)
                     }
                 }
                 HStack {
@@ -71,8 +62,6 @@ struct CardInitContentView: View {
                         Text(title)
                             .bold()
                     }
-                    
-                    
                 }
             }
         }
@@ -81,8 +70,10 @@ struct CardInitContentView: View {
 
 struct CardInitContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            CardInitContentView(viewModel: InitContentViewModel(title: "any-title", updated_at: Date(), tabcoins: 13, owner_username: "any-user", children_deep_count: 15))
+        List {
+            NavigationLink(destination: Text("")) {
+                CardInitContentView(viewModel: InitContentViewModel(title: "any-title", updated_at: Date(), tabcoins: 13, owner_username: "any-user", children_deep_count: 15, slug: "any-slug"))
+            }
         }
     }
 }

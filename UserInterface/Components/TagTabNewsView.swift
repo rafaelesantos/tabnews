@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct TagTabNewsView: View {
-    var value: String
-    var color: Color
-    var action: (() -> Void)?
+public struct TagTabNewsView: View {
+    private let value: String
+    private let color: Color
+    private let action: (() -> Void)?
     
-    init(_ value: String, color: Color, action: (() -> Void)? = nil) {
+    public init(_ value: String, color: Color, action: (() -> Void)? = nil) {
         self.value = value.uppercased()
         self.color = color
         self.action = action
     }
     
-    var body: some View {
+    public var body: some View {
         Button(action: action ?? {}) {
             Text(value)
                 .font(.system(size: 8, weight: .bold))

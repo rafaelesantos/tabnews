@@ -1,15 +1,15 @@
 //
-//  RemoteGetInitContent.swift
+//  RemoteGetAnalyticsUsersCreated.swift
 //  Data
 //
-//  Created by Rafael Santos on 09/12/22.
+//  Created by Rafael Santos on 11/12/22.
 //
 
 import Foundation
 import Domain
 
-public final class RemoteGetInitContent: GetInitContent, TabNewsHttpRequest {
-    public typealias Response = [InitContentResponse]
+public final class RemoteGetAnalyticsUsersCreated: GetAnalyticsUsersCreated, TabNewsHttpRequest {
+    public typealias Response = [AnalyticsUsersCreatedResponse]
     public var httpClient: TabNewsHttpClient
     public var httpEndpoint: TabNewsHttpEndpoint
     
@@ -18,7 +18,7 @@ public final class RemoteGetInitContent: GetInitContent, TabNewsHttpRequest {
         self.httpEndpoint = httpEndpoint
     }
     
-    public func getInitContent() async -> GetInitContent.Result {
+    public func getAnalyticsUsersCreated() async -> GetAnalyticsUsersCreated.Result {
         let result = await httpClient.request(self)
         switch result {
         case .success(let response): return .success(response)

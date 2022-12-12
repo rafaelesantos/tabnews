@@ -40,7 +40,8 @@ public extension InitContentPresenter {
                 updated_at: updatedAtDate,
                 tabcoins: content.tabcoins,
                 owner_username: content.owner_username,
-                children_deep_count: content.children_deep_count
+                children_deep_count: content.children_deep_count,
+                slug: content.slug
             )
         })
     }

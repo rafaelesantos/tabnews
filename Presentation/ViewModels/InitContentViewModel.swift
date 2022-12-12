@@ -14,12 +14,16 @@ public struct InitContentViewModel {
     public let tabcoins: Int?
     public let owner_username: String?
     public let children_deep_count: Int?
+    public let slug: String?
+    public var body: String?
     
-    public init(title: String?, updated_at: Date?, tabcoins: Int?, owner_username: String?, children_deep_count: Int?) {
+    public init(title: String?, updated_at: Date?, tabcoins: Int?, owner_username: String?, children_deep_count: Int?, slug: String?, body: String? = nil) {
         self.title = title
         self.updated_at = updated_at
         self.tabcoins = tabcoins
         self.owner_username = owner_username
         self.children_deep_count = children_deep_count
+        self.slug = slug
+        self.body = body
     }
 }
