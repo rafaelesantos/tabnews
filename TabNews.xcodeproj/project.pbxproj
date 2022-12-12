@@ -242,6 +242,7 @@
 		6C266BBF29445B4B009236BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C266BC129445B4B009236BB /* Main.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Main.entitlements; sourceTree = "<group>"; };
 		6C266BC329445B4B009236BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C38A4A22946F099002982F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6C3FFC242944280A00B1918C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3FFC3229442A4600B1918C /* InitContentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentResponse.swift; sourceTree = "<group>"; };
 		6C3FFC3829442A9D00B1918C /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -377,6 +378,7 @@
 		6C266BBA29445B4B009236BB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				6C38A4A22946F099002982F8 /* Info.plist */,
 				6C266BC129445B4B009236BB /* Main.entitlements */,
 				6C266BBB29445B4B009236BB /* MainApp.swift */,
 				6C266BBF29445B4B009236BB /* Assets.xcassets */,
@@ -1177,6 +1179,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Main/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TabNews;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -1217,6 +1220,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Main/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TabNews;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
