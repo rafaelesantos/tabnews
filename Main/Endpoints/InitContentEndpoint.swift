@@ -17,7 +17,10 @@ struct InitContentEndpoint: TabNewsHttpEndpoint {
     var headers: [TabNewsHttpHeader]?
     var body: Data?
     
-    public init(page: Int = 1, perPage: Int = 20, strategy: InitContentEndpointStrategy = .relevant) {
+    public init(page: Int = 1, perPage: Int = 20, strategy: InitContentEndpointStrategy = .relevant, user: String? = nil) {
+        if let user = user {
+            path += "/\(user)"
+        }
         self.queryItems = [
             .init(name: "page", value: "\(page)"),
             .init(name: "per_page", value: "\(perPage)"),

@@ -19,8 +19,9 @@ public struct InitContentResponse: TabNewsModel {
     public let owner_username: String?
     public let children_deep_count: Int?
     public let body: String?
+    public let children: [InitContentResponse]?
     
-    public init(id: String? = nil, owner_id: String? = nil, slug: String? = nil, title: String? = nil, status: String? = nil, source_url: String? = nil, updated_at: String? = nil, tabcoins: Int? = nil, owner_username: String? = nil, children_deep_count: Int? = nil, body: String? = nil) {
+    public init(id: String? = nil, owner_id: String? = nil, slug: String? = nil, title: String? = nil, status: String? = nil, source_url: String? = nil, updated_at: String? = nil, tabcoins: Int? = nil, owner_username: String? = nil, children_deep_count: Int? = nil, body: String? = nil, children: [InitContentResponse]? = nil) {
         self.id = id
         self.owner_id = owner_id
         self.slug = slug
@@ -32,5 +33,6 @@ public struct InitContentResponse: TabNewsModel {
         self.owner_username = owner_username
         self.children_deep_count = children_deep_count
         self.body = body
+        self.children = children
     }
 }

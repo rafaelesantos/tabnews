@@ -11,5 +11,5 @@ import Data
 import Presentation
 
 func makeInitContentPresenter(endpoint: TabNewsHttpEndpoint = InitContentEndpoint()) -> InitContentPresenter {
-    InitContentPresenter(interactor: makeInitContentInteractor(endpoint: endpoint), router: makeInitContentRouter())
+    InitContentPresenter(interactor: makeInitContentInteractor(endpoint: endpoint))
 }

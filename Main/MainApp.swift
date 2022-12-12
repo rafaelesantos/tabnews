@@ -16,11 +16,13 @@ struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                initContentScene
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
-                    }
+                NavigationView {
+                    initContentScene
+                }
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
                 
                 analyticsScene
                     .tabItem {

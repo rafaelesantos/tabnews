@@ -15,11 +15,9 @@ public protocol AnalyticsPresenterProtocol {
 
 public final class AnalyticsPresenter: AnalyticsPresenterProtocol {
     private let interactor: AnalyticsInteractorProtocol
-    private let router: AnalyticsRouterProtocol
     
-    public init(interactor: AnalyticsInteractorProtocol, router: AnalyticsRouterProtocol) {
+    public init(interactor: AnalyticsInteractorProtocol) {
         self.interactor = interactor
-        self.router = router
     }
     
     public func showAnalytics() async throws -> AnalyticsViewModel? {

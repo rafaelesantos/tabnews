@@ -12,7 +12,7 @@ import UserInterface
 struct AnalyticsScene: View {
     @State private var presenter: AnalyticsPresenterProtocol
     @State private var analytics: AnalyticsViewModel?
-    private var colors: [Color] = [.randomColor, .randomColor, .randomColor]
+    @State private var colors: [Color] = [.randomColor, .randomColor, .randomColor]
     
     init(presenter: AnalyticsPresenterProtocol) {
         self._presenter = State(initialValue: presenter)
@@ -174,6 +174,8 @@ struct AnalyticsScene: View {
     }
     
     private func loadData() async {
+        analytics = nil
+        colors = [.randomColor, .randomColor, .randomColor]
         analytics = try? await presenter.showAnalytics()
     }
 }

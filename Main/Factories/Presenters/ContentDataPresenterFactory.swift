@@ -10,5 +10,5 @@ import Presentation
 import Data
 
 func makeContentDataPresenter(endpoint: TabNewsHttpEndpoint) -> ContentDataPresenterProtocol {
-    ContentDataPresenter(interactor: makeContentDataInteractor(endpoint: endpoint), router: makeContentDataRouter())
+    ContentDataPresenter(interactor: makeContentDataInteractor(endpoint: endpoint))
 }

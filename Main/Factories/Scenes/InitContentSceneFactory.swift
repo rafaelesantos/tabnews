@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-func makeInitContentScene() -> some View {
-    InitContentScene(presenter: makeInitContentPresenter())
+func makeInitContentScene(user: String? = nil) -> some View {
+    InitContentScene(presenter: makeInitContentPresenter(endpoint: InitContentEndpoint(user: user)), user: user)
 }

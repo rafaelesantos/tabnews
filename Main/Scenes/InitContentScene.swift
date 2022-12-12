@@ -13,7 +13,7 @@ public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
     @State private var initContents: [InitContentViewModel] = []
     @State private var currentPage: Int = 1
-    @State private var currentPerPage = 10 {
+    @State private var currentPerPage = 3 {
         didSet { Task { await loadData() } }
     }
     @State private var currentStrategy: InitContentEndpointStrategy = .relevant
@@ -24,26 +24,29 @@ public struct InitContentScene: View {
         }
     }
     @State private var needLoading: Bool = false
+    private var user: String?
     
-    public init(presenter: InitContentPresenterProtocol) {
+    public init(presenter: InitContentPresenterProtocol, user: String? = nil) {
         self._presenter = State(initialValue: presenter)
+        self.user = user
     }
     
     public var body: some View {
-        NavigationView {
-            ScrollViewReader { proxy in
-                if initContents.isEmpty { ProgressView() }
-                else { contents(proxy: proxy) }
-            }
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    if needLoading {
-                        ProgressView()
-                    }
-                }
-            })
-            .navigationTitle("TabNews")
+        
+        ScrollViewReader { proxy in
+            if initContents.isEmpty { ProgressView() }
+            else { contents(proxy: proxy) }
         }
+        .toolbar(content: {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if needLoading {
+                    ProgressView()
+                } else {
+                    Button { } label: { TagTabNewsView(currentStrategy.rawValue, color: .randomColor) }
+                }
+            }
+        })
+        .navigationTitle(user == nil ? "TabNews" : user ?? "")
         .task {
             await loadData()
         }
@@ -66,21 +69,13 @@ public struct InitContentScene: View {
     
     public func contents(proxy: ScrollViewProxy) -> some View {
         List {
-            Section(content: {
+            Section {
                 HStack {
                     Text("Relevant News")
                     Spacer()
                     Toggle("", isOn: Binding(get: { isRelevant }, set: { isRelevant = $0 }))
                 }
-                
-                HStack {
-                    Text("Contents Per Page")
-                    Spacer()
-                    Stepper("", value: Binding(get: { currentPerPage }, set: { currentPerPage = $0 }), in: 3...30)
-                }
-            }, header: {
-                Text("Query Settings")
-            })
+            }
             
             Section(content: {
                 if needLoading {
@@ -89,7 +84,11 @@ public struct InitContentScene: View {
                     ForEach(initContents, id: \.id) { content in
                         if let user = content.owner_username, let slug = content.slug {
                             NavigationLink(destination: contentDataScene(content: content, user: user, slug: slug)) {
-                                CardInitContentView(viewModel: content)
+                                if let _ = content.body {
+                                    CardContentChildrenView(viewModel: content)
+                                } else {
+                                    CardInitContentView(viewModel: content)
+                                }
                             }
                         } else {
                             CardInitContentView(viewModel: content)
@@ -99,11 +98,23 @@ public struct InitContentScene: View {
                 
             }, header: {
                 Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
-            }, footer: {
+            })
+            
+            Section {
+                HStack {
+                    Text("Contents Per Page")
+                    Spacer()
+                    Picker("", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
+                        ForEach(0 ..< 31) { page in
+                            if page % 3 == 0 && page != 0 { Text("\(page)") }
+                        }
+                    }
+                }
+            } footer: {
                 VStack(alignment: .center, spacing: 0) {
                     if !initContents.isEmpty { pagination(proxy: proxy) }
                 }.padding(15)
-            })
+            }
         }
         .listStyle(.insetGrouped)
         .refreshable { Task { await loadData() } }
@@ -112,16 +123,6 @@ public struct InitContentScene: View {
     
     private func contentDataScene(content: InitContentViewModel, user: String, slug: String) -> some View {
         ContentDataScene(presenter: makeContentDataPresenter(endpoint: ContentDataEndpoint(user: user, slug: slug)))
-            .navigationTitle(content.title ?? "")
-            .toolbar {
-                if let user = content.owner_username {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {}) {
-                            TagTabNewsView(user, color: .randomColor)
-                        }
-                    }
-                }
-            }
     }
     
     public func pagination(proxy: ScrollViewProxy) -> some View {
@@ -135,7 +136,7 @@ public struct InitContentScene: View {
     
     private func loadData() async {
         needLoading.toggle()
-        presenter = makeInitContentPresenter(endpoint: InitContentEndpoint(page: currentPage, perPage: currentPerPage, strategy: currentStrategy))
+        presenter = makeInitContentPresenter(endpoint: InitContentEndpoint(page: currentPage, perPage: currentPerPage, strategy: currentStrategy, user: user))
         initContents = (try? await presenter.showInitContents()) ?? []
         needLoading.toggle()
     }
@@ -143,6 +144,8 @@ public struct InitContentScene: View {
 
 struct InitContentScene_Previews: PreviewProvider {
     static var previews: some View {
-        InitContentScene(presenter: makeInitContentPresenter())
+        NavigationView {
+            InitContentScene(presenter: makeInitContentPresenter(), user: "GabrielSozinho")
+        }
     }
 }

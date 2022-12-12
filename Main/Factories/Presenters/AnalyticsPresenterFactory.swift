@@ -9,5 +9,5 @@ import Foundation
 import Presentation
 
 func makeAnalyticsPresenter() -> AnalyticsPresenterProtocol {
-    AnalyticsPresenter(interactor: makeAnalyticsInteractor(), router: makeAnalyticsRouter())
+    AnalyticsPresenter(interactor: makeAnalyticsInteractor())
 }
