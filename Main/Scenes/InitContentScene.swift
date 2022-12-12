@@ -13,7 +13,7 @@ public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
     @State private var initContents: [InitContentViewModel] = []
     @State private var currentPage: Int = 1
-    @State private var currentPerPage = 6 {
+    @State private var currentPerPage = 10 {
         didSet { Task { await loadData() } }
     }
     @State private var currentStrategy: InitContentEndpointStrategy = .relevant
@@ -23,6 +23,7 @@ public struct InitContentScene: View {
             Task { await loadData() }
         }
     }
+    @State private var needLoading: Bool = false
     
     public init(presenter: InitContentPresenterProtocol) {
         self._presenter = State(initialValue: presenter)
@@ -34,6 +35,13 @@ public struct InitContentScene: View {
                 if initContents.isEmpty { ProgressView() }
                 else { contents(proxy: proxy) }
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if needLoading {
+                        ProgressView()
+                    }
+                }
+            })
             .navigationTitle("TabNews")
         }
         .task {
@@ -75,15 +83,20 @@ public struct InitContentScene: View {
             })
             
             Section(content: {
-                ForEach(initContents, id: \.id) { content in
-                    if let user = content.owner_username, let slug = content.slug {
-                        NavigationLink(destination: contentDataScene(content: content, user: user, slug: slug)) {
+                if needLoading {
+                    
+                } else {
+                    ForEach(initContents, id: \.id) { content in
+                        if let user = content.owner_username, let slug = content.slug {
+                            NavigationLink(destination: contentDataScene(content: content, user: user, slug: slug)) {
+                                CardInitContentView(viewModel: content)
+                            }
+                        } else {
                             CardInitContentView(viewModel: content)
                         }
-                    } else {
-                        CardInitContentView(viewModel: content)
                     }
                 }
+                
             }, header: {
                 Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
             }, footer: {
@@ -114,19 +127,17 @@ public struct InitContentScene: View {
     public func pagination(proxy: ScrollViewProxy) -> some View {
         PaginationTabNewsView(currentPage: currentPage) { page in
             currentPage = page
-            withAnimation {
-                guard let id = initContents.first?.id else { return }
-                proxy.scrollTo(id, anchor: .top)
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                Task { await loadData() }
-            }
+            Task { await loadData() }
         }
     }
     
+    private var progressView: some View { return ProgressView() }
+    
     private func loadData() async {
+        needLoading.toggle()
         presenter = makeInitContentPresenter(endpoint: InitContentEndpoint(page: currentPage, perPage: currentPerPage, strategy: currentStrategy))
         initContents = (try? await presenter.showInitContents()) ?? []
+        needLoading.toggle()
     }
 }
 

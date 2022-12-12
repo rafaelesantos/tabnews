@@ -51,7 +51,7 @@ struct ContentDataScene: View {
                         Section {
                             HStack {
                                 Image(systemName: "ellipsis.message.fill")
-                                    .foregroundColor(.randomColor)
+                                    .foregroundColor(.blue.opacity(0.8))
                                 Text("Comments")
                                 Spacer()
                                 Text("\(commentsAmount)")
