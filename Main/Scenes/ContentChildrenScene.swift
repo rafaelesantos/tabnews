@@ -75,7 +75,7 @@ struct ContentChildrenScene: View {
         .navigationTitle("Comments")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if needLoading { ProgressView() }
+                if needLoading { ProgressTabNewsView() }
             }
         }
     }

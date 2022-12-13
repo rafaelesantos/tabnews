@@ -46,5 +46,5 @@ struct MainApp: App {
     private var initContentScene: some View = makeInitContentScene()
     private var analyticsScene: some View = makeAnalyticsScene()
     private var loginScene: some View = makeLoginScene()
-    private var userScene: some View = makeUserScene(user: "GabrielSozinho")
+    private var userScene: some View = makeUserScene()
 }

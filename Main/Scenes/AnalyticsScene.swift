@@ -21,7 +21,7 @@ struct AnalyticsScene: View {
     var body: some View {
         NavigationView {
             Group {
-                if analytics == nil { ProgressView() }
+                if analytics == nil { ProgressTabNewsView() }
                 else { analyticList }
             }
             .task { await loadData() }

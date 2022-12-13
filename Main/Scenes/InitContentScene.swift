@@ -12,6 +12,8 @@ import UserInterface
 public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
     @State private var initContents: [InitContentViewModel] = []
+    @State private var canChangeToNextPage: Bool = false
+    @State private var notFoundData: Bool = false
     @State private var currentPage: Int = 1
     @State private var currentPerPage = 5 {
         didSet { Task { await loadData() } }
@@ -25,6 +27,8 @@ public struct InitContentScene: View {
     }
     @State private var needLoading: Bool = false
     private var user: String?
+    @AppStorage("coin") private var coin: String = ""
+    @AppStorage("cash") private var cash: String = ""
     
     public init(presenter: InitContentPresenterProtocol, user: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -33,15 +37,43 @@ public struct InitContentScene: View {
     
     public var body: some View {
         ScrollViewReader { proxy in
-            if initContents.isEmpty { ProgressView() }
-            else { contents(proxy: proxy) }
+            contents(proxy: proxy)
         }
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if needLoading {
-                    ProgressView()
+                    ProgressView() 
                 } else {
                     Button { } label: { TagTabNewsView(currentStrategy.rawValue, color: .randomColor) }
+                }
+            }
+            
+            if !coin.isEmpty, !cash.isEmpty {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Image(uiImage: UIImage())
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 12, height: 12)
+                                .background(Color.blue)
+                                .cornerRadius(4)
+                            Text(coin)
+                                .foregroundColor(.primary)
+                                .font(.footnote)
+                            Image(uiImage: UIImage())
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 12, height: 12)
+                                .background(Color.green)
+                                .cornerRadius(4)
+                            Text(cash)
+                                .foregroundColor(.primary)
+                                .font(.footnote)
+                        }
+                    }
                 }
             }
         })
@@ -74,6 +106,14 @@ public struct InitContentScene: View {
                     Spacer()
                     Toggle("", isOn: Binding(get: { isRelevant }, set: { isRelevant = $0 }))
                 }
+                if let user = user {
+                    NavigationLink {
+                        makeUserScene(user: user)
+                    } label: {
+                        CardBasicDetailView(title: "Author Information", description: "", image: "person.crop.circle", imageColor: .randomColor)
+                    }
+
+                }
             }
             
             Section(content: {
@@ -96,23 +136,31 @@ public struct InitContentScene: View {
                 }
                 
             }, header: {
-                Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
+                if initContents.isEmpty && notFoundData {
+                    LottieView(name: "NotFount2")
+                        .frame(height: 250)
+                }
+                else {
+                    Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
+                }
             })
             
-            Section {
-                HStack {
-                    Text("Contents Per Page")
-                    Spacer()
-                    Picker("", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
-                        ForEach(0 ..< 31) { page in
-                            if page % 5 == 0 && page != 0 { Text("\(page)") }
+            if !(initContents.isEmpty && notFoundData) {
+                Section {
+                    HStack {
+                        Text("Contents Per Page")
+                        Spacer()
+                        Picker("", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
+                            ForEach(0 ..< 31) { page in
+                                if page % 5 == 0 && page != 0 { Text("\(page)") }
+                            }
                         }
                     }
+                } footer: {
+                    VStack(alignment: .center, spacing: 0) {
+                        if !initContents.isEmpty { pagination(proxy: proxy) }
+                    }.padding(15)
                 }
-            } footer: {
-                VStack(alignment: .center, spacing: 0) {
-                    if !initContents.isEmpty { pagination(proxy: proxy) }
-                }.padding(15)
             }
         }
         .listStyle(.insetGrouped)
@@ -121,19 +169,24 @@ public struct InitContentScene: View {
     }
     
     public func pagination(proxy: ScrollViewProxy) -> some View {
-        PaginationTabNewsView(currentPage: currentPage) { page in
+        PaginationTabNewsView(currentPage: currentPage, canChangeToNextPage: { canChangeToNextPage }) { page in
             currentPage = page
             Task { await loadData() }
         }
     }
     
-    private var progressView: some View { return ProgressView() }
+    private var progressView: some View { return ProgressTabNewsView() }
     
     private func loadData() async {
         needLoading.toggle()
+        notFoundData = false
         presenter = makeInitContentPresenter(endpoint: InitContentEndpoint(page: currentPage, perPage: currentPerPage, strategy: currentStrategy, user: user))
         initContents = (try? await presenter.showInitContents()) ?? []
-        needLoading.toggle()
+        notFoundData = initContents.isEmpty
+        DispatchQueue.main.async {
+            canChangeToNextPage = currentPerPage <= initContents.count
+            needLoading.toggle()
+        }
     }
 }
 

@@ -56,11 +56,10 @@ struct ContentDataScene: View {
                 .listStyle(.insetGrouped)
                 
             } else {
-                ProgressView()
+                ProgressTabNewsView()
             }
         }
-        
-        .navigationTitle(viewModel?.title ?? "Comment")
+        .navigationTitle(viewModel?.title ?? "")
         .task { await loadData() }
     }
     

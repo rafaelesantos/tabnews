@@ -15,6 +15,8 @@ struct UserScene: View {
     @State private var username: String?
     @State private var needLoading: Bool = false
     @AppStorage("token") private var token: String = ""
+    @AppStorage("coin") private var coin: String = ""
+    @AppStorage("cash") private var cash: String = ""
     
     init(presenter: UserPresenterProtocol, username: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -23,7 +25,7 @@ struct UserScene: View {
     
     var body: some View {
         if token.isEmpty {
-            makeLoginScene()
+                makeLoginScene()
         } else {
             VStack {
                 if let user = user {
@@ -31,11 +33,11 @@ struct UserScene: View {
                         if !needLoading {
                             Section("User Information") {
                                 if let email = user.response.email, let notifications = user.response.notifications {
-                                    CardBasicDetailView(title: "E-mail", description: email, image: "envelope.fill", imageColor: .blue.opacity(0.5))
-                                    CardBasicDetailView(title: "Notification", description: notifications ? "Enable" : "Disable", image: "bell.fill", imageColor: .pink.opacity(0.5))
+                                    CardBasicDetailView(title: "E-mail", description: email, image: "envelope.fill", imageColor: .blue)
+                                    CardBasicDetailView(title: "Notification", description: notifications ? "Enable" : "Disable", image: "bell.fill", imageColor: .pink)
                                 }
                                 if let createdDate = user.response.created_at.replacingOccurrences(of: "T", with: " ").replacingOccurrences(of: "Z", with: "").asDate(withFormat: "yyyy-MM-dd HH:mm:ss.SSS") {
-                                    CardBasicDetailView(title: "User Created On", description: createdDate.asString(withDateFormat: "dd MMMM, yyyy"), image: "calendar", imageColor: .orange.opacity(0.5))
+                                    CardBasicDetailView(title: "User Created On", description: createdDate.asString(withDateFormat: "dd MMMM, yyyy"), image: "calendar", imageColor: .orange)
                                 }
                                 
                                 if let username = username, !username.isEmpty {
@@ -43,7 +45,7 @@ struct UserScene: View {
                                         NavigationLink {
                                             makeInitContentScene(user: username)
                                         } label: {
-                                            CardBasicDetailView(title: "Show my posts", description: "", image: "sidebar.squares.left", imageColor: .teal.opacity(0.8))
+                                            CardBasicDetailView(title: "Show Posts", description: "", image: "sidebar.squares.left", imageColor: .teal)
                                         }
                                         
                                     }
@@ -93,6 +95,19 @@ struct UserScene: View {
                                     }
                                 }
                             })
+                            
+                            if let _ = user.response.email {
+                                Section("Options") {
+                                    Button {
+                                        token = ""
+                                        coin = ""
+                                        cash = ""
+                                    } label: {
+                                        CardBasicDetailView(title: "Logout", description: "", image: "person.crop.circle.badge.xmark", imageColor: .red)
+                                    }
+                                    .foregroundColor(.primary)
+                                }
+                            }
                         }
                     }
                     .refreshable(action: {
@@ -109,17 +124,19 @@ struct UserScene: View {
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             if needLoading {
-                                ProgressView()
+                                ProgressTabNewsView()
                             }
                         }
                     })
                     .navigationTitle(user.response.username)
                 }
-                else { ProgressView() }
+                else { ProgressTabNewsView() }
             }.task {
                 user = try? await presenter.showUser(token: token)
-                if let username = user?.response.username {
-                    self.username = username
+                if let user = user, user.response.email?.isEmpty == false {
+                    self.username = user.response.username
+                    coin = "\(user.response.tabcoins)"
+                    cash = "\(user.response.tabcash)"
                 }
             }
         }
