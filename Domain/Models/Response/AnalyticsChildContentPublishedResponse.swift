@@ -10,9 +10,4 @@ import Foundation
 public struct AnalyticsChildContentPublishedResponse: TabNewsModel {
     public let date: String
     public let respostas: Int
-    
-    public init(date: String, respostas: Int) {
-        self.date = date
-        self.respostas = respostas
-    }
 }

@@ -13,9 +13,17 @@ import Infrastructure
 
 @main
 struct MainApp: App {
+    @State private var tabSelected = 1
+    
     var body: some Scene {
         WindowGroup {
-            TabView {
+            TabView(selection: $tabSelected) {
+                loginScene
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("User")
+                    }
+                
                 NavigationView {
                     initContentScene
                 }
@@ -34,5 +42,6 @@ struct MainApp: App {
     }
     
     private var initContentScene: some View = makeInitContentScene()
-    private var analyticsScene: some View = makeAnalyticsScene() 
+    private var analyticsScene: some View = makeAnalyticsScene()
+    private var loginScene: some View = makeLoginScene()
 }

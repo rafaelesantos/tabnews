@@ -13,7 +13,7 @@ public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
     @State private var initContents: [InitContentViewModel] = []
     @State private var currentPage: Int = 1
-    @State private var currentPerPage = 3 {
+    @State private var currentPerPage = 5 {
         didSet { Task { await loadData() } }
     }
     @State private var currentStrategy: InitContentEndpointStrategy = .relevant
@@ -83,7 +83,7 @@ public struct InitContentScene: View {
                 } else {
                     ForEach(initContents, id: \.id) { content in
                         if let user = content.owner_username, let slug = content.slug {
-                            NavigationLink(destination: contentDataScene(content: content, user: user, slug: slug)) {
+                            NavigationLink(destination: makeContentDataScene(user: user, slug: slug)) {
                                 if let _ = content.body {
                                     CardContentChildrenView(viewModel: content)
                                 } else {
@@ -106,7 +106,7 @@ public struct InitContentScene: View {
                     Spacer()
                     Picker("", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
                         ForEach(0 ..< 31) { page in
-                            if page % 3 == 0 && page != 0 { Text("\(page)") }
+                            if page % 5 == 0 && page != 0 { Text("\(page)") }
                         }
                     }
                 }
@@ -119,10 +119,6 @@ public struct InitContentScene: View {
         .listStyle(.insetGrouped)
         .refreshable { Task { await loadData() } }
         
-    }
-    
-    private func contentDataScene(content: InitContentViewModel, user: String, slug: String) -> some View {
-        ContentDataScene(presenter: makeContentDataPresenter(endpoint: ContentDataEndpoint(user: user, slug: slug)))
     }
     
     public func pagination(proxy: ScrollViewProxy) -> some View {

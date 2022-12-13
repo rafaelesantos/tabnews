@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="240px" viewBox="0 0 300 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dark-outlined</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dark-outlined">
+            <rect id="Rectangle" fill-opacity="0.2" fill="#D8D8D8" x="23.4" y="22.8" width="252" height="193.8"></rect>
+            <path d="M255,0 C279.8532,0 300,20.1474 300,45 L300,195 C300,219.8538 279.8532,240.0006 255,240.0006 L45,240.0006 C20.1474,240.0006 0,219.8538 0,195 L0,45 C0,20.1474 20.1474,0 45,0 L255,0 Z M270,84.372 L165.0012,84.372 C156.7182,84.372 147.6642,78.0762 144.7812,70.3098 L129.8142,30 L45,30 C36.7158,30 30,36.7158 30,45 L30,195 C30,203.2848 36.7158,210.0006 45,210.0006 L255,210.0006 C263.2842,210.0006 270,203.2848 270,195 L270,84.372 Z" id="Shape" fill="#000000"></path>
+        </g>
+    </g>
+</svg>

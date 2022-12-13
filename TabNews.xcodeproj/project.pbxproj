@@ -59,6 +59,32 @@
 		6C89125029477B2300648903 /* ContentChildSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89124F29477B2300648903 /* ContentChildSceneFactory.swift */; };
 		6C89125229478FF800648903 /* CardContentChildrenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89125129478FF800648903 /* CardContentChildrenView.swift */; };
 		6C8912542947900500648903 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8912532947900500648903 /* Markdown */; };
+		6C8912562947DA6500648903 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912552947DA6500648903 /* LoginResponse.swift */; };
+		6C8912582947DAC200648903 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912572947DAC200648903 /* UserResponse.swift */; };
+		6C89125A2947DC1D00648903 /* AddLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912592947DC1D00648903 /* AddLogin.swift */; };
+		6C89125D2947DC7E00648903 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89125C2947DC7E00648903 /* LoginRequest.swift */; };
+		6C89125F2947DD7F00648903 /* GetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89125E2947DD7F00648903 /* GetUser.swift */; };
+		6C8912612947DDE500648903 /* RemoteAddLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912602947DDE500648903 /* RemoteAddLogin.swift */; };
+		6C8912632947DE9300648903 /* RemoteGetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912622947DE9300648903 /* RemoteGetUser.swift */; };
+		6C8912652947DEE600648903 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912642947DEE600648903 /* LoginViewModel.swift */; };
+		6C8912672947DF1800648903 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912662947DF1800648903 /* UserViewModel.swift */; };
+		6C8912692947DF5500648903 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912682947DF5500648903 /* LoginInteractor.swift */; };
+		6C89126B2947DF6100648903 /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89126A2947DF6100648903 /* UserInteractor.swift */; };
+		6C89126D2947DF6A00648903 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89126C2947DF6A00648903 /* LoginPresenter.swift */; };
+		6C89126F2947DF7500648903 /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89126E2947DF7500648903 /* UserPresenter.swift */; };
+		6C8912712947E75B00648903 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912702947E75B00648903 /* LoginEndpoint.swift */; };
+		6C8912732947E79B00648903 /* UserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912722947E79B00648903 /* UserEndpoint.swift */; };
+		6C8912752947E7F100648903 /* RemoteAddLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912742947E7F100648903 /* RemoteAddLoginFactory.swift */; };
+		6C8912772947E7FE00648903 /* RemoteGetUserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912762947E7FE00648903 /* RemoteGetUserFactory.swift */; };
+		6C8912792947E87900648903 /* LoginInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912782947E87900648903 /* LoginInteractorFactory.swift */; };
+		6C89127B2947E88400648903 /* UserInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89127A2947E88400648903 /* UserInteractorFactory.swift */; };
+		6C89127D2947E93000648903 /* LoginPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89127C2947E93000648903 /* LoginPresenterFactory.swift */; };
+		6C89127F2947E93C00648903 /* UserPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89127E2947E93C00648903 /* UserPresenterFactory.swift */; };
+		6C8912812947E9A900648903 /* ContentDataSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912802947E9A900648903 /* ContentDataSceneFactory.swift */; };
+		6C8912832947EA2400648903 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912822947EA2400648903 /* LoginScene.swift */; };
+		6C8912852947EA2F00648903 /* UserScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912842947EA2F00648903 /* UserScene.swift */; };
+		6C89128729483BED00648903 /* LoginSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89128629483BED00648903 /* LoginSceneFactory.swift */; };
+		6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912892948417100648903 /* ApplicationExtension.swift */; };
 		6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
 		6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A12945004700F16A01 /* CardInitContentView.swift */; };
 		6CAD31A42945015100F16A01 /* TagTabNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A32945015100F16A01 /* TagTabNewsView.swift */; };
@@ -273,6 +299,32 @@
 		6C89124D294770A500648903 /* ContentChildrenScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildrenScene.swift; sourceTree = "<group>"; };
 		6C89124F29477B2300648903 /* ContentChildSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChildSceneFactory.swift; sourceTree = "<group>"; };
 		6C89125129478FF800648903 /* CardContentChildrenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentChildrenView.swift; sourceTree = "<group>"; };
+		6C8912552947DA6500648903 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		6C8912572947DAC200648903 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		6C8912592947DC1D00648903 /* AddLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogin.swift; sourceTree = "<group>"; };
+		6C89125C2947DC7E00648903 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		6C89125E2947DD7F00648903 /* GetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUser.swift; sourceTree = "<group>"; };
+		6C8912602947DDE500648903 /* RemoteAddLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddLogin.swift; sourceTree = "<group>"; };
+		6C8912622947DE9300648903 /* RemoteGetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGetUser.swift; sourceTree = "<group>"; };
+		6C8912642947DEE600648903 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6C8912662947DF1800648903 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		6C8912682947DF5500648903 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		6C89126A2947DF6100648903 /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
+		6C89126C2947DF6A00648903 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		6C89126E2947DF7500648903 /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
+		6C8912702947E75B00648903 /* LoginEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEndpoint.swift; sourceTree = "<group>"; };
+		6C8912722947E79B00648903 /* UserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEndpoint.swift; sourceTree = "<group>"; };
+		6C8912742947E7F100648903 /* RemoteAddLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddLoginFactory.swift; sourceTree = "<group>"; };
+		6C8912762947E7FE00648903 /* RemoteGetUserFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGetUserFactory.swift; sourceTree = "<group>"; };
+		6C8912782947E87900648903 /* LoginInteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorFactory.swift; sourceTree = "<group>"; };
+		6C89127A2947E88400648903 /* UserInteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractorFactory.swift; sourceTree = "<group>"; };
+		6C89127C2947E93000648903 /* LoginPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterFactory.swift; sourceTree = "<group>"; };
+		6C89127E2947E93C00648903 /* UserPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenterFactory.swift; sourceTree = "<group>"; };
+		6C8912802947E9A900648903 /* ContentDataSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDataSceneFactory.swift; sourceTree = "<group>"; };
+		6C8912822947EA2400648903 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
+		6C8912842947EA2F00648903 /* UserScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScene.swift; sourceTree = "<group>"; };
+		6C89128629483BED00648903 /* LoginSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneFactory.swift; sourceTree = "<group>"; };
+		6C8912892948417100648903 /* ApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtension.swift; sourceTree = "<group>"; };
 		6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentEndpoint.swift; sourceTree = "<group>"; };
 		6CAD31A12945004700F16A01 /* CardInitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInitContentView.swift; sourceTree = "<group>"; };
 		6CAD31A32945015100F16A01 /* TagTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTabNewsView.swift; sourceTree = "<group>"; };
@@ -384,11 +436,12 @@
 		6C266BBA29445B4B009236BB /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				6C38A4A22946F099002982F8 /* Info.plist */,
 				6C266BC129445B4B009236BB /* Main.entitlements */,
+				6C38A4A22946F099002982F8 /* Info.plist */,
 				6C266BBB29445B4B009236BB /* MainApp.swift */,
 				6C266BBF29445B4B009236BB /* Assets.xcassets */,
 				6CAD319D2944FF0700F16A01 /* Endpoints */,
+				6C8912882948415900648903 /* Extensions */,
 				6CAD319A2944FEE000F16A01 /* Factories */,
 				6C266BC229445B4B009236BB /* Preview Content */,
 				6CF75359294643B700A3B721 /* Scenes */,
@@ -444,6 +497,7 @@
 		6C3FFC30294428BD00B1918C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6C89125B2947DC6200648903 /* Request */,
 				6C3FFC31294428D100B1918C /* Response */,
 			);
 			path = Models;
@@ -457,6 +511,8 @@
 				6CF7535C294649C100A3B721 /* AnalyticsUsersCreatedResponse.swift */,
 				6C3FFC3229442A4600B1918C /* InitContentResponse.swift */,
 				6CF7536229464D2C00A3B721 /* StatusResponse.swift */,
+				6C8912552947DA6500648903 /* LoginResponse.swift */,
+				6C8912572947DAC200648903 /* UserResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -477,6 +533,8 @@
 				6C3FFC3B29442BD900B1918C /* GetInitContent.swift */,
 				6CF7536629464F5400A3B721 /* GetStatus.swift */,
 				6C89123B29476B3000648903 /* GetContentChildren.swift */,
+				6C8912592947DC1D00648903 /* AddLogin.swift */,
+				6C89125E2947DD7F00648903 /* GetUser.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -508,6 +566,8 @@
 				6CF7536E2946527500A3B721 /* RemoteGetStatus.swift */,
 				6CF7539D2946C6AF00A3B721 /* RemoteGetContentData.swift */,
 				6C89123D29476C7700648903 /* RemoteGetContentChildren.swift */,
+				6C8912602947DDE500648903 /* RemoteAddLogin.swift */,
+				6C8912622947DE9300648903 /* RemoteGetUser.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -552,6 +612,8 @@
 				6CF753762946595700A3B721 /* AnalyticsPresenter.swift */,
 				6CF753A12946C74100A3B721 /* ContentDataPresenter.swift */,
 				6C89124129476DAF00648903 /* ContentChildrenPresenter.swift */,
+				6C89126C2947DF6A00648903 /* LoginPresenter.swift */,
+				6C89126E2947DF7500648903 /* UserPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -563,6 +625,8 @@
 				6CF753742946561E00A3B721 /* AnalyticsInteractor.swift */,
 				6CF7539F2946C70000A3B721 /* ContentDataInteractor.swift */,
 				6C89123F29476D7D00648903 /* ContentChildrenInteractor.swift */,
+				6C8912682947DF5500648903 /* LoginInteractor.swift */,
+				6C89126A2947DF6100648903 /* UserInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -572,6 +636,8 @@
 			children = (
 				6C3FFC932944362300B1918C /* InitContentViewModel.swift */,
 				6CF753702946532500A3B721 /* AnalyticsViewModel.swift */,
+				6C8912642947DEE600648903 /* LoginViewModel.swift */,
+				6C8912662947DF1800648903 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -599,6 +665,22 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6C89125B2947DC6200648903 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6C89125C2947DC7E00648903 /* LoginRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		6C8912882948415900648903 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6C8912892948417100648903 /* ApplicationExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6CAD319A2944FEE000F16A01 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +700,8 @@
 				6CF7537A29465A0D00A3B721 /* AnalyticsEndpoint.swift */,
 				6CF753A72946C8C800A3B721 /* ContentDataEndpoint.swift */,
 				6C89124329476F5E00648903 /* ContentChildrenEndpoint.swift */,
+				6C8912702947E75B00648903 /* LoginEndpoint.swift */,
+				6C8912722947E79B00648903 /* UserEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -638,6 +722,8 @@
 				6CF7537E29465BAE00A3B721 /* RemoteGetStatusFactory.swift */,
 				6CF753A52946C86500A3B721 /* RemoteGetContentDataFactory.swift */,
 				6C89124529476F9900648903 /* RemoteGetContentChildrenFactory.swift */,
+				6C8912742947E7F100648903 /* RemoteAddLoginFactory.swift */,
+				6C8912762947E7FE00648903 /* RemoteGetUserFactory.swift */,
 			);
 			path = Remotes;
 			sourceTree = "<group>";
@@ -649,6 +735,8 @@
 				6CF7538029465CB100A3B721 /* AnalyticsPresenterFactory.swift */,
 				6CF753AB2946C99000A3B721 /* ContentDataPresenterFactory.swift */,
 				6C8912492947704E00648903 /* ContentChildrenPresenterFactory.swift */,
+				6C89127C2947E93000648903 /* LoginPresenterFactory.swift */,
+				6C89127E2947E93C00648903 /* UserPresenterFactory.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -660,6 +748,8 @@
 				6CF75378294659E200A3B721 /* AnalyticsInteractorFactory.swift */,
 				6CF753A92946C94900A3B721 /* ContentDataInteractorFactory.swift */,
 				6C89124729476FEA00648903 /* ContentChildrenInteractorFactory.swift */,
+				6C8912782947E87900648903 /* LoginInteractorFactory.swift */,
+				6C89127A2947E88400648903 /* UserInteractorFactory.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -670,6 +760,8 @@
 				6CF7538629465D7F00A3B721 /* InitContentSceneFactory.swift */,
 				6CF7538F2946725700A3B721 /* AnalyticsSceneFactory.swift */,
 				6C89124F29477B2300648903 /* ContentChildSceneFactory.swift */,
+				6C8912802947E9A900648903 /* ContentDataSceneFactory.swift */,
+				6C89128629483BED00648903 /* LoginSceneFactory.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -681,6 +773,8 @@
 				6CF7538829465F3B00A3B721 /* AnalyticsScene.swift */,
 				6CF753B32946CE7500A3B721 /* ContentDataScene.swift */,
 				6C89124D294770A500648903 /* ContentChildrenScene.swift */,
+				6C8912822947EA2400648903 /* LoginScene.swift */,
+				6C8912842947EA2F00648903 /* UserScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -990,12 +1084,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C89127F2947E93C00648903 /* UserPresenterFactory.swift in Sources */,
 				6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */,
+				6C8912732947E79B00648903 /* UserEndpoint.swift in Sources */,
 				6CF753AA2946C94900A3B721 /* ContentDataInteractorFactory.swift in Sources */,
 				6CF753902946725700A3B721 /* AnalyticsSceneFactory.swift in Sources */,
+				6C8912752947E7F100648903 /* RemoteAddLoginFactory.swift in Sources */,
 				6CF753AC2946C99000A3B721 /* ContentDataPresenterFactory.swift in Sources */,
+				6C8912812947E9A900648903 /* ContentDataSceneFactory.swift in Sources */,
 				6CF753B42946CE7500A3B721 /* ContentDataScene.swift in Sources */,
 				6CF753A62946C86500A3B721 /* RemoteGetContentDataFactory.swift in Sources */,
+				6C89127D2947E93000648903 /* LoginPresenterFactory.swift in Sources */,
+				6C89127B2947E88400648903 /* UserInteractorFactory.swift in Sources */,
 				6CF7534429463D6200A3B721 /* RemoteGetInitContentFactory.swift in Sources */,
 				6CF7537B29465A0D00A3B721 /* AnalyticsEndpoint.swift in Sources */,
 				6C89124829476FEA00648903 /* ContentChildrenInteractorFactory.swift in Sources */,
@@ -1005,16 +1105,23 @@
 				6C89125029477B2300648903 /* ContentChildSceneFactory.swift in Sources */,
 				6C89124A2947704E00648903 /* ContentChildrenPresenterFactory.swift in Sources */,
 				6CF7538729465D7F00A3B721 /* InitContentSceneFactory.swift in Sources */,
+				6C89128729483BED00648903 /* LoginSceneFactory.swift in Sources */,
+				6C8912712947E75B00648903 /* LoginEndpoint.swift in Sources */,
+				6C8912832947EA2400648903 /* LoginScene.swift in Sources */,
 				6CF753A82946C8C800A3B721 /* ContentDataEndpoint.swift in Sources */,
 				6CF7535A294643FB00A3B721 /* InitContentScene.swift in Sources */,
+				6C8912852947EA2F00648903 /* UserScene.swift in Sources */,
+				6C8912792947E87900648903 /* LoginInteractorFactory.swift in Sources */,
 				6CF7534A29463E8C00A3B721 /* InitContentInteractorFactory.swift in Sources */,
 				6C89124429476F5E00648903 /* ContentChildrenEndpoint.swift in Sources */,
 				6C266BBC29445B4B009236BB /* MainApp.swift in Sources */,
 				6CF7538129465CB100A3B721 /* AnalyticsPresenterFactory.swift in Sources */,
 				6C89124629476F9900648903 /* RemoteGetContentChildrenFactory.swift in Sources */,
+				6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */,
 				6CF7538929465F3B00A3B721 /* AnalyticsScene.swift in Sources */,
 				6CF7534729463E0700A3B721 /* InitContentPresenterFactory.swift in Sources */,
 				6CF7537D29465B2800A3B721 /* RemoteGetAnalyticsFactory.swift in Sources */,
+				6C8912772947E7FE00648903 /* RemoteGetUserFactory.swift in Sources */,
 				6C89124E294770A500648903 /* ContentChildrenScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1024,8 +1131,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF7536729464F5400A3B721 /* GetStatus.swift in Sources */,
+				6C8912582947DAC200648903 /* UserResponse.swift in Sources */,
 				6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */,
+				6C89125D2947DC7E00648903 /* LoginRequest.swift in Sources */,
+				6C89125A2947DC1D00648903 /* AddLogin.swift in Sources */,
+				6C8912562947DA6500648903 /* LoginResponse.swift in Sources */,
 				6CF7539C2946C66E00A3B721 /* GetContentData.swift in Sources */,
+				6C89125F2947DD7F00648903 /* GetUser.swift in Sources */,
 				6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */,
 				6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */,
 				6CF7535D294649C100A3B721 /* AnalyticsUsersCreatedResponse.swift in Sources */,
@@ -1044,6 +1156,8 @@
 				6CF7539E2946C6AF00A3B721 /* RemoteGetContentData.swift in Sources */,
 				6C89123E29476C7700648903 /* RemoteGetContentChildren.swift in Sources */,
 				6CF7536D294651C600A3B721 /* RemoteGetAnalyticsRootContentPublished.swift in Sources */,
+				6C8912632947DE9300648903 /* RemoteGetUser.swift in Sources */,
+				6C8912612947DDE500648903 /* RemoteAddLogin.swift in Sources */,
 				6C3FFC5529442D3600B1918C /* RemoteGetInitContent.swift in Sources */,
 				6C3FFC5029442CCD00B1918C /* Typealias.swift in Sources */,
 				6CF753692946500900A3B721 /* RemoteGetAnalyticsUsersCreated.swift in Sources */,
@@ -1065,13 +1179,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3FFC912944358B00B1918C /* InitContentPresenter.swift in Sources */,
+				6C89126B2947DF6100648903 /* UserInteractor.swift in Sources */,
+				6C8912672947DF1800648903 /* UserViewModel.swift in Sources */,
 				6C3FFC8F2944327A00B1918C /* InitContentInteractor.swift in Sources */,
+				6C8912652947DEE600648903 /* LoginViewModel.swift in Sources */,
+				6C89126F2947DF7500648903 /* UserPresenter.swift in Sources */,
 				6CF753772946595700A3B721 /* AnalyticsPresenter.swift in Sources */,
 				6C3FFC942944362300B1918C /* InitContentViewModel.swift in Sources */,
 				6CF753A22946C74100A3B721 /* ContentDataPresenter.swift in Sources */,
 				6CF753752946561E00A3B721 /* AnalyticsInteractor.swift in Sources */,
+				6C89126D2947DF6A00648903 /* LoginPresenter.swift in Sources */,
 				6C89124029476D7D00648903 /* ContentChildrenInteractor.swift in Sources */,
 				6C89124229476DAF00648903 /* ContentChildrenPresenter.swift in Sources */,
+				6C8912692947DF5500648903 /* LoginInteractor.swift in Sources */,
 				6CF753A02946C70000A3B721 /* ContentDataInteractor.swift in Sources */,
 				6CF753712946532500A3B721 /* AnalyticsViewModel.swift in Sources */,
 			);
