@@ -9,6 +9,6 @@ import Foundation
 import Presentation
 import Data
 
-func makeUserInteractor(user: String) -> UserInteractorProtocol {
+func makeUserInteractor(user: String? = nil) -> UserInteractorProtocol {
     UserInteractor(useCase: makeRemoteGetUser(user: user))
 }

@@ -12,12 +12,12 @@ struct UserEndpoint: TabNewsHttpEndpoint {
     var method: TabNewsHttpMethod = .get
     var scheme: TabNewsHttpScheme = .https
     var host: String = "www.tabnews.com.br"
-    var path: String = "/api/v1/users"
+    var path: String = "/api/v1/user"
     var queryItems: [URLQueryItem]?
     var headers: [TabNewsHttpHeader]?
     var body: Data?
     
-    public init(user: String) {
-        path += "/\(user)"
+    public init(user: String? = nil) {
+        if let user = user { path += "s/\(user)" }
     }
 }

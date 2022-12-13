@@ -18,11 +18,13 @@ struct MainApp: App {
     var body: some Scene {
         WindowGroup {
             TabView(selection: $tabSelected) {
-                loginScene
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        Text("User")
-                    }
+                NavigationView {
+                    userScene
+                }
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("User")
+                }
                 
                 NavigationView {
                     initContentScene
@@ -44,4 +46,5 @@ struct MainApp: App {
     private var initContentScene: some View = makeInitContentScene()
     private var analyticsScene: some View = makeAnalyticsScene()
     private var loginScene: some View = makeLoginScene()
+    private var userScene: some View = makeUserScene(user: "GabrielSozinho")
 }

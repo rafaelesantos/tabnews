@@ -9,6 +9,6 @@ import Foundation
 import Presentation
 import Data
 
-func makeUserPresenter(user: String) -> UserPresenterProtocol {
+func makeUserPresenter(user: String? = nil) -> UserPresenterProtocol {
     UserPresenter(interactor: makeUserInteractor(user: user))
 }

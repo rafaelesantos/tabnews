@@ -10,6 +10,8 @@ import Foundation
 public struct UserResponse: TabNewsModel {
     public let id: String
     public let username: String
+    public let email: String?
+    public let notifications: Bool?
     public let features: [String]
     public let tabcoins: Int
     public let tabcash: Int

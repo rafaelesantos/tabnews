@@ -32,7 +32,6 @@ public struct InitContentScene: View {
     }
     
     public var body: some View {
-        
         ScrollViewReader { proxy in
             if initContents.isEmpty { ProgressView() }
             else { contents(proxy: proxy) }

@@ -9,6 +9,6 @@ import Foundation
 import Data
 import Domain
 
-func makeRemoteGetUser(user: String) -> GetUser {
+func makeRemoteGetUser(user: String? = nil) -> GetUser {
     RemoteGetUser(httpClient: makeNetworkAdapter(), httpEndpoint: UserEndpoint(user: user))
 }
