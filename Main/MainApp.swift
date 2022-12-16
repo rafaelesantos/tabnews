@@ -13,10 +13,12 @@ import Infrastructure
 
 @main
 struct MainApp: App {
-    @State private var tabSelected = 2
+    @State private var tabSelected: MainApp.TabItem = .home
     @AppStorage("token") static var token: String = ""
     @AppStorage("coin") static var coin: String = ""
     @AppStorage("cash") static var cash: String = ""
+    @State private var innerSelectTabAction: ((MainApp.TabItem) -> Void)?
+    static var outSelectTabAction: ((MainApp.TabItem) -> Void)?
     
     var body: some Scene {
         WindowGroup {
@@ -28,7 +30,7 @@ struct MainApp: App {
                     Image(systemName: "person.crop.circle")
                     Text("User")
                 }
-                .tag(1)
+                .tag(MainApp.TabItem.user)
                 
                 NavigationStack {
                     initContentScene
@@ -37,7 +39,7 @@ struct MainApp: App {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-                .tag(2)
+                .tag(MainApp.TabItem.home)
                 
                 NavigationStack {
                     analyticsScene
@@ -46,7 +48,13 @@ struct MainApp: App {
                     Image(systemName: "chart.bar.xaxis")
                     Text("Status")
                 }
-                .tag(3)
+                .tag(MainApp.TabItem.status)
+            }
+            .task {
+                innerSelectTabAction = { item in
+                    tabSelected = item
+                }
+                MainApp.outSelectTabAction = innerSelectTabAction
             }
         }
     }
@@ -57,10 +65,7 @@ struct MainApp: App {
     private var userScene: some View = makeUserScene()
     
     static var tabMoney: some View {
-        Menu {
-            Button(action: {}, label: { CardBasicDetailView(title: "Tab Coin", description: MainApp.coin, image: "dollarsign.square.fill", imageColor: .blue) })
-            Button(action: {}, label: { CardBasicDetailView(title: "Tab Cash", description: MainApp.cash, image: "dollarsign.square.fill", imageColor: .green) })
-        } label: {
+        Button(action: { MainApp.outSelectTabAction?(.user) }, label: {
             HStack {
                 if !MainApp.coin.isEmpty, !MainApp.cash.isEmpty {
                     Image(systemName: "dollarsign.square.fill")
@@ -83,6 +88,14 @@ struct MainApp: App {
                         .font(.footnote)
                 }
             }
-        }
+        })
+    }
+}
+
+extension MainApp {
+    enum TabItem: Int {
+        case user = 1
+        case home = 2
+        case status = 3
     }
 }
