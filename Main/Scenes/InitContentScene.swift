@@ -71,7 +71,7 @@ public struct InitContentScene: View {
                     NavigationLink {
                         makeUserScene(user: user)
                     } label: {
-                        CardBasicDetailView(title: "Author Information", description: "", image: "person.crop.circle.fill", imageColor: .randomColor)
+                        CardBasicDetailView(title: "Informações do autor", description: "", image: "person.crop.circle.fill", imageColor: .randomColor)
                     }
                 }
             }
@@ -102,19 +102,15 @@ public struct InitContentScene: View {
                     NotFoundTabNewsView(style: .astronaut)
                 }
                 else {
-                    Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
+                    Text("página \(currentPage) com \(currentPerPage) por página ordenado por \(currentStrategy.rawValue)")
                 }
             })
             
             if !(initContents.isEmpty && notFoundData) {
                 Section {
-                    HStack {
-                        Text("Contents Per Page")
-                        Spacer()
-                        Picker("", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
-                            ForEach(0 ..< 31) { page in
-                                if page % 5 == 0 && page != 0 { Text("\(page)") }
-                            }
+                    Picker("Conteúdos por página", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
+                        ForEach(0 ..< 31) { page in
+                            if page % 5 == 0 && page != 0 { Text("\(page)") }
                         }
                     }
                 } footer: {

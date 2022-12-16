@@ -32,9 +32,9 @@ struct AnalyticsScene: View {
             if analytics == nil { sectionLoading }
             else {
                 if let usersCreated = analytics?.usersCreated, let max = usersCreated.max(by: { $0.cadastros < $1.cadastros }) {
-                    Section("Registration Analytics") {
+                    Section("Estatística de registros") {
                         HStack {
-                            Text("Best Day")
+                            Text("Melhor dia")
                             Spacer()
                             Text("\(max.cadastros)")
                                 .font(.footnote)
@@ -42,51 +42,37 @@ struct AnalyticsScene: View {
                             TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
-                            title: "registrations",
+                            title: "registros",
                             color: colors[0],
                             marks: usersCreated.map({ (x: $0.date, y: NSNumber(integerLiteral: $0.cadastros)) }))
-                        HStack {
-                            Text("Total Registrations")
-                            Spacer()
-                            Text("\(usersCreated.map({ $0.cadastros }).reduce(0, +))")
-                                .font(.footnote)
-                                .bold()
-                                .foregroundColor(.secondary)
-                        }
+                        CardBasicDetailView(title: "Total de registros", description: "\(usersCreated.map({ $0.cadastros }).reduce(0, +))")
                         
                         if usersCreated.count > 1 {
-                            HStack {
-                                Text("Period")
-                                Spacer()
-                                Text("\(usersCreated[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(usersCreated[usersCreated.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
-                                    .font(.footnote)
-                                    .bold()
-                                    .foregroundColor(.secondary)
-                            }
+                            CardBasicDetailView(title: "Período", description: "\(usersCreated[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(usersCreated[usersCreated.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
                         }
                     }.disabled(true)
                 }
                 
                 if let status = analytics?.status {
-                    Section("Database") {
+                    Section("Banco de Dados") {
                         CardBasicDetailTagView(title: "Status", description: status.dependencies.database.status, color: .blue)
-                        CardBasicDetailView(title: "Available Connections", description: "\(status.dependencies.database.max_connections)")
-                        CardBasicDetailView(title: "Open Connections", description: "\(status.dependencies.database.opened_connections)")
+                        CardBasicDetailView(title: "Conexões disponíveis", description: "\(status.dependencies.database.max_connections)")
+                        CardBasicDetailView(title: "Conexões abertas", description: "\(status.dependencies.database.opened_connections)")
                         HStack {
-                            Text("Latency")
+                            Text("Latência")
                             Spacer()
                             TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.first_query), color: .blue)
                             TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.second_query), color: .blue)
                             TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.third_query), color: .blue)
                         }
-                        CardBasicDetailView(title: "PostgreSQL Version", description: status.dependencies.database.version)
+                        CardBasicDetailView(title: "Versão PostgreSQL", description: status.dependencies.database.version)
                     }.disabled(true)
                 }
                 
                 if let rootContentPublished = analytics?.rootContentPublished, let max = rootContentPublished.max(by: { $0.conteudos < $1.conteudos }) {
-                    Section("Publication Analytics") {
+                    Section("Estatística das publicações") {
                         HStack {
-                            Text("Best Day")
+                            Text("Melhor dia")
                             Spacer()
                             Text("\(max.conteudos)")
                                 .font(.footnote)
@@ -94,49 +80,35 @@ struct AnalyticsScene: View {
                             TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
-                            title: "publications",
+                            title: "publicações",
                             color: colors[1],
                             marks: rootContentPublished.map({ (x: $0.date, y: NSNumber(integerLiteral: $0.conteudos)) }))
-                        HStack {
-                            Text("Total Publications")
-                            Spacer()
-                            Text("\(rootContentPublished.map({ $0.conteudos }).reduce(0, +))")
-                                .bold()
-                                .font(.footnote)
-                                .foregroundColor(.secondary)
-                        }
+                        CardBasicDetailView(title: "Total de conteúdos", description: "\(rootContentPublished.map({ $0.conteudos }).reduce(0, +))")
                         
                         if rootContentPublished.count > 1 {
-                            HStack {
-                                Text("Period")
-                                Spacer()
-                                Text("\(rootContentPublished[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(rootContentPublished[rootContentPublished.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
-                                    .font(.footnote)
-                                    .bold()
-                                    .foregroundColor(.secondary)
-                            }
+                            CardBasicDetailView(title: "Período", description: "\(rootContentPublished[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(rootContentPublished[rootContentPublished.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
                         }
                     }.disabled(true)
                 }
                 
                 if let status = analytics?.status {
-                    Section("Web Server") {
+                    Section("Servidor") {
                         CardBasicDetailTagView(title: "Status", description: status.dependencies.webserver.status, color: .blue)
-                        CardBasicDetailView(title: "Provider", description: status.dependencies.webserver.provider.capitalized)
-                        CardBasicDetailView(title: "Environment", description: status.dependencies.webserver.environment.capitalized)
-                        CardBasicDetailView(title: "Region on AWS", description: status.dependencies.webserver.aws_region)
-                        CardBasicDetailView(title: "Region in Vercel", description: status.dependencies.webserver.vercel_region)
+                        CardBasicDetailView(title: "Provedor", description: status.dependencies.webserver.provider.capitalized)
+                        CardBasicDetailView(title: "Ambiente", description: status.dependencies.webserver.environment.capitalized)
+                        CardBasicDetailView(title: "Região na AWS", description: status.dependencies.webserver.aws_region)
+                        CardBasicDetailView(title: "Região na Vercel", description: status.dependencies.webserver.vercel_region)
                         CardBasicDetailView(title: "Timezone", description: status.dependencies.webserver.timezone)
-                        CardBasicDetailTagView(title: "Author of last commit", description: status.dependencies.webserver.last_commit_author)
+                        CardBasicDetailTagView(title: "Autor do último commit", description: status.dependencies.webserver.last_commit_author)
                         CardBasicDetailView(title: "Commit SHA", description: status.dependencies.webserver.last_commit_message_sha)
-                        CardBasicDetailView(title: "Node.js Version", description: status.dependencies.webserver.version)
+                        CardBasicDetailView(title: "Versão do Node.js", description: status.dependencies.webserver.version)
                     }.disabled(true)
                 }
                 
                 if let childContentPublished = analytics?.childContentPublished, let max = childContentPublished.max(by: { $0.respostas < $1.respostas }) {
-                    Section("Comment Analytics") {
+                    Section("Estatística de comentários") {
                         HStack {
-                            Text("Best Day")
+                            Text("Melhor dia")
                             Spacer()
                             Text("\(max.respostas)")
                                 .font(.footnote)
@@ -144,27 +116,13 @@ struct AnalyticsScene: View {
                             TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
-                            title: "comments",
+                            title: "comentários",
                             color: colors[2],
                             marks: childContentPublished.map({ (x: $0.date, y: NSNumber(integerLiteral: $0.respostas)) }))
-                        HStack {
-                            Text("Total Comments")
-                            Spacer()
-                            Text("\(childContentPublished.map({ $0.respostas }).reduce(0, +))")
-                                .font(.footnote)
-                                .bold()
-                                .foregroundColor(.secondary)
-                        }
+                        CardBasicDetailView(title: "Total de respostas", description: "\(childContentPublished.map({ $0.respostas }).reduce(0, +))")
                         
                         if childContentPublished.count > 1 {
-                            HStack {
-                                Text("Period")
-                                Spacer()
-                                Text("\(childContentPublished[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(childContentPublished[childContentPublished.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
-                                    .font(.footnote)
-                                    .bold()
-                                    .foregroundColor(.secondary)
-                            }
+                            CardBasicDetailView(title: "Período", description: "\(childContentPublished[0].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "") - \(childContentPublished[childContentPublished.count - 1].date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMM") ?? "")")
                         }
                     }.disabled(true)
                 }
