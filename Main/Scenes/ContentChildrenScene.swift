@@ -15,6 +15,7 @@ struct ContentChildrenScene: View {
     @State private var previousViewModel: InitContentViewModel
     @State private var viewModel: [InitContentViewModel] = []
     @State private var needLoading: Bool = false
+    @State private var needPresent: Bool = false
     
     init(previous: InitContentViewModel) throws {
         guard let user = previous.owner_username, let slug = previous.slug else { throw NSError(domain: "content.child", code: 1) }
@@ -24,7 +25,7 @@ struct ContentChildrenScene: View {
     
     var body: some View {
         List {
-            Section("previous subject") {
+            Section("tópico anterior") {
                 if let body = previousViewModel.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
                     HStack(spacing: 15) {
                         VStack {
@@ -46,25 +47,23 @@ struct ContentChildrenScene: View {
                     }.disabled(true)
                 }
                 
-                NavigationLink(destination: makeInitContentScene(user: previousViewModel.owner_username)) {
-                    CardBasicDetailTagView(title: "Author", description: previousViewModel.owner_username ?? "")
-                }
-                
                 if let date = previousViewModel.updated_at?.asString(withDateFormat: "dd MMMM - HH:mm") {
-                    CardBasicDetailView(title: "Date", description: date)
+                    CardBasicDetailView(title: "Data", description: date)
                         .disabled(true)
                 }
             }
             
-            if !needLoading {
-                ForEach(viewModel, id: \.id) { content in
-                    Section {
-                        CardContentChildrenView(viewModel: content)
-                            .disabled(true)
-                        if let commentsAmount = content.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: content) {
-                            NavigationLink(destination: contentChildrenView) {
-                                commentsInfo(commentsAmount: commentsAmount)
-                            }
+            if needLoading {
+                Section(content: { }, header: { ProgressTabNewsView() })
+            }
+            
+            ForEach(viewModel, id: \.id) { content in
+                Section {
+                    CardContentChildrenView(viewModel: content)
+                        .disabled(true)
+                    if let commentsAmount = content.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: content) {
+                        NavigationLink(destination: contentChildrenView) {
+                            commentsView(amount: commentsAmount)
                         }
                     }
                 }
@@ -72,28 +71,21 @@ struct ContentChildrenScene: View {
         }
         .refreshable { Task { await loadData() } }
         .task { await loadData() }
-        .navigationTitle("Comments")
+        .navigationTitle("Comentários")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if needLoading { ProgressTabNewsView() }
+                Button(action: { needPresent = true }, label: { TagTabNewsView(previousViewModel.owner_username ?? "", color: .randomColor) })
             }
         }
+        .navigationDestination(isPresented: $needPresent, destination: { makeInitContentScene(user: previousViewModel.owner_username) })
     }
     
-    private func commentsInfo(commentsAmount: Int) -> some View {
-        HStack {
-            Image(systemName: "ellipsis.message.fill")
-                .foregroundColor(.blue.opacity(0.8))
-            Text("Comments")
-            Spacer()
-            Text("\(commentsAmount > 0 ? "\(commentsAmount)" : "No Comments")")
-                .font(.footnote)
-                .bold()
-                .foregroundColor(.secondary)
-        }
+    private func commentsView(amount: Int) -> some View {
+        CardBasicDetailView(title: "Comentários", description: "\(amount > 0 ? "\(amount)" : "Não há comentários")", image: "ellipsis.message.fill", imageColor: .blue)
     }
     
     private func loadData() async {
+        viewModel = []
         needLoading.toggle()
         viewModel = (try? await presenter.showContentChildren()) ?? []
         needLoading.toggle()
@@ -102,7 +94,7 @@ struct ContentChildrenScene: View {
 
 struct ContentChildrenScene_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             try? ContentChildrenScene(previous: InitContentViewModel(title: "any-title", updated_at: Date(), tabcoins: 28, owner_username: "GabrielSozinho", children_deep_count: 19, slug: "documentacao-da-api-do-tabnews", body: "Sim, eu estou fazendo isso. Mas é exatamente o que eu queria evitar, pois o front irá ficar processando **n** objetos e separando toda vez que fizer a request, o que dependendo da quantidade, pode `penalizar o desempenho`.\n\nSe tivesse essa opção para já vir filtrado somente as publicações, seria uma \"delicinha\" 😅\n\nMas como ainda não é possível, dá pra ir quebrando um galho dessa forma mesmo. Creio que não irá demorar pra ser implementado algo do tipo.\n\nDe qualquer forma, multo obrigado pelo feedback! 🖖🤖"))
         }
     }

@@ -21,16 +21,20 @@ public struct CardBasicDetailView: View {
     }
     
     public var body: some View {
-        HStack {
+        HStack(spacing: 15) {
             if let image = image, !image.isEmpty {
                 Image(systemName: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    .symbolRenderingMode(.hierarchical)
                     .foregroundColor(imageColor == nil ? .primary : imageColor!)
             }
             Text(title)
+                .lineLimit(1)
             Spacer()
             Text(description)
-                .font(.footnote)
-                .bold()
+                .lineLimit(1)
                 .foregroundColor(.secondary)
         }
     }
@@ -39,7 +43,7 @@ public struct CardBasicDetailView: View {
 struct CardBasicDetailView_Previews: PreviewProvider {
     static var previews: some View {
         GroupBox {
-            CardBasicDetailView(title: "any-title", description: "any-description")
+            CardBasicDetailView(title: "any-title", description: "any-description", image: "bell.square.fill", imageColor: .red)
         }.padding()
     }
 }

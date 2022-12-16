@@ -8,6 +8,6 @@
 import Foundation
 import SwiftUI
 
-func makeLoginScene() -> some View {
-    LoginScene()
+func makeLoginScene(state: LoginScene.StateScene = .login) -> some View {
+    LoginScene(state: state)
 }

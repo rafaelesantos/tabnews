@@ -10,9 +10,9 @@ import Lottie
  
 public struct LottieView: UIViewRepresentable {
     private var name: String
-    private var loopMode: LottieLoopMode = .loop
+    private var loopMode: LottieLoopMode
     
-    public init(name: String, loopMode: LottieLoopMode = .loop) {
+    public init(name: String, loopMode: LottieLoopMode = .autoReverse) {
         self.name = name
         self.loopMode = loopMode
     }

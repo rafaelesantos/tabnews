@@ -40,6 +40,7 @@ public struct CardInitContentView: View {
                     if let childrenDeepCount = viewModel.children_deep_count, childrenDeepCount > 0 {
                         HStack(alignment: .center) {
                             Image(systemName: "ellipsis.message.fill")
+                                .symbolRenderingMode(.hierarchical)
                                 .resizable()
                                 .scaledToFit()
                                 .foregroundColor(color)

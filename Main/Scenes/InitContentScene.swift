@@ -15,7 +15,7 @@ public struct InitContentScene: View {
     @State private var canChangeToNextPage: Bool = false
     @State private var notFoundData: Bool = false
     @State private var currentPage: Int = 1
-    @State private var currentPerPage = 5 {
+    @State private var currentPerPage = 10 {
         didSet { Task { await loadData() } }
     }
     @State private var currentStrategy: InitContentEndpointStrategy = .relevant
@@ -27,8 +27,6 @@ public struct InitContentScene: View {
     }
     @State private var needLoading: Bool = false
     private var user: String?
-    @AppStorage("coin") private var coin: String = ""
-    @AppStorage("cash") private var cash: String = ""
     
     public init(presenter: InitContentPresenterProtocol, user: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -41,43 +39,11 @@ public struct InitContentScene: View {
         }
         .toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if needLoading {
-                    ProgressView() 
-                } else {
-                    Button { } label: { TagTabNewsView(currentStrategy.rawValue, color: .randomColor) }
-                }
-            }
-            
-            if !coin.isEmpty, !cash.isEmpty {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        HStack {
-                            Image(uiImage: UIImage())
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 12, height: 12)
-                                .background(Color.blue)
-                                .cornerRadius(4)
-                            Text(coin)
-                                .foregroundColor(.primary)
-                                .font(.footnote)
-                            Image(uiImage: UIImage())
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 12, height: 12)
-                                .background(Color.green)
-                                .cornerRadius(4)
-                            Text(cash)
-                                .foregroundColor(.primary)
-                                .font(.footnote)
-                        }
-                    }
-                }
+                Button { isRelevant.toggle() } label: { TagTabNewsView(currentStrategy.rawValue, color: .randomColor) }
             }
         })
         .navigationTitle(user == nil ? "TabNews" : user ?? "")
+        .setTabMoney()
         .task {
             await loadData()
         }
@@ -100,19 +66,13 @@ public struct InitContentScene: View {
     
     public func contents(proxy: ScrollViewProxy) -> some View {
         List {
-            Section {
-                HStack {
-                    Text("Relevant News")
-                    Spacer()
-                    Toggle("", isOn: Binding(get: { isRelevant }, set: { isRelevant = $0 }))
-                }
-                if let user = user {
+            if let user = user {
+                Section {
                     NavigationLink {
                         makeUserScene(user: user)
                     } label: {
-                        CardBasicDetailView(title: "Author Information", description: "", image: "person.crop.circle", imageColor: .randomColor)
+                        CardBasicDetailView(title: "Author Information", description: "", image: "person.crop.circle.fill", imageColor: .randomColor)
                     }
-
                 }
             }
             
@@ -136,9 +96,10 @@ public struct InitContentScene: View {
                 }
                 
             }, header: {
-                if initContents.isEmpty && notFoundData {
-                    LottieView(name: "NotFount2")
-                        .frame(height: 250)
+                if needLoading {
+                    ProgressTabNewsView().frame(height: 60)
+                } else if initContents.isEmpty && notFoundData {
+                    NotFoundTabNewsView(style: .astronaut)
                 }
                 else {
                     Text("page \(currentPage) with \(currentPerPage) per page sort by \(currentStrategy.rawValue)")
@@ -193,7 +154,7 @@ public struct InitContentScene: View {
 struct InitContentScene_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            InitContentScene(presenter: makeInitContentPresenter(), user: "GabrielSozinho")
+            InitContentScene(presenter: makeInitContentPresenter())
         }
     }
 }

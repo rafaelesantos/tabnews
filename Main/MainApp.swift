@@ -13,32 +13,40 @@ import Infrastructure
 
 @main
 struct MainApp: App {
-    @State private var tabSelected = 1
+    @State private var tabSelected = 2
+    @AppStorage("token") static var token: String = ""
+    @AppStorage("coin") static var coin: String = ""
+    @AppStorage("cash") static var cash: String = ""
     
     var body: some Scene {
         WindowGroup {
             TabView(selection: $tabSelected) {
-                NavigationView {
+                NavigationStack {
                     userScene
                 }
                 .tabItem {
                     Image(systemName: "person.crop.circle")
                     Text("User")
                 }
+                .tag(1)
                 
-                NavigationView {
+                NavigationStack {
                     initContentScene
                 }
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
+                .tag(2)
                 
-                analyticsScene
-                    .tabItem {
-                        Image(systemName: "chart.bar.xaxis")
-                        Text("Status")
-                    }
+                NavigationStack {
+                    analyticsScene
+                }
+                .tabItem {
+                    Image(systemName: "chart.bar.xaxis")
+                    Text("Status")
+                }
+                .tag(3)
             }
         }
     }
@@ -47,4 +55,34 @@ struct MainApp: App {
     private var analyticsScene: some View = makeAnalyticsScene()
     private var loginScene: some View = makeLoginScene()
     private var userScene: some View = makeUserScene()
+    
+    static var tabMoney: some View {
+        Menu {
+            Button(action: {}, label: { CardBasicDetailView(title: "Tab Coin", description: MainApp.coin, image: "dollarsign.square.fill", imageColor: .blue) })
+            Button(action: {}, label: { CardBasicDetailView(title: "Tab Cash", description: MainApp.cash, image: "dollarsign.square.fill", imageColor: .green) })
+        } label: {
+            HStack {
+                if !MainApp.coin.isEmpty, !MainApp.cash.isEmpty {
+                    Image(systemName: "dollarsign.square.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundColor(.blue)
+                        .frame(width: 16, height: 16)
+                    Text(MainApp.coin)
+                        .foregroundColor(.primary)
+                        .font(.footnote)
+                    Image(systemName: "dollarsign.square.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundColor(.green)
+                        .frame(width: 16, height: 16)
+                    Text(MainApp.cash)
+                        .foregroundColor(.primary)
+                        .font(.footnote)
+                }
+            }
+        }
+    }
 }

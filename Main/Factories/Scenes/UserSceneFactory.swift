@@ -9,5 +9,5 @@ import Foundation
 import SwiftUI
 
 func makeUserScene(user: String? = nil) -> some View {
-    UserScene(presenter: makeUserPresenter(user: user))
+    UserScene(presenter: makeUserPresenter(user: user), username: user)
 }

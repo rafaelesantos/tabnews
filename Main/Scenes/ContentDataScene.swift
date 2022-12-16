@@ -21,86 +21,68 @@ struct ContentDataScene: View {
     }
     
     var body: some View {
-        VStack {
-            if let viewModel = viewModel, let body = viewModel.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
-                List {
-                    if !needLoading {
-                        if let user = viewModel.owner_username {
-                            Section {
-                                NavigationLink(destination: makeInitContentScene(user: user)) {
-                                    CardBasicDetailTagView(title: "Author Page", description: user)
-                                }
-                            }
-                        }
-                        
-                        Section {
-                            MarkdownView(text: body) { element in
-                                ElementView(element: element)
-                            }
-                        } header: {
-                            if let date = viewModel.updated_at?.asString(withDateFormat: "dd MMMM - HH:mm") {
-                                Text(date)
-                            }
-                        }
-                        
-                        if let commentsAmount = viewModel.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: viewModel) {
-                            Section {
-                                NavigationLink(destination: contentChildrenView) {
-                                    commentsInfo(commentsAmount: commentsAmount)
-                                }
-                            }
-                        }
-                    }
-                }
-                .refreshable { Task { await loadData() } }
-                .listStyle(.insetGrouped)
-                
-            } else {
-                ProgressTabNewsView()
+        VStack { listContents }
+        .task { await loadData() }
+        .navigationTitle(viewModel?.title ?? "")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if let username = viewModel?.owner_username { author(username: username) }
             }
         }
-        .navigationTitle(viewModel?.title ?? "")
-        .task { await loadData() }
+        .navigationDestination(isPresented: $needNavigation, destination: {
+            if let username = viewModel?.owner_username { makeInitContentScene(user: username) }
+        })
+    }
+    
+    private var listContents: some View {
+        List {
+            sectionBody
+            sectionComments
+        }
+        .refreshable { Task { await loadData() } }
+        .listStyle(.insetGrouped)
+    }
+    
+    private func author(username: String) -> some View {
+        Button(action: { needNavigation = true }, label: { TagTabNewsView(username, color: .randomColor) })
+    }
+    
+    private var sectionBody: some View {
+        Section {
+            if let body = viewModel?.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
+                MarkdownView(text: body) { element in
+                    ElementView(element: element)
+                }
+            }
+        } header: {
+            if needLoading {
+                Spacer()
+                ProgressTabNewsView()
+            } else if let date = viewModel?.updated_at?.asString(withDateFormat: "dd MMMM - HH:mm") {
+                Text(date)
+            }
+        }
+    }
+    
+    private var sectionComments: some View {
+        Section {
+            if let viewModel = viewModel, let commentsAmount = viewModel.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: viewModel) {
+                NavigationLink(destination: contentChildrenView) {
+                    commentsView(commentsAmount: commentsAmount)
+                }
+            }
+        }
     }
     
     private func loadData() async {
+        viewModel?.body = nil
         needLoading.toggle()
         viewModel = try? await presenter.showContentData()
         needLoading.toggle()
     }
     
-    private func contentInfo(user: String, date: String) -> some View {
-        Section {
-            HStack {
-                Text("Author")
-                Spacer()
-                Text(user.uppercased())
-                    .font(.footnote)
-                    .bold()
-                    .foregroundColor(.secondary)
-            }
-            HStack {
-                Text("Update Date")
-                Spacer()
-                Text(date.uppercased())
-                    .font(.footnote)
-                    .bold()
-                    .foregroundColor(.secondary)
-            }
-        }
-    }
-    
-    private func commentsInfo(commentsAmount: Int) -> some View {
-        HStack {
-            Image(systemName: "ellipsis.message.fill")
-                .foregroundColor(.blue.opacity(0.8))
-            Text("Comments")
-            Spacer()
-            Text("\(commentsAmount > 0 ? "\(commentsAmount)" : "No Comments")")
-                .font(.footnote)
-                .bold()
-                .foregroundColor(.secondary)
-        }
+    private func commentsView(commentsAmount: Int) -> some View {
+        CardBasicDetailView(title: "Comentários", description: "\(commentsAmount > 0 ? "\(commentsAmount)" : "Não há comentários")", image: "ellipsis.message.fill", imageColor: .blue)
     }
 }
 
@@ -108,7 +90,7 @@ struct ContentDataScene_Previews: PreviewProvider {
     static let user = "GabrielSozinho"
     static let slug = "documentacao-da-api-do-tabnews"
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             ContentDataScene(presenter: makeContentDataPresenter(endpoint: ContentDataEndpoint(user: user, slug: slug)))
         }
     }

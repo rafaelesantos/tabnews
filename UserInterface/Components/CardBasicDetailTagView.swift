@@ -26,6 +26,7 @@ public struct CardBasicDetailTagView: View {
         HStack {
             if let image = image, !image.isEmpty {
                 Image(systemName: image)
+                    .symbolRenderingMode(.hierarchical)
                     .foregroundColor(imageColor == nil ? .primary : imageColor!)
             }
             Text(title)

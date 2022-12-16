@@ -21,8 +21,10 @@ public final class RemoteGetInitContent: GetInitContent, TabNewsHttpRequest {
     public func getInitContent() async -> GetInitContent.Result {
         let result = await httpClient.request(self)
         switch result {
-        case .success(let response): return .success(response)
-        case .failure(let httpError): return .failure(.requestError(error: httpError))
+        case .success(let response):
+            return .success(response)
+        case .failure(let httpError):
+            return .failure(.requestError(error: httpError))
         }
     }
     

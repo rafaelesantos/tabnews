@@ -23,6 +23,7 @@ public struct CardContentChildrenView: View {
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .top, spacing: 5) {
                     Image(systemName: "ellipsis.message.fill")
+                        .symbolRenderingMode(.hierarchical)
                         .foregroundColor(color)
                         .padding(.trailing, 4)
                     if let username = viewModel.owner_username {
