@@ -8,6 +8,7 @@
 import SwiftUI
 import Presentation
 import Markdown
+import RefdsUI
 
 public struct CardContentChildrenView: View {
     private let viewModel: InitContentViewModel
@@ -27,27 +28,18 @@ public struct CardContentChildrenView: View {
                         .foregroundColor(color)
                         .padding(.trailing, 4)
                     if let username = viewModel.owner_username {
-                        TagTabNewsView(username, color: color)
+                        RefdsTag(username, color: color)
                     }
                     
                     if let tabCoins = viewModel.tabcoins, tabCoins > 0 {
-                        Text("\(tabCoins) COINS")
-                            .bold()
-                            .font(.system(size: 8))
-                            .foregroundColor(.yellow)
-                            .padding(6)
-                            .background(Color.yellow.opacity(0.2))
-                            .cornerRadius(6)
+                        RefdsTag("\(tabCoins) COINS", color: .yellow)
                     }
                     
                     Spacer(minLength: 6)
                     
                     if let date = viewModel.updated_at?.asString(withDateFormat: "dd MMMM - HH:mm"), !date.isEmpty {
-                        Text(date)
-                            .font(.system(size: 12))
-                            .foregroundColor(.secondary)
-                            .padding(4)
-                            .lineLimit(1)
+                        RefdsText(date, size: .extraSmall, color: .secondary)
+                            .padding([.top, .bottom], 4)
                     }
                 }
                 

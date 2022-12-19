@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Presentation
 import UserInterface
 import Markdown
@@ -44,7 +45,7 @@ struct ContentDataScene: View {
     }
     
     private func author(username: String) -> some View {
-        Button(action: { needNavigation = true }, label: { TagTabNewsView(username, color: .randomColor) })
+        Button(action: { needNavigation = true }, label: { RefdsTag(username, color: .randomColor) })
     }
     
     private var sectionBody: some View {
@@ -52,6 +53,7 @@ struct ContentDataScene: View {
             if let body = viewModel?.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
                 MarkdownView(text: body) { element in
                     ElementView(element: element)
+                        
                 }
             }
         } header: {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Charts
 
 public struct CardBarChartView: View {
@@ -27,11 +28,9 @@ public struct CardBarChartView: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             HStack {
-                Text(title.capitalized)
-                    .font(.body)
-                    .bold()
+                RefdsText(title.capitalized, weight: .bold)
                 Spacer()
-                TagTabNewsView("\(marks.map({ $0.y.intValue }).reduce(0, +)) last week", color: color)
+                RefdsTag("\(marks.map({ $0.y.intValue }).reduce(0, +)) última semana", color: color)
             }
             Chart {
                 ForEach(marks, id: \.id) { mark in
@@ -47,15 +46,19 @@ public struct CardBarChartView: View {
 
 struct CardBarChartView_Previews: PreviewProvider {
     static var previews: some View {
-        CardBarChartView(title: "any-title", marks: [
-            (x: "01/12", y: 5),
-            (x: "02/12", y: 1),
-            (x: "03/12", y: 8),
-            (x: "04/12", y: 3),
-            (x: "05/12", y: 7),
-            (x: "06/12", y: 2),
-            (x: "07/12", y: 4),
-            (x: "08/12", y: 9)
-        ])
+        GroupBox {
+            CardBarChartView(title: "any-title", marks: [
+                (x: "01/12", y: 5),
+                (x: "02/12", y: 1),
+                (x: "03/12", y: 8),
+                (x: "04/12", y: 3),
+                (x: "05/12", y: 7),
+                (x: "06/12", y: 2),
+                (x: "07/12", y: 4),
+                (x: "08/12", y: 9)
+            ])
+        }.padding()
+            .previewDisplayName("Chart bar")
+            .previewLayout(.sizeThatFits)
     }
 }

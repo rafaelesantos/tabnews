@@ -17,15 +17,19 @@ struct InitContentEndpoint: TabNewsHttpEndpoint {
     var headers: [TabNewsHttpHeader]?
     var body: Data?
     
-    public init(page: Int = 1, perPage: Int = 20, strategy: InitContentEndpointStrategy = .relevant, user: String? = nil) {
+    public init(method: TabNewsHttpMethod = .get, page: Int = 1, perPage: Int = 20, strategy: InitContentEndpointStrategy = .relevant, user: String? = nil) {
         if let user = user {
             path += "/\(user)"
         }
-        self.queryItems = [
-            .init(name: "page", value: "\(page)"),
-            .init(name: "per_page", value: "\(perPage)"),
-            .init(name: "strategy", value: strategy.rawValue)
-        ]
+        
+        if method == .get {
+            self.queryItems = [
+                .init(name: "page", value: "\(page)"),
+                .init(name: "per_page", value: "\(perPage)"),
+                .init(name: "strategy", value: strategy.rawValue)
+            ]
+        }
+        self.method = method
     }
 }
 

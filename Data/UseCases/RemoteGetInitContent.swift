@@ -21,16 +21,17 @@ public final class RemoteGetInitContent: GetInitContent, TabNewsHttpRequest {
     public func getInitContent() async -> GetInitContent.Result {
         let result = await httpClient.request(self)
         switch result {
-        case .success(let response):
-            return .success(response)
-        case .failure(let httpError):
-            return .failure(.requestError(error: httpError))
+        case .success(let response): return .success(response)
+        case .failure(let httpError): return .failure(.response(error: .init(message: httpError.description)))
         }
     }
     
     public func decode(_ data: Data, endpoint: TabNewsHttpEndpoint?) throws -> Response {
         let jsonDecoder = JSONDecoder()
-        guard let decoded: Response = try? jsonDecoder.decode(Response.self, from: data) else { throw TabNewsError.decodedError(type: Response.self) }
+        guard let decoded: Response = try? jsonDecoder.decode(Response.self, from: data) else {
+            guard let decodedError: ErrorResponse = try? jsonDecoder.decode(ErrorResponse.self, from: data) else { throw TabNewsError.response(error: .init()) }
+            throw TabNewsError.response(error: decodedError)
+        }
         return decoded
     }
 }

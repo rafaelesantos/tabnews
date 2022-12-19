@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 
 public struct CardBasicDetailView: View {
     private let title: String
@@ -30,12 +31,9 @@ public struct CardBasicDetailView: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(imageColor == nil ? .primary : imageColor!)
             }
-            Text(title)
-                .lineLimit(1)
+            RefdsText(title, size: .normal, lineLimit: 1)
             Spacer()
-            Text(description)
-                .lineLimit(1)
-                .foregroundColor(.secondary)
+            RefdsText(description, size: .normal, color: .secondary, lineLimit: 1)
         }
     }
 }

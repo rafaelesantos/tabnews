@@ -1,15 +1,15 @@
 //
-//  RemoteGetContentData.swift
+//  RemotePostRecoveryPassword.swift
 //  Data
 //
-//  Created by Rafael Santos on 11/12/22.
+//  Created by Rafael Santos on 18/12/22.
 //
 
 import Foundation
 import Domain
 
-public final class RemoteGetContentData: GetContentData, TabNewsHttpRequest {
-    public typealias Response = InitContentResponse
+public final class RemotePostRecoveryPassword: PostRecoveryPassword, TabNewsHttpRequest {
+    public typealias Response = RecoveryPasswordResponse
     public var httpClient: TabNewsHttpClient
     public var httpEndpoint: TabNewsHttpEndpoint
     
@@ -18,7 +18,9 @@ public final class RemoteGetContentData: GetContentData, TabNewsHttpRequest {
         self.httpEndpoint = httpEndpoint
     }
     
-    public func getContentData() async -> GetContentData.Result {
+    public func postRecoveryPassword(withBody requestBody: RecoveryPasswordRequest) async -> PostRecoveryPassword.Result {
+        httpEndpoint.body = requestBody.asData
+        httpEndpoint.headers = [.contentType(type: .applicationJson)]
         let result = await httpClient.request(self)
         switch result {
         case .success(let response): return .success(response)

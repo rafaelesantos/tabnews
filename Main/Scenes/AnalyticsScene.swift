@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Presentation
 import UserInterface
 
@@ -34,12 +35,10 @@ struct AnalyticsScene: View {
                 if let usersCreated = analytics?.usersCreated, let max = usersCreated.max(by: { $0.cadastros < $1.cadastros }) {
                     Section("Estatística de registros") {
                         HStack {
-                            Text("Melhor dia")
+                            RefdsText("Melhor dia")
                             Spacer()
-                            Text("\(max.cadastros)")
-                                .font(.footnote)
-                                .bold()
-                            TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
+                            RefdsText("\(max.cadastros)", size: .small, weight: .bold)
+                            RefdsTag("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
                             title: "registros",
@@ -61,9 +60,9 @@ struct AnalyticsScene: View {
                         HStack {
                             Text("Latência")
                             Spacer()
-                            TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.first_query), color: .blue)
-                            TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.second_query), color: .blue)
-                            TagTabNewsView(String(format: "%.2lf ms", status.dependencies.database.latency.third_query), color: .blue)
+                            RefdsTag(String(format: "%.2lf ms", status.dependencies.database.latency.first_query), color: .blue)
+                            RefdsTag(String(format: "%.2lf ms", status.dependencies.database.latency.second_query), color: .blue)
+                            RefdsTag(String(format: "%.2lf ms", status.dependencies.database.latency.third_query), color: .blue)
                         }
                         CardBasicDetailView(title: "Versão PostgreSQL", description: status.dependencies.database.version)
                     }.disabled(true)
@@ -72,12 +71,10 @@ struct AnalyticsScene: View {
                 if let rootContentPublished = analytics?.rootContentPublished, let max = rootContentPublished.max(by: { $0.conteudos < $1.conteudos }) {
                     Section("Estatística das publicações") {
                         HStack {
-                            Text("Melhor dia")
+                            RefdsText("Melhor dia")
                             Spacer()
-                            Text("\(max.conteudos)")
-                                .font(.footnote)
-                                .bold()
-                            TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
+                            RefdsText("\(max.conteudos)", size: .small, weight: .bold)
+                            RefdsTag("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
                             title: "publicações",
@@ -108,12 +105,10 @@ struct AnalyticsScene: View {
                 if let childContentPublished = analytics?.childContentPublished, let max = childContentPublished.max(by: { $0.respostas < $1.respostas }) {
                     Section("Estatística de comentários") {
                         HStack {
-                            Text("Melhor dia")
+                            RefdsText("Melhor dia")
                             Spacer()
-                            Text("\(max.respostas)")
-                                .font(.footnote)
-                                .bold()
-                            TagTabNewsView("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
+                            RefdsText("\(max.respostas)", size: .small, weight: .bold)
+                            RefdsTag("\(max.date.asDate(withFormat: "dd/MM")?.asString(withDateFormat: "dd MMMM") ?? "")", color: .green)
                         }
                         CardBarChartView(
                             title: "comentários",

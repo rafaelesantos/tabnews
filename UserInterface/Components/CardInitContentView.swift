@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Presentation
 
 public struct CardInitContentView: View {
@@ -22,17 +23,11 @@ public struct CardInitContentView: View {
             VStack(alignment: .leading, spacing: 6) {
                 HStack(alignment: .top, spacing: 5) {
                     if let tabCoins = viewModel.tabcoins, tabCoins > 0 {
-                        Text("\(tabCoins) COINS")
-                            .bold()
-                            .font(.system(size: 8))
-                            .foregroundColor(.yellow)
-                            .padding(6)
-                            .background(Color.yellow.opacity(0.2))
-                            .cornerRadius(6)
+                        RefdsTag("\(tabCoins) COINS", color: .yellow)
                     }
                     
                     if let username = viewModel.owner_username {
-                        TagTabNewsView(username, color: color)
+                        RefdsTag(username, color: color)
                     }
                     
                     Spacer(minLength: 6)
@@ -45,23 +40,19 @@ public struct CardInitContentView: View {
                                 .scaledToFit()
                                 .foregroundColor(color)
                                 .frame(maxHeight: 12)
-                            Text("\(childrenDeepCount)")
-                                .font(.system(size: 12))
+                            RefdsText("\(childrenDeepCount)", size: .extraSmall)
                         }
                         .padding([.leading, .top, .bottom], 4)
                     }
                     
                     if let date = viewModel.updated_at?.asString(withDateFormat: "dd/MM - HH:mm"), !date.isEmpty {
-                        Text(date)
-                            .font(.system(size: 12))
-                            .foregroundColor(.secondary)
-                            .padding(4)
+                        RefdsText(date, size: .extraSmall, color: .secondary)
+                            .padding([.leading, .top, .bottom], 4)
                     }
                 }
                 HStack {
                     if let title = viewModel.title {
-                        Text(title)
-                            .bold()
+                        RefdsText(title, size: .normal)
                     }
                 }
             }

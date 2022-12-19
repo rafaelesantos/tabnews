@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 
 public struct PaginationTabNewsView: View {
     @State private var pages: [Int]
@@ -55,12 +56,15 @@ public struct PaginationTabNewsView: View {
     
     private func makeButtonPage(with page: Int) -> some View {
         Button(action: { actionButtonPage(onPage: page) }, label: {
-            Text("\(page)")
-                .font(.footnote)
-                .foregroundColor(currentPage == page ? Color.blue : (page > currentPage && !canChangeToNextPage()) ? .secondary : .primary)
-                .frame(width: 40, height: 25)
-                .background(currentPage == page ? Color.blue.opacity(0.2) : .clear)
-                .cornerRadius(6)
+            RefdsText(
+                "\(page)",
+                size: .small,
+                color: currentPage == page ? Color.blue : (page > currentPage && !canChangeToNextPage()) ? .secondary : .primary,
+                family: .moderat
+            )
+            .frame(width: 40, height: 25)
+            .background(currentPage == page ? Color.blue.opacity(0.2) : .clear)
+            .cornerRadius(6)
         })
     }
     

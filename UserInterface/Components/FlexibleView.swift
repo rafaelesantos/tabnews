@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 
 public struct FlexibleView<Data: Collection, Content: View>: View where Data.Element: Hashable {
     public let data: Data
@@ -108,7 +109,7 @@ struct FlexibleView_Previews: PreviewProvider {
     static var previews: some View {
         GroupBox {
             FlexibleView(data: makeData(33), spacing: 10, alignment: .leading) { value in
-                TagTabNewsView(value, color: .randomColor)
+                RefdsTag(value, color: .randomColor)
             }
         }.padding()
     }

@@ -17,7 +17,8 @@ struct ContentDataEndpoint: TabNewsHttpEndpoint {
     var headers: [TabNewsHttpHeader]?
     var body: Data?
     
-    public init(user: String, slug: String) {
+    public init(method: TabNewsHttpMethod = .get, user: String, slug: String) {
         path += "/\(user)/\(slug)"
+        self.method = method
     }
 }

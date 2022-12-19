@@ -29,6 +29,22 @@
 		6C266BD329445B63009236BB /* Presentation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC752944315E00B1918C /* Presentation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C266BD629445B63009236BB /* UserInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */; };
 		6C266BD729445B63009236BB /* UserInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6C2CB974294EB72100F5D286 /* RefdsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6C2CB973294EB72100F5D286 /* RefdsUI */; };
+		6C2CB976294EB7A800F5D286 /* RefdsUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6C2CB975294EB7A800F5D286 /* RefdsUI */; };
+		6C2CB984294FAA9600F5D286 /* RecoveryPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB983294FAA9600F5D286 /* RecoveryPasswordResponse.swift */; };
+		6C2CB986294FAAAF00F5D286 /* RecoveryPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB985294FAAAF00F5D286 /* RecoveryPasswordRequest.swift */; };
+		6C2CB988294FAB6E00F5D286 /* PostRecoveryPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB987294FAB6E00F5D286 /* PostRecoveryPassword.swift */; };
+		6C2CB98A294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB989294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift */; };
+		6C2CB98C294FACCD00F5D286 /* RecoveryPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB98B294FACCD00F5D286 /* RecoveryPasswordViewModel.swift */; };
+		6C2CB98E294FACF400F5D286 /* RecoveryPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB98D294FACF400F5D286 /* RecoveryPasswordInteractor.swift */; };
+		6C2CB990294FAD0200F5D286 /* RecoveryPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB98F294FAD0200F5D286 /* RecoveryPasswordPresenter.swift */; };
+		6C2CB992294FAEE100F5D286 /* RecoveryPasswordEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB991294FAEE100F5D286 /* RecoveryPasswordEndpoint.swift */; };
+		6C2CB994294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB993294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift */; };
+		6C2CB996294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB995294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift */; };
+		6C2CB998294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB997294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift */; };
+		6C2CB99A2950B08F00F5D286 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB9992950B08F00F5D286 /* ErrorResponse.swift */; };
+		6C2CB99D2950B29200F5D286 /* TabNewsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB99C2950B29200F5D286 /* TabNewsError.swift */; };
+		6C2CB99F2950DCA100F5D286 /* AddPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB99E2950DCA100F5D286 /* AddPostScene.swift */; };
 		6C307355294449A100D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307354294449A100D38F35 /* RefdsCore */; };
 		6C307357294449B700D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307356294449B700D38F35 /* RefdsCore */; };
 		6C38A4A12946E8B4002982F8 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 6C38A4A02946E8B4002982F8 /* Markdown */; };
@@ -97,13 +113,26 @@
 		6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912892948417100648903 /* ApplicationExtension.swift */; };
 		6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
 		6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A12945004700F16A01 /* CardInitContentView.swift */; };
-		6CAD31A42945015100F16A01 /* TagTabNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A32945015100F16A01 /* TagTabNewsView.swift */; };
 		6CCF6A2B294B72EA008FF8AF /* LoadingHourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */; };
 		6CCF6A2C294B72EA008FF8AF /* LoadingHourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */; };
 		6CCF6A2F294B74F6008FF8AF /* NavigationStackExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2D294B74F6008FF8AF /* NavigationStackExtensions.swift */; };
 		6CCF6A31294BA757008FF8AF /* NotFoundTabNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCF6A30294BA757008FF8AF /* NotFoundTabNewsView.swift */; };
 		6CCF6A36294BAF79008FF8AF /* NotFoundSpaceship.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A35294BAF79008FF8AF /* NotFoundSpaceship.json */; };
 		6CCF6A37294BAF79008FF8AF /* NotFoundSpaceship.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A35294BAF79008FF8AF /* NotFoundSpaceship.json */; };
+		6CD8D7CB2950F1F900B92F14 /* NewPostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7CA2950F1F900B92F14 /* NewPostRequest.swift */; };
+		6CD8D7CD2950F30200B92F14 /* DeletePostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7CC2950F30200B92F14 /* DeletePostRequest.swift */; };
+		6CD8D7CF2950F39C00B92F14 /* AddPostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7CE2950F39C00B92F14 /* AddPostContent.swift */; };
+		6CD8D7D12950F3B000B92F14 /* DeletePostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7D02950F3B000B92F14 /* DeletePostContent.swift */; };
+		6CD8D7D32950F41A00B92F14 /* RemoteAddPostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7D22950F41A00B92F14 /* RemoteAddPostContent.swift */; };
+		6CD8D7D52950F43200B92F14 /* RemoteDeletePostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7D42950F43200B92F14 /* RemoteDeletePostContent.swift */; };
+		6CD8D7D72950F65E00B92F14 /* AddPostContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7D62950F65E00B92F14 /* AddPostContentInteractor.swift */; };
+		6CD8D7D92950F66E00B92F14 /* DeletePostContentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7D82950F66E00B92F14 /* DeletePostContentInteractor.swift */; };
+		6CD8D7DB2950F7C600B92F14 /* AddPostContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7DA2950F7C600B92F14 /* AddPostContentPresenter.swift */; };
+		6CD8D7DD2950F8A900B92F14 /* RemotePostContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7DC2950F8A900B92F14 /* RemotePostContentFactory.swift */; };
+		6CD8D7DF2950F94100B92F14 /* PostContentInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7DE2950F94100B92F14 /* PostContentInteractorFactory.swift */; };
+		6CD8D7E12950F9A600B92F14 /* PostContentPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */; };
+		6CD8D7E32950FAD100B92F14 /* DeletePostContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */; };
+		6CD8D7E5295100EE00B92F14 /* AddPostSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E4295100EE00B92F14 /* AddPostSceneFactory.swift */; };
 		6CF7534229463D1100A3B721 /* NetworkAdapterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534129463D1100A3B721 /* NetworkAdapterFactory.swift */; };
 		6CF7534429463D6200A3B721 /* RemoteGetInitContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534329463D6200A3B721 /* RemoteGetInitContentFactory.swift */; };
 		6CF7534729463E0700A3B721 /* InitContentPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534629463E0700A3B721 /* InitContentPresenterFactory.swift */; };
@@ -293,6 +322,20 @@
 		6C266BBF29445B4B009236BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C266BC129445B4B009236BB /* Main.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Main.entitlements; sourceTree = "<group>"; };
 		6C266BC329445B4B009236BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6C2CB983294FAA9600F5D286 /* RecoveryPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordResponse.swift; sourceTree = "<group>"; };
+		6C2CB985294FAAAF00F5D286 /* RecoveryPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordRequest.swift; sourceTree = "<group>"; };
+		6C2CB987294FAB6E00F5D286 /* PostRecoveryPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRecoveryPassword.swift; sourceTree = "<group>"; };
+		6C2CB989294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostRecoveryPassword.swift; sourceTree = "<group>"; };
+		6C2CB98B294FACCD00F5D286 /* RecoveryPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordViewModel.swift; sourceTree = "<group>"; };
+		6C2CB98D294FACF400F5D286 /* RecoveryPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordInteractor.swift; sourceTree = "<group>"; };
+		6C2CB98F294FAD0200F5D286 /* RecoveryPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordPresenter.swift; sourceTree = "<group>"; };
+		6C2CB991294FAEE100F5D286 /* RecoveryPasswordEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordEndpoint.swift; sourceTree = "<group>"; };
+		6C2CB993294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostRecoveryPasswordFactory.swift; sourceTree = "<group>"; };
+		6C2CB995294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordInteractorFactory.swift; sourceTree = "<group>"; };
+		6C2CB997294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPasswordPresenterFactory.swift; sourceTree = "<group>"; };
+		6C2CB9992950B08F00F5D286 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		6C2CB99C2950B29200F5D286 /* TabNewsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabNewsError.swift; sourceTree = "<group>"; };
+		6C2CB99E2950DCA100F5D286 /* AddPostScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostScene.swift; sourceTree = "<group>"; };
 		6C38A4A22946F099002982F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6C3FFC242944280A00B1918C /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3FFC3229442A4600B1918C /* InitContentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentResponse.swift; sourceTree = "<group>"; };
@@ -349,11 +392,24 @@
 		6C8912892948417100648903 /* ApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtension.swift; sourceTree = "<group>"; };
 		6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentEndpoint.swift; sourceTree = "<group>"; };
 		6CAD31A12945004700F16A01 /* CardInitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInitContentView.swift; sourceTree = "<group>"; };
-		6CAD31A32945015100F16A01 /* TagTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTabNewsView.swift; sourceTree = "<group>"; };
 		6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingHourglass.json; sourceTree = "<group>"; };
 		6CCF6A2D294B74F6008FF8AF /* NavigationStackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackExtensions.swift; sourceTree = "<group>"; };
 		6CCF6A30294BA757008FF8AF /* NotFoundTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundTabNewsView.swift; sourceTree = "<group>"; };
 		6CCF6A35294BAF79008FF8AF /* NotFoundSpaceship.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotFoundSpaceship.json; sourceTree = "<group>"; };
+		6CD8D7CA2950F1F900B92F14 /* NewPostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostRequest.swift; sourceTree = "<group>"; };
+		6CD8D7CC2950F30200B92F14 /* DeletePostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostRequest.swift; sourceTree = "<group>"; };
+		6CD8D7CE2950F39C00B92F14 /* AddPostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContent.swift; sourceTree = "<group>"; };
+		6CD8D7D02950F3B000B92F14 /* DeletePostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostContent.swift; sourceTree = "<group>"; };
+		6CD8D7D22950F41A00B92F14 /* RemoteAddPostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddPostContent.swift; sourceTree = "<group>"; };
+		6CD8D7D42950F43200B92F14 /* RemoteDeletePostContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDeletePostContent.swift; sourceTree = "<group>"; };
+		6CD8D7D62950F65E00B92F14 /* AddPostContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContentInteractor.swift; sourceTree = "<group>"; };
+		6CD8D7D82950F66E00B92F14 /* DeletePostContentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostContentInteractor.swift; sourceTree = "<group>"; };
+		6CD8D7DA2950F7C600B92F14 /* AddPostContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostContentPresenter.swift; sourceTree = "<group>"; };
+		6CD8D7DC2950F8A900B92F14 /* RemotePostContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePostContentFactory.swift; sourceTree = "<group>"; };
+		6CD8D7DE2950F94100B92F14 /* PostContentInteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentInteractorFactory.swift; sourceTree = "<group>"; };
+		6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentPresenterFactory.swift; sourceTree = "<group>"; };
+		6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostContentPresenter.swift; sourceTree = "<group>"; };
+		6CD8D7E4295100EE00B92F14 /* AddPostSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostSceneFactory.swift; sourceTree = "<group>"; };
 		6CF7534129463D1100A3B721 /* NetworkAdapterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapterFactory.swift; sourceTree = "<group>"; };
 		6CF7534329463D6200A3B721 /* RemoteGetInitContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGetInitContentFactory.swift; sourceTree = "<group>"; };
 		6CF7534629463E0700A3B721 /* InitContentPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentPresenterFactory.swift; sourceTree = "<group>"; };
@@ -405,6 +461,7 @@
 				6C38A4A12946E8B4002982F8 /* Markdown in Frameworks */,
 				6C266BCA29445B63009236BB /* Data.framework in Frameworks */,
 				6C266BD229445B63009236BB /* Presentation.framework in Frameworks */,
+				6C2CB974294EB72100F5D286 /* RefdsUI in Frameworks */,
 				6C266BC929445B63009236BB /* RefdsCore in Frameworks */,
 				6C0AE202294913DD00E9AB5C /* Lottie in Frameworks */,
 			);
@@ -450,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3FFCB429443E3E00B1918C /* Infrastructure.framework in Frameworks */,
+				6C2CB976294EB7A800F5D286 /* RefdsUI in Frameworks */,
 				6C3FFCB029443DAD00B1918C /* Data.framework in Frameworks */,
 				6C307357294449B700D38F35 /* RefdsCore in Frameworks */,
 				6C8912542947900500648903 /* Markdown in Frameworks */,
@@ -496,6 +554,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		6C2CB99B2950B27E00F5D286 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				6C2CB99C2950B29200F5D286 /* TabNewsError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		6C3FFC04294427D600B1918C = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +602,7 @@
 		6C3FFC30294428BD00B1918C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6C2CB99B2950B27E00F5D286 /* Error */,
 				6C89125B2947DC6200648903 /* Request */,
 				6C3FFC31294428D100B1918C /* Response */,
 			);
@@ -552,6 +619,8 @@
 				6CF7536229464D2C00A3B721 /* StatusResponse.swift */,
 				6C8912552947DA6500648903 /* LoginResponse.swift */,
 				6C8912572947DAC200648903 /* UserResponse.swift */,
+				6C2CB983294FAA9600F5D286 /* RecoveryPasswordResponse.swift */,
+				6C2CB9992950B08F00F5D286 /* ErrorResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -574,6 +643,9 @@
 				6C89123B29476B3000648903 /* GetContentChildren.swift */,
 				6C8912592947DC1D00648903 /* AddLogin.swift */,
 				6C89125E2947DD7F00648903 /* GetUser.swift */,
+				6C2CB987294FAB6E00F5D286 /* PostRecoveryPassword.swift */,
+				6CD8D7CE2950F39C00B92F14 /* AddPostContent.swift */,
+				6CD8D7D02950F3B000B92F14 /* DeletePostContent.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -607,6 +679,9 @@
 				6C89123D29476C7700648903 /* RemoteGetContentChildren.swift */,
 				6C8912602947DDE500648903 /* RemoteAddLogin.swift */,
 				6C8912622947DE9300648903 /* RemoteGetUser.swift */,
+				6C2CB989294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift */,
+				6CD8D7D22950F41A00B92F14 /* RemoteAddPostContent.swift */,
+				6CD8D7D42950F43200B92F14 /* RemoteDeletePostContent.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -653,6 +728,9 @@
 				6C89124129476DAF00648903 /* ContentChildrenPresenter.swift */,
 				6C89126C2947DF6A00648903 /* LoginPresenter.swift */,
 				6C89126E2947DF7500648903 /* UserPresenter.swift */,
+				6C2CB98F294FAD0200F5D286 /* RecoveryPasswordPresenter.swift */,
+				6CD8D7DA2950F7C600B92F14 /* AddPostContentPresenter.swift */,
+				6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -666,6 +744,9 @@
 				6C89123F29476D7D00648903 /* ContentChildrenInteractor.swift */,
 				6C8912682947DF5500648903 /* LoginInteractor.swift */,
 				6C89126A2947DF6100648903 /* UserInteractor.swift */,
+				6C2CB98D294FACF400F5D286 /* RecoveryPasswordInteractor.swift */,
+				6CD8D7D62950F65E00B92F14 /* AddPostContentInteractor.swift */,
+				6CD8D7D82950F66E00B92F14 /* DeletePostContentInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -677,6 +758,7 @@
 				6CF753702946532500A3B721 /* AnalyticsViewModel.swift */,
 				6C8912642947DEE600648903 /* LoginViewModel.swift */,
 				6C8912662947DF1800648903 /* UserViewModel.swift */,
+				6C2CB98B294FACCD00F5D286 /* RecoveryPasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -696,7 +778,6 @@
 			children = (
 				6C0AE2052949160400E9AB5C /* LottieView.swift */,
 				6CAD31A12945004700F16A01 /* CardInitContentView.swift */,
-				6CAD31A32945015100F16A01 /* TagTabNewsView.swift */,
 				6C704E2429454044007FD1A3 /* PaginationTabNewsView.swift */,
 				6CF7538A29465F5F00A3B721 /* CardBarChartView.swift */,
 				6CF7539529468AEE00A3B721 /* CardBasicDetailView.swift */,
@@ -713,6 +794,9 @@
 			isa = PBXGroup;
 			children = (
 				6C89125C2947DC7E00648903 /* LoginRequest.swift */,
+				6C2CB985294FAAAF00F5D286 /* RecoveryPasswordRequest.swift */,
+				6CD8D7CA2950F1F900B92F14 /* NewPostRequest.swift */,
+				6CD8D7CC2950F30200B92F14 /* DeletePostRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -747,6 +831,7 @@
 				6C89124329476F5E00648903 /* ContentChildrenEndpoint.swift */,
 				6C8912702947E75B00648903 /* LoginEndpoint.swift */,
 				6C8912722947E79B00648903 /* UserEndpoint.swift */,
+				6C2CB991294FAEE100F5D286 /* RecoveryPasswordEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -769,6 +854,8 @@
 				6C89124529476F9900648903 /* RemoteGetContentChildrenFactory.swift */,
 				6C8912742947E7F100648903 /* RemoteAddLoginFactory.swift */,
 				6C8912762947E7FE00648903 /* RemoteGetUserFactory.swift */,
+				6C2CB993294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift */,
+				6CD8D7DC2950F8A900B92F14 /* RemotePostContentFactory.swift */,
 			);
 			path = Remotes;
 			sourceTree = "<group>";
@@ -782,6 +869,8 @@
 				6C8912492947704E00648903 /* ContentChildrenPresenterFactory.swift */,
 				6C89127C2947E93000648903 /* LoginPresenterFactory.swift */,
 				6C89127E2947E93C00648903 /* UserPresenterFactory.swift */,
+				6C2CB997294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift */,
+				6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -795,6 +884,8 @@
 				6C89124729476FEA00648903 /* ContentChildrenInteractorFactory.swift */,
 				6C8912782947E87900648903 /* LoginInteractorFactory.swift */,
 				6C89127A2947E88400648903 /* UserInteractorFactory.swift */,
+				6C2CB995294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift */,
+				6CD8D7DE2950F94100B92F14 /* PostContentInteractorFactory.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -808,6 +899,7 @@
 				6C8912802947E9A900648903 /* ContentDataSceneFactory.swift */,
 				6C89128629483BED00648903 /* LoginSceneFactory.swift */,
 				6C0AE1FC2948CC8200E9AB5C /* UserSceneFactory.swift */,
+				6CD8D7E4295100EE00B92F14 /* AddPostSceneFactory.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -821,6 +913,7 @@
 				6C89124D294770A500648903 /* ContentChildrenScene.swift */,
 				6C8912822947EA2400648903 /* LoginScene.swift */,
 				6C8912842947EA2F00648903 /* UserScene.swift */,
+				6C2CB99E2950DCA100F5D286 /* AddPostScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -897,6 +990,7 @@
 				6C266BC829445B63009236BB /* RefdsCore */,
 				6C38A4A02946E8B4002982F8 /* Markdown */,
 				6C0AE201294913DD00E9AB5C /* Lottie */,
+				6C2CB973294EB72100F5D286 /* RefdsUI */,
 			);
 			productName = Main;
 			productReference = 6C266BB929445B4A009236BB /* Main.app */;
@@ -1013,6 +1107,7 @@
 				6C307356294449B700D38F35 /* RefdsCore */,
 				6C8912532947900500648903 /* Markdown */,
 				6C0AE2092949172900E9AB5C /* Lottie */,
+				6C2CB975294EB7A800F5D286 /* RefdsUI */,
 			);
 			productName = UserInterface;
 			productReference = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */;
@@ -1066,6 +1161,7 @@
 				6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */,
 				6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */,
 				6C0AE200294913DD00E9AB5C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				6C2CB972294EB72100F5D286 /* XCRemoteSwiftPackageReference "refds-design-system" */,
 			);
 			productRefGroup = 6C3FFC0E294427D600B1918C /* Products */;
 			projectDirPath = "";
@@ -1146,12 +1242,16 @@
 				6C8912732947E79B00648903 /* UserEndpoint.swift in Sources */,
 				6CF753AA2946C94900A3B721 /* ContentDataInteractorFactory.swift in Sources */,
 				6CF753902946725700A3B721 /* AnalyticsSceneFactory.swift in Sources */,
+				6CD8D7E12950F9A600B92F14 /* PostContentPresenterFactory.swift in Sources */,
+				6CD8D7DF2950F94100B92F14 /* PostContentInteractorFactory.swift in Sources */,
+				6C2CB998294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift in Sources */,
 				6C8912752947E7F100648903 /* RemoteAddLoginFactory.swift in Sources */,
 				6CF753AC2946C99000A3B721 /* ContentDataPresenterFactory.swift in Sources */,
 				6C8912812947E9A900648903 /* ContentDataSceneFactory.swift in Sources */,
 				6CF753B42946CE7500A3B721 /* ContentDataScene.swift in Sources */,
 				6CF753A62946C86500A3B721 /* RemoteGetContentDataFactory.swift in Sources */,
 				6C89127D2947E93000648903 /* LoginPresenterFactory.swift in Sources */,
+				6C2CB996294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift in Sources */,
 				6C89127B2947E88400648903 /* UserInteractorFactory.swift in Sources */,
 				6CF7534429463D6200A3B721 /* RemoteGetInitContentFactory.swift in Sources */,
 				6CF7537B29465A0D00A3B721 /* AnalyticsEndpoint.swift in Sources */,
@@ -1163,8 +1263,12 @@
 				6C89124A2947704E00648903 /* ContentChildrenPresenterFactory.swift in Sources */,
 				6CF7538729465D7F00A3B721 /* InitContentSceneFactory.swift in Sources */,
 				6C89128729483BED00648903 /* LoginSceneFactory.swift in Sources */,
+				6CD8D7DD2950F8A900B92F14 /* RemotePostContentFactory.swift in Sources */,
 				6C8912712947E75B00648903 /* LoginEndpoint.swift in Sources */,
 				6C8912832947EA2400648903 /* LoginScene.swift in Sources */,
+				6CD8D7E5295100EE00B92F14 /* AddPostSceneFactory.swift in Sources */,
+				6C2CB992294FAEE100F5D286 /* RecoveryPasswordEndpoint.swift in Sources */,
+				6C2CB994294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift in Sources */,
 				6CF753A82946C8C800A3B721 /* ContentDataEndpoint.swift in Sources */,
 				6CF7535A294643FB00A3B721 /* InitContentScene.swift in Sources */,
 				6C8912852947EA2F00648903 /* UserScene.swift in Sources */,
@@ -1178,6 +1282,7 @@
 				6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */,
 				6CF7538929465F3B00A3B721 /* AnalyticsScene.swift in Sources */,
 				6CF7534729463E0700A3B721 /* InitContentPresenterFactory.swift in Sources */,
+				6C2CB99F2950DCA100F5D286 /* AddPostScene.swift in Sources */,
 				6CF7537D29465B2800A3B721 /* RemoteGetAnalyticsFactory.swift in Sources */,
 				6C8912772947E7FE00648903 /* RemoteGetUserFactory.swift in Sources */,
 				6C0AE1FD2948CC8200E9AB5C /* UserSceneFactory.swift in Sources */,
@@ -1191,19 +1296,28 @@
 			files = (
 				6CF7536729464F5400A3B721 /* GetStatus.swift in Sources */,
 				6C8912582947DAC200648903 /* UserResponse.swift in Sources */,
+				6CD8D7CF2950F39C00B92F14 /* AddPostContent.swift in Sources */,
 				6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */,
+				6C2CB986294FAAAF00F5D286 /* RecoveryPasswordRequest.swift in Sources */,
 				6C89125D2947DC7E00648903 /* LoginRequest.swift in Sources */,
 				6C89125A2947DC1D00648903 /* AddLogin.swift in Sources */,
 				6C8912562947DA6500648903 /* LoginResponse.swift in Sources */,
+				6C2CB99D2950B29200F5D286 /* TabNewsError.swift in Sources */,
+				6CD8D7CD2950F30200B92F14 /* DeletePostRequest.swift in Sources */,
 				6CF7539C2946C66E00A3B721 /* GetContentData.swift in Sources */,
+				6C2CB988294FAB6E00F5D286 /* PostRecoveryPassword.swift in Sources */,
+				6CD8D7D12950F3B000B92F14 /* DeletePostContent.swift in Sources */,
+				6CD8D7CB2950F1F900B92F14 /* NewPostRequest.swift in Sources */,
 				6C89125F2947DD7F00648903 /* GetUser.swift in Sources */,
 				6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */,
 				6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */,
 				6CF7535D294649C100A3B721 /* AnalyticsUsersCreatedResponse.swift in Sources */,
 				6CF7535F29464BBE00A3B721 /* AnalyticsRootContentPublishedResponse.swift in Sources */,
 				6CF7536529464E5800A3B721 /* GetAnalytics.swift in Sources */,
+				6C2CB99A2950B08F00F5D286 /* ErrorResponse.swift in Sources */,
 				6CF7536129464C6A00A3B721 /* AnalyticsChildContentPublishedResponse.swift in Sources */,
 				6C89123C29476B3000648903 /* GetContentChildren.swift in Sources */,
+				6C2CB984294FAA9600F5D286 /* RecoveryPasswordResponse.swift in Sources */,
 				6CF7536329464D2C00A3B721 /* StatusResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1215,10 +1329,13 @@
 				6CF7539E2946C6AF00A3B721 /* RemoteGetContentData.swift in Sources */,
 				6C89123E29476C7700648903 /* RemoteGetContentChildren.swift in Sources */,
 				6CF7536D294651C600A3B721 /* RemoteGetAnalyticsRootContentPublished.swift in Sources */,
+				6CD8D7D52950F43200B92F14 /* RemoteDeletePostContent.swift in Sources */,
 				6C8912632947DE9300648903 /* RemoteGetUser.swift in Sources */,
 				6C8912612947DDE500648903 /* RemoteAddLogin.swift in Sources */,
+				6C2CB98A294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift in Sources */,
 				6C3FFC5529442D3600B1918C /* RemoteGetInitContent.swift in Sources */,
 				6C3FFC5029442CCD00B1918C /* Typealias.swift in Sources */,
+				6CD8D7D32950F41A00B92F14 /* RemoteAddPostContent.swift in Sources */,
 				6CF753692946500900A3B721 /* RemoteGetAnalyticsUsersCreated.swift in Sources */,
 				6CF7536F2946527500A3B721 /* RemoteGetStatus.swift in Sources */,
 				6CF7536B2946517C00A3B721 /* RemoteGetAnalyticsChildContentPublished.swift in Sources */,
@@ -1237,12 +1354,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CD8D7E32950FAD100B92F14 /* DeletePostContentPresenter.swift in Sources */,
 				6C3FFC912944358B00B1918C /* InitContentPresenter.swift in Sources */,
 				6C89126B2947DF6100648903 /* UserInteractor.swift in Sources */,
 				6C8912672947DF1800648903 /* UserViewModel.swift in Sources */,
 				6C3FFC8F2944327A00B1918C /* InitContentInteractor.swift in Sources */,
+				6CD8D7DB2950F7C600B92F14 /* AddPostContentPresenter.swift in Sources */,
+				6C2CB990294FAD0200F5D286 /* RecoveryPasswordPresenter.swift in Sources */,
 				6C8912652947DEE600648903 /* LoginViewModel.swift in Sources */,
 				6C89126F2947DF7500648903 /* UserPresenter.swift in Sources */,
+				6C2CB98E294FACF400F5D286 /* RecoveryPasswordInteractor.swift in Sources */,
+				6CD8D7D92950F66E00B92F14 /* DeletePostContentInteractor.swift in Sources */,
 				6CF753772946595700A3B721 /* AnalyticsPresenter.swift in Sources */,
 				6C3FFC942944362300B1918C /* InitContentViewModel.swift in Sources */,
 				6CF753A22946C74100A3B721 /* ContentDataPresenter.swift in Sources */,
@@ -1252,6 +1374,8 @@
 				6C89124229476DAF00648903 /* ContentChildrenPresenter.swift in Sources */,
 				6C8912692947DF5500648903 /* LoginInteractor.swift in Sources */,
 				6CF753A02946C70000A3B721 /* ContentDataInteractor.swift in Sources */,
+				6C2CB98C294FACCD00F5D286 /* RecoveryPasswordViewModel.swift in Sources */,
+				6CD8D7D72950F65E00B92F14 /* AddPostContentInteractor.swift in Sources */,
 				6CF753712946532500A3B721 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1267,7 +1391,6 @@
 				6CF7538E2946715D00A3B721 /* ColorExtensions.swift in Sources */,
 				6C0AE1FF2948D62A00E9AB5C /* FlexibleView.swift in Sources */,
 				6CF7538B29465F5F00A3B721 /* CardBarChartView.swift in Sources */,
-				6CAD31A42945015100F16A01 /* TagTabNewsView.swift in Sources */,
 				6C0AE219294920DE00E9AB5C /* ProgressTabNewsView.swift in Sources */,
 				6C0AE2082949171E00E9AB5C /* LottieView.swift in Sources */,
 				6C704E2529454044007FD1A3 /* PaginationTabNewsView.swift in Sources */,
@@ -1989,6 +2112,14 @@
 				kind = branch;
 			};
 		};
+		6C2CB972294EB72100F5D286 /* XCRemoteSwiftPackageReference "refds-design-system" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/refdsenterprise/refds-design-system.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RainbowTalaxy/RoomTime.git";
@@ -2022,6 +2153,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
 			productName = RefdsCore;
+		};
+		6C2CB973294EB72100F5D286 /* RefdsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C2CB972294EB72100F5D286 /* XCRemoteSwiftPackageReference "refds-design-system" */;
+			productName = RefdsUI;
+		};
+		6C2CB975294EB7A800F5D286 /* RefdsUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6C2CB972294EB72100F5D286 /* XCRemoteSwiftPackageReference "refds-design-system" */;
+			productName = RefdsUI;
 		};
 		6C307354294449A100D38F35 /* RefdsCore */ = {
 			isa = XCSwiftPackageProductDependency;

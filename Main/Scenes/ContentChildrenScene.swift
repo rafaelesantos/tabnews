@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Presentation
 import UserInterface
 import Markdown
@@ -74,7 +75,7 @@ struct ContentChildrenScene: View {
         .navigationTitle("Comentários")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { needPresent = true }, label: { TagTabNewsView(previousViewModel.owner_username ?? "", color: .randomColor) })
+                Button(action: { needPresent = true }, label: { RefdsTag(previousViewModel.owner_username ?? "", color: .randomColor) })
             }
         }
         .navigationDestination(isPresented: $needPresent, destination: { makeInitContentScene(user: previousViewModel.owner_username) })

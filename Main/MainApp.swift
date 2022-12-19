@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import UserInterface
 import Data
 import Presentation
@@ -20,6 +21,10 @@ struct MainApp: App {
     @State private var innerSelectTabAction: ((MainApp.TabItem) -> Void)?
     static var outSelectTabAction: ((MainApp.TabItem) -> Void)?
     
+    init() {
+        RefdsUI.shared.setNavigationBarAppearance()
+    }
+    
     var body: some Scene {
         WindowGroup {
             TabView(selection: $tabSelected) {
@@ -28,7 +33,7 @@ struct MainApp: App {
                 }
                 .tabItem {
                     Image(systemName: "person.crop.circle")
-                    Text("User")
+                    RefdsText("Usuário", size: .normal)
                 }
                 .tag(MainApp.TabItem.user)
                 
@@ -37,7 +42,7 @@ struct MainApp: App {
                 }
                 .tabItem {
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    RefdsText("Início", size: .normal)
                 }
                 .tag(MainApp.TabItem.home)
                 
@@ -46,7 +51,7 @@ struct MainApp: App {
                 }
                 .tabItem {
                     Image(systemName: "chart.bar.xaxis")
-                    Text("Status")
+                    RefdsText("Status", size: .normal)
                 }
                 .tag(MainApp.TabItem.status)
             }
@@ -74,18 +79,14 @@ struct MainApp: App {
                         .symbolRenderingMode(.hierarchical)
                         .foregroundColor(.blue)
                         .frame(width: 16, height: 16)
-                    Text(MainApp.coin)
-                        .foregroundColor(.primary)
-                        .font(.footnote)
+                    RefdsText(MainApp.coin, size: .small)
                     Image(systemName: "dollarsign.square.fill")
                         .resizable()
                         .scaledToFit()
                         .symbolRenderingMode(.hierarchical)
                         .foregroundColor(.green)
                         .frame(width: 16, height: 16)
-                    Text(MainApp.cash)
-                        .foregroundColor(.primary)
-                        .font(.footnote)
+                    RefdsText(MainApp.cash, size: .small)
                 }
             }
         })
@@ -97,5 +98,26 @@ extension MainApp {
         case user = 1
         case home = 2
         case status = 3
+    }
+}
+
+extension UIFont {
+    class func preferredFont(from font: Font) -> UIFont {
+        let style: UIFont.TextStyle
+        switch font {
+        case .largeTitle:  style = .largeTitle
+        case .title:       style = .title1
+        case .title2:      style = .title2
+        case .title3:      style = .title3
+        case .headline:    style = .headline
+        case .subheadline: style = .subheadline
+        case .callout:     style = .callout
+        case .caption:     style = .caption1
+        case .caption2:    style = .caption2
+        case .footnote:    style = .footnote
+        case .body: fallthrough
+        default:           style = .body
+        }
+        return  UIFont.preferredFont(forTextStyle: style)
     }
 }

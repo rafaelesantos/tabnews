@@ -8,6 +8,7 @@
 import SwiftUI
 import Presentation
 import UserInterface
+import RefdsUI
 
 public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
@@ -26,6 +27,8 @@ public struct InitContentScene: View {
         }
     }
     @State private var needLoading: Bool = false
+    @AppStorage("loggedUsername") var loggedUsername: String = ""
+    @State private var needNavigationToAddPostContent = false
     private var user: String?
     
     public init(presenter: InitContentPresenterProtocol, user: String? = nil) {
@@ -38,12 +41,27 @@ public struct InitContentScene: View {
             contents(proxy: proxy)
         }
         .toolbar(content: {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button { isRelevant.toggle() } label: { TagTabNewsView(currentStrategy.rawValue, color: .randomColor) }
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                HStack {
+                    let color: Color = .randomColor
+                    Button { isRelevant.toggle() } label: { RefdsTag(currentStrategy.rawValue, color: color) }
+                    if !loggedUsername.isEmpty {
+                        Button { needNavigationToAddPostContent.toggle() } label: {
+                            Image(systemName: "square.and.pencil")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.blue)
+                                .bold()
+                        }
+                    }
+                }
             }
         })
         .navigationTitle(user == nil ? "TabNews" : user ?? "")
         .setTabMoney()
+        .navigationDestination(isPresented: $needNavigationToAddPostContent, destination: { makeAddPostScene(username: loggedUsername) })
         .task {
             await loadData()
         }
@@ -102,16 +120,18 @@ public struct InitContentScene: View {
                     NotFoundTabNewsView(style: .astronaut)
                 }
                 else {
-                    Text("página \(currentPage) com \(currentPerPage) por página ordenado por \(currentStrategy.rawValue)")
+                    RefdsText("página \(currentPage) com \(currentPerPage) por página ordenado por \(currentStrategy.rawValue)", size: .extraSmall, color: .secondary)
                 }
             })
             
             if !(initContents.isEmpty && notFoundData) {
                 Section {
-                    Picker("Conteúdos por página", selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
+                    Picker(selection: Binding(get: { currentPerPage }, set: { currentPerPage = $0 })) {
                         ForEach(0 ..< 31) { page in
-                            if page % 5 == 0 && page != 0 { Text("\(page)") }
+                            if page % 5 == 0 && page != 0 { RefdsText("\(page)", size: .normal) }
                         }
+                    } label: {
+                        RefdsText("Conteúdos por página", size: .normal)
                     }
                 } footer: {
                     VStack(alignment: .center, spacing: 0) {

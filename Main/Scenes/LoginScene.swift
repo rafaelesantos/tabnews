@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 import Presentation
 import UserInterface
 
@@ -16,7 +17,9 @@ struct LoginScene: View {
     
     @State private var color: Color = .blue
     @State private var presenter: LoginPresenterProtocol
+    @State private var presenterRecoveryPassword: RecoveryPasswordPresenterProtocol
     @State private var viewModel: LoginViewModel?
+    @State private var viewModelRecoveryPassword: RecoveryPasswordViewModel?
     @State private var needLoading: Bool = false
     @State private var isPresented: Bool = false
     @State private var stateScene: StateScene
@@ -27,6 +30,7 @@ struct LoginScene: View {
     init(state: LoginScene.StateScene = .login) {
         self._stateScene = State(initialValue: state)
         self._presenter = State(initialValue: makeLoginPresenter())
+        self._presenterRecoveryPassword = State(initialValue: makeRecoveryPasswordPresenter())
         staticStateScene = state
     }
     
@@ -49,7 +53,9 @@ struct LoginScene: View {
         .onTapGesture {
             UIApplication.shared.endEditing()
         }
-        .navigationDestination(isPresented: $isPresented, destination: { makeLoginScene(state: stateScene) })
+        .navigationDestination(isPresented: $isPresented, destination: {
+            makeLoginScene(state: stateScene)
+        })
     }
     
     private var loginScene: some View {
@@ -99,92 +105,90 @@ struct LoginScene: View {
     
     private var forgotPasswordScene: some View {
         VStack(spacing: 15) {
-            header
-            description
-            form
-            button(title: "recuperar") {
-                if !email.isEmpty {
-                    UIApplication.shared.endEditing()
+            if let _ = viewModelRecoveryPassword {
+                VStack(spacing: 5) {
+                    RefdsText("Confira seu e-mail", size: .extraLarge, weight: .bold)
+                    RefdsText("Você receberá um link para definir uma nova senha.", size: .normal, color: .secondary, alignment: .center)
                 }
+            } else {
+                header
+                description
+                form
+                button(title: "recuperar") {
+                    if !email.isEmpty || !username.isEmpty {
+                        UIApplication.shared.endEditing()
+                        needLoading.toggle()
+                        Task {
+                            viewModelRecoveryPassword = try? await presenterRecoveryPassword.showRecoveryPassword(content: email.isEmpty ? username : email)
+                            needLoading.toggle()
+                        }
+                    }
+                }
+                if needLoading { progressView }
             }
         }
     }
     
     private var header: some View {
         HStack(spacing: 2) {
-            Text("TAB")
-                .font(.system(size: 30))
-                .fontWeight(.black)
-                .opacity(0.8)
-            Text("NEWS")
-                .font(.system(size: 30))
-                .fontWeight(.black)
-                .foregroundColor(color.opacity(0.8))
+            RefdsText("TAB", size: .custom(30), weight: .black)
+            RefdsText("NEWS", size: .custom(30), color: color, weight: .black)
             Spacer()
         }
     }
     
     private var description: some View {
         HStack {
-            Text("Conteúdos para quem trabalha com Programação e Tecnologia")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+            RefdsText(
+                "Conteúdos para quem trabalha com Programação e Tecnologia",
+                size: .small,
+                color: .secondary,
+                family: .moderat
+            )
             Spacer()
         }
     }
     
     private var form: some View {
         GroupBox {
-            if staticStateScene == .signup {
+            if staticStateScene == .signup || staticStateScene == .forgotPassword {
                 HStack(spacing: 15) {
-                    Image(systemName: "person.text.rectangle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.blue)
-                        .frame(width: 28, height: 28)
-                    Text("Username")
-                        .lineLimit(1)
+                    RefdsText("Username", size: .normal, lineLimit: 1)
                     TextField("username", text: $username)
                         .textContentType(.username)
                         .keyboardType(.default)
                         .textCase(.lowercase)
                         .multilineTextAlignment(.trailing)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .font(.refds(size: 16, scaledSize: 1.2 * 16))
                 }
                 
                 Divider()
             }
             
             HStack(spacing: 15) {
-                Image(systemName: "person.crop.square.filled.and.at.rectangle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .symbolRenderingMode(.hierarchical)
-                    .foregroundColor(.blue)
-                    .frame(width: 28, height: 28)
-                Text("E-mail")
-                    .lineLimit(1)
+                RefdsText("E-mail", size: .normal, lineLimit: 1)
                 TextField("email@host.com", text: $email)
                     .textContentType(.emailAddress)
                     .textCase(.lowercase)
                     .keyboardType(.emailAddress)
+                    .textInputAutocapitalization(.never)
                     .multilineTextAlignment(.trailing)
+                    .autocorrectionDisabled()
+                    .font(.refds(size: 16, scaledSize: 1.2 * 16))
             }
             
-            if staticStateScene == .login {
+            if staticStateScene == .login || staticStateScene == .signup {
                 Divider()
                 
                 HStack(spacing: 15) {
-                    Image(systemName: "lock.rectangle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.blue)
-                        .frame(width: 28, height: 28)
-                    Text("Senha")
+                    RefdsText("Senha", size: .normal, lineLimit: 1)
                         .lineLimit(1)
-                    SecureField("••••••••", text: $password)
+                    SecureField("• • • • • • • •", text: $password)
                         .multilineTextAlignment(.trailing)
+                        .textInputAutocapitalization(.never)
+                        .font(.refds(size: 16, scaledSize: 1.2 * 16))
                 }
             }
         }
@@ -192,18 +196,24 @@ struct LoginScene: View {
 
     private var forgotPassword: some View {
         HStack(spacing: 6) {
-            Text("Esqueceu a senha?")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+            RefdsText(
+                "Esqueceu a senha?",
+                size: .small,
+                color: .secondary,
+                family: .moderat
+            )
             Button {
                 UIApplication.shared.endEditing()
                 stateScene = .forgotPassword
                 isPresented = true
             } label: {
-                Text("Recuperar")
-                    .font(.footnote)
-                    .bold()
-                    .foregroundColor(color)
+                RefdsText(
+                    "Recuperar",
+                    size: .small,
+                    color: color,
+                    weight: .bold,
+                    family: .moderat
+                )
             }
             Spacer()
         }
@@ -211,10 +221,9 @@ struct LoginScene: View {
     
     private func button(title: String, action: @escaping () -> Void) -> some View {
         HStack(spacing: 10) {
+            let color: Color = stateScene == .forgotPassword ? (email.isEmpty && username.isEmpty ? .secondary : color) : stateScene == .login ? (email.isEmpty || password.isEmpty ? .secondary : color) : (email.isEmpty || username.isEmpty || password.isEmpty ? .secondary : color)
             Button(action: action, label: {
-                Text(title.uppercased())
-                    .fontWeight(.black)
-                    .foregroundColor(color)
+                RefdsText(title.uppercased(), size: .normal, color: color, weight: .bold)
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
             })
@@ -229,18 +238,24 @@ struct LoginScene: View {
     
     private var dontHaveAccount: some View {
         HStack(spacing: 6) {
-            Text("Não possui conta?")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+            RefdsText(
+                "Não possui conta?",
+                size: .small,
+                color: .secondary,
+                family: .moderat
+            )
             Button {
                 UIApplication.shared.endEditing()
                 stateScene = .signup
                 isPresented = true
             } label: {
-                Text("Cadastrar")
-                    .font(.footnote)
-                    .bold()
-                    .foregroundColor(color)
+                RefdsText(
+                    "Cadastrar",
+                    size: .small,
+                    color: color,
+                    weight: .bold,
+                    family: .moderat
+                )
             }
             Spacer()
         }

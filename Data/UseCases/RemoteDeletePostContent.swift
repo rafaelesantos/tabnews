@@ -1,14 +1,14 @@
 //
-//  RemoteGetContentData.swift
+//  RemoteDeletePostContent.swift
 //  Data
 //
-//  Created by Rafael Santos on 11/12/22.
+//  Created by Rafael Santos on 19/12/22.
 //
 
 import Foundation
 import Domain
 
-public final class RemoteGetContentData: GetContentData, TabNewsHttpRequest {
+public final class RemoteDeletePostContent: DeletePostContent, TabNewsHttpRequest {
     public typealias Response = InitContentResponse
     public var httpClient: TabNewsHttpClient
     public var httpEndpoint: TabNewsHttpEndpoint
@@ -18,7 +18,9 @@ public final class RemoteGetContentData: GetContentData, TabNewsHttpRequest {
         self.httpEndpoint = httpEndpoint
     }
     
-    public func getContentData() async -> GetContentData.Result {
+    public func deletePostContent(withBody requestBody: DeletePostRequest) async -> DeletePostContent.Result {
+        httpEndpoint.body = requestBody.asData
+        httpEndpoint.headers = [.contentType(type: .applicationJson)]
         let result = await httpClient.request(self)
         switch result {
         case .success(let response): return .success(response)

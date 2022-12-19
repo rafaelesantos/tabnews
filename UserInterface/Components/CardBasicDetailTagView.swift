@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RefdsUI
 
 public struct CardBasicDetailTagView: View {
     private let title: String
@@ -29,9 +30,9 @@ public struct CardBasicDetailTagView: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(imageColor == nil ? .primary : imageColor!)
             }
-            Text(title)
+            RefdsText(title, size: .normal, lineLimit: 1)
             Spacer()
-            TagTabNewsView(description, color: color)
+            RefdsTag(description, color: color)
         }
     }
 }

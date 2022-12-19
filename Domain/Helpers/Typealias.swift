@@ -8,5 +8,4 @@
 import Foundation
 import RefdsDomain
 
-public typealias TabNewsError = DomainError
 public typealias TabNewsModel = DomainModel

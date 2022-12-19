@@ -8,15 +8,18 @@
 import SwiftUI
 import Presentation
 import UserInterface
+import RefdsUI
 
 struct UserScene: View {
     @State private var presenter: UserPresenterProtocol
     @State private var user: UserViewModel?
     @State private var username: String?
+    @State private var isDeveloperTheme: Bool = false
     
     @AppStorage("token") var token: String = ""
     @AppStorage("coin") var coin: String = ""
     @AppStorage("cash") var cash: String = ""
+    @AppStorage("loggedUsername") var loggedUsername: String = ""
     
     init(presenter: UserPresenterProtocol, username: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -36,7 +39,7 @@ struct UserScene: View {
                     sectionUserInformation
                     sectionTabMoney
                     sectionPermissions
-                    if user?.response.email is String { sectionLogout }
+                    if user?.response.email is String { sectionOptions }
                 }
             }
             .refreshable { Task { await loadData() } }
@@ -47,7 +50,7 @@ struct UserScene: View {
     }
     
     private var sectionUserInformation: some View {
-        Section("informações do usuário") {
+        Section {
             if let email = user?.response.email, let notifications = user?.response.notifications {
                 CardBasicDetailView(title: "E-mail", description: email, image: "square.text.square.fill", imageColor: .blue)
                 CardBasicDetailView(title: "Notificação", description: notifications ? "Ativo" : "Inativo", image: "bell.square.fill", imageColor: .pink)
@@ -63,6 +66,8 @@ struct UserScene: View {
                     }
                 }
             }
+        } header: {
+            RefdsText("Informações do usuário", size: .extraSmall, color: .secondary)
         }
     }
     
@@ -71,11 +76,11 @@ struct UserScene: View {
             if let features = user?.response.features {
                 VStack() {
                     HStack {
-                        Text("Permissões")
+                        RefdsText("Permissões", size: .extraSmall, color: .secondary)
                         Spacer()
                     }
                     FlexibleView(data: features, spacing: 10, alignment: .leading) { feature in
-                        TagTabNewsView(feature.replacingOccurrences(of: ":", with: " ").replacingOccurrences(of: "_", with: " ").capitalized, color: .randomColor)
+                        RefdsTag(feature.replacingOccurrences(of: ":", with: " ").replacingOccurrences(of: "_", with: " ").capitalized, color: .randomColor)
                     }
                 }
             }
@@ -83,16 +88,26 @@ struct UserScene: View {
     }
     
     private var sectionTabMoney: some View {
-        Section("TabMoney") {
+        Section {
             if let tabcoins = user?.response.tabcoins, let tabcash = user?.response.tabcash {
                 CardBasicDetailView(title: "Tab coins", description: "\(tabcoins)", image: "dollarsign.square.fill", imageColor: .blue)
                 CardBasicDetailView(title: "Tab cash", description: "\(tabcash)", image: "dollarsign.square.fill", imageColor: .green)
             }
+        } header: {
+            RefdsText("TabMoney", size: .extraSmall, color: .secondary)
+        }
+    }
+    
+    private var sectionOptions: some View {
+        Section {
+            sectionLogout
+        } header: {
+            RefdsText("opções", size: .extraSmall, color: .secondary)
         }
     }
     
     private var sectionLogout: some View {
-        Section {
+        VStack {
             Button {
                 logout()
             } label: {
@@ -107,10 +122,25 @@ struct UserScene: View {
             .frame(height: 350)
     }
     
+    private var sectionTheme: some View {
+        HStack {
+            Toggle(isOn: Binding(get: {
+                isDeveloperTheme
+            }, set: { _ in
+                isDeveloperTheme.toggle()
+                RefdsUI.shared.defaultFontFamily = isDeveloperTheme ? .moderatMono : .moderat
+                RefdsUI.shared.setNavigationBarAppearance()
+            })) {
+                CardBasicDetailView(title: "Tema desenvolvedor", description: "", image: "paintbrush.fill", imageColor: .green)
+            }
+        }
+    }
+    
     private func logout() {
         token = ""
         coin = ""
         cash = ""
+        loggedUsername = ""
         user = nil
     }
     
@@ -119,6 +149,7 @@ struct UserScene: View {
         user = try? await presenter.showUser(token: token)
         if let user = user, user.response.email?.isEmpty == false {
             if username == nil { username = user.response.username }
+            loggedUsername = user.response.username
             coin = "\(user.response.tabcoins)"
             cash = "\(user.response.tabcash)"
         }
