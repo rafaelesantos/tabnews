@@ -15,6 +15,7 @@ struct UserScene: View {
     @State private var user: UserViewModel?
     @State private var username: String?
     @State private var isDeveloperTheme: Bool = false
+    @State private var needNavigationToAddPostContent = false
     
     @AppStorage("token") var token: String = ""
     @AppStorage("coin") var coin: String = ""
@@ -38,8 +39,8 @@ struct UserScene: View {
                 else {
                     sectionUserInformation
                     sectionTabMoney
-                    sectionPermissions
                     if user?.response.email is String { sectionOptions }
+                    sectionPermissions
                 }
             }
             .refreshable { Task { await loadData() } }
@@ -47,6 +48,23 @@ struct UserScene: View {
         }
         .task { await loadData() }
         .navigationTitle(token.isEmpty ? "" : username ?? "Usuário")
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                if !loggedUsername.isEmpty {
+                    Button { needNavigationToAddPostContent.toggle() } label: {
+                        Image(systemName: "square.and.pencil")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(.blue)
+                            .bold()
+                    }
+                }
+            }
+        })
+        .navigationDestination(isPresented: $needNavigationToAddPostContent, destination: { makeAddPostScene(username: loggedUsername) })
+        .setTabMoney()
     }
     
     private var sectionUserInformation: some View {
@@ -58,14 +76,6 @@ struct UserScene: View {
             if let createdDate = user?.response.created_at.replacingOccurrences(of: "T", with: " ").replacingOccurrences(of: "Z", with: "").asDate(withFormat: "yyyy-MM-dd HH:mm:ss.SSS") {
                 CardBasicDetailView(title: "Data de criação", description: createdDate.asString(withDateFormat: "dd MMMM, yyyy"), image: "calendar.badge.clock", imageColor: .orange)
             }
-            
-            if let username = username, !username.isEmpty {
-                HStack {
-                    NavigationLink { makeInitContentScene(user: username) } label: {
-                        CardBasicDetailView(title: "Publicações", description: "", image: "rectangle.stack.badge.person.crop.fill", imageColor: .teal)
-                    }
-                }
-            }
         } header: {
             RefdsText("Informações do usuário", size: .extraSmall, color: .secondary)
         }
@@ -73,18 +83,17 @@ struct UserScene: View {
     
     private var sectionPermissions: some View {
         Section(content: { }, header: {
+            if let _ = user?.response.features {
+                RefdsText("Permissões", size: .extraSmall, color: .secondary)
+                    .padding(.bottom, 5)
+            }
+        }) {
             if let features = user?.response.features {
-                VStack() {
-                    HStack {
-                        RefdsText("Permissões", size: .extraSmall, color: .secondary)
-                        Spacer()
-                    }
-                    FlexibleView(data: features, spacing: 10, alignment: .leading) { feature in
-                        RefdsTag(feature.replacingOccurrences(of: ":", with: " ").replacingOccurrences(of: "_", with: " ").capitalized, color: .randomColor)
-                    }
+                FlexibleView(data: features, spacing: 10, alignment: .leading) { feature in
+                    RefdsTag(feature.replacingOccurrences(of: ":", with: " ").replacingOccurrences(of: "_", with: " ").capitalized, color: .randomColor)
                 }
             }
-        })
+        }
     }
     
     private var sectionTabMoney: some View {
@@ -100,6 +109,20 @@ struct UserScene: View {
     
     private var sectionOptions: some View {
         Section {
+            if let username = username, !username.isEmpty {
+                HStack {
+                    NavigationLink { makeInitContentScene(user: username) } label: {
+                        CardBasicDetailView(title: "Meu conteúdo", description: "", image: "rectangle.stack.badge.person.crop.fill", imageColor: .teal)
+                    }
+                }
+            }
+            if !loggedUsername.isEmpty {
+                HStack {
+                    NavigationLink { makeAddPostScene(username: loggedUsername) } label: {
+                        CardBasicDetailView(title: "Publicar novo conteúdo", description: "", image: "text.redaction", imageColor: .green)
+                    }
+                }
+            }
             sectionLogout
         } header: {
             RefdsText("opções", size: .extraSmall, color: .secondary)

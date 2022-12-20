@@ -227,7 +227,7 @@ struct LoginScene: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
             })
-            .background(color.opacity(0.2))
+            .background(color == self.color ? color.opacity(0.2) : Color(uiColor: .secondarySystemBackground))
             .cornerRadius(10)
         }
     }
