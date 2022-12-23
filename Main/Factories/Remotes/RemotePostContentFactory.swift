@@ -16,3 +16,7 @@ func makeRemoteAddPostContent() -> AddPostContent {
 func makeRemoteDeletePostContent(user: String, slug: String) -> DeletePostContent {
     RemoteDeletePostContent(httpClient: makeNetworkAdapter(), httpEndpoint: ContentDataEndpoint(method: .patch, user: user, slug: slug))
 }
+
+func makeRemoteAnswer() -> AddAnswer {
+    RemoteAddAnswer(httpClient: makeNetworkAdapter(), httpEndpoint: InitContentEndpoint(method: .post))
+}

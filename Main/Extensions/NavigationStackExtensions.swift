@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func setTabMoney() -> some View {
+    func setTabMoney(isPresented: Bool = true) -> some View {
         self.toolbar {
-            if !MainApp.cash.isEmpty, !MainApp.coin.isEmpty {
+            if !MainApp.cash.isEmpty, !MainApp.coin.isEmpty, isPresented {
                 ToolbarItem(placement: .navigationBarLeading) { MainApp.tabMoney }
             }
         }

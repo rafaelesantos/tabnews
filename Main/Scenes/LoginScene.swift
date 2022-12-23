@@ -18,12 +18,22 @@ struct LoginScene: View {
     @State private var color: Color = .blue
     @State private var presenter: LoginPresenterProtocol
     @State private var presenterRecoveryPassword: RecoveryPasswordPresenterProtocol
+    @State private var presenterSignup: AddSignupPresenterProtocol?
     @State private var viewModel: LoginViewModel?
     @State private var viewModelRecoveryPassword: RecoveryPasswordViewModel?
+    @State private var viewModelSignup: UserViewModel?
     @State private var needLoading: Bool = false
     @State private var isPresented: Bool = false
     @State private var stateScene: StateScene
     private var staticStateScene: StateScene
+    
+    private var isEnableButton: Bool {
+        switch staticStateScene {
+        case .forgotPassword: return !username.isEmpty || !email.isEmpty
+        case .signup: return !username.isEmpty && !email.isEmpty && !password.isEmpty
+        case .login: return !email.isEmpty && !password.isEmpty
+        }
+    }
     
     @AppStorage("token") var token: String = ""
     
@@ -31,6 +41,7 @@ struct LoginScene: View {
         self._stateScene = State(initialValue: state)
         self._presenter = State(initialValue: makeLoginPresenter())
         self._presenterRecoveryPassword = State(initialValue: makeRecoveryPasswordPresenter())
+        self._presenterSignup = State(initialValue: makeAddSignupPresenter())
         staticStateScene = state
     }
     
@@ -84,21 +95,26 @@ struct LoginScene: View {
     
     private var signupScene: some View {
         VStack(spacing: 15) {
-            header
-            description
-            form
-            button(title: "cadastrar") {
-                if !email.isEmpty, !password.isEmpty, !username.isEmpty {
-                    UIApplication.shared.endEditing()
-                    //                    needLoading.toggle()
-                    //                    Task {
-                    //                        viewModel = try? await presenter.showLogin(email: email, password: password)
-                    //                        if let viewModel = viewModel, !viewModel.response.token.isEmpty {
-                    //                            token = viewModel.response.token
-                    //                        }
-                    //                        needLoading.toggle()
-                    //                    }
+            if let _ = viewModelSignup {
+                VStack(spacing: 5) {
+                    RefdsText("Confira seu e-mail: \(email)", size: .extraLarge, weight: .bold)
+                    RefdsText("Você receberá um link para confirmar seu cadastro e ativar a sua conta.", size: .normal, color: .secondary, alignment: .center)
                 }
+            } else {
+                header
+                description
+                form
+                button(title: "cadastrar") {
+                    if !email.isEmpty, !password.isEmpty, !username.isEmpty {
+                        UIApplication.shared.endEditing()
+                        needLoading.toggle()
+                        Task {
+                            viewModelSignup = try? await presenterSignup?.addSignup(username: username, email: email, password: password)
+                            needLoading.toggle()
+                        }
+                    }
+                }
+                if needLoading { progressView }
             }
         }
     }
@@ -221,13 +237,13 @@ struct LoginScene: View {
     
     private func button(title: String, action: @escaping () -> Void) -> some View {
         HStack(spacing: 10) {
-            let color: Color = stateScene == .forgotPassword ? (email.isEmpty && username.isEmpty ? .secondary : color) : stateScene == .login ? (email.isEmpty || password.isEmpty ? .secondary : color) : (email.isEmpty || username.isEmpty || password.isEmpty ? .secondary : color)
+            let color: Color = isEnableButton ? color : .secondary
             Button(action: action, label: {
                 RefdsText(title.uppercased(), size: .normal, color: color, weight: .bold)
                     .frame(maxWidth: .infinity)
                     .frame(height: 45)
             })
-            .background(color == self.color ? color.opacity(0.2) : Color(uiColor: .secondarySystemBackground))
+            .background(isEnableButton ? color.opacity(0.2) : Color(uiColor: .secondarySystemBackground))
             .cornerRadius(10)
         }
     }

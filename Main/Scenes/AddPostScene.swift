@@ -68,7 +68,7 @@ struct AddPostScene: View {
     private var editPostTitleScene: some View {
         Section {
             TextField("Informe o título", text: $postTitle, axis: .vertical)
-                .font(.refds(size: 15, scaledSize: 1.2 * 15, weight: .bold, style: .body))
+                .font(.refds(size: 15, scaledSize: 1.2 * 15, weight: .regular, style: .body))
         } header: { RefdsText("título", size: .extraSmall, color: .secondary) }
     }
     

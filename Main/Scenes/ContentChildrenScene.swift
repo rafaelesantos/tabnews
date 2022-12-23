@@ -60,8 +60,14 @@ struct ContentChildrenScene: View {
             
             ForEach(viewModel, id: \.id) { content in
                 Section {
-                    CardContentChildrenView(viewModel: content)
-                        .disabled(true)
+                    if let username = content.owner_username, let slug = content.slug {
+                        NavigationLink {
+                            makeContentDataScene(user: username, slug: slug)
+                        } label: {
+                            CardContentChildrenView(viewModel: content)
+                        }
+                    }
+                    
                     if let commentsAmount = content.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: content) {
                         NavigationLink(destination: contentChildrenView) {
                             commentsView(amount: commentsAmount)

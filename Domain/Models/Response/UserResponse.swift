@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserResponse: TabNewsModel {
+public struct UserResponse: Hashable, TabNewsModel {
     public let id: String
     public let username: String
     public let email: String?

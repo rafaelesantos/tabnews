@@ -8,10 +8,15 @@
 import Foundation
 import Domain
 
-public struct UserViewModel {
+public struct UserViewModel: Hashable, Identifiable, Codable {
+    public var id: UUID = UUID()
     public var response: UserResponse
     
     public init(response: UserResponse) {
         self.response = response
+    }
+    
+    public static func == (lhs: UserViewModel, rhs: UserViewModel) -> Bool {
+        return lhs.response.id == rhs.response.id
     }
 }

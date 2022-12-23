@@ -23,6 +23,12 @@ struct MainApp: App {
     
     init() {
         RefdsUI.shared.setNavigationBarAppearance()
+        let backButtonAppearance = UIBarButtonItemAppearance(style: .plain)
+        backButtonAppearance.focused.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backButtonAppearance.disabled.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backButtonAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        UINavigationBar.appearance().standardAppearance.backButtonAppearance = backButtonAppearance
     }
     
     var body: some Scene {
@@ -70,23 +76,30 @@ struct MainApp: App {
     private var userScene: some View = makeUserScene()
     
     static var tabMoney: some View {
-        Button(action: { MainApp.outSelectTabAction?(.user) }, label: {
+        Button(action: { outSelectTabAction?(.user) }, label: {
             HStack {
-                if !MainApp.coin.isEmpty, !MainApp.cash.isEmpty {
+                if !coin.isEmpty, !cash.isEmpty {
                     Image(systemName: "dollarsign.square.fill")
                         .resizable()
                         .scaledToFit()
                         .symbolRenderingMode(.hierarchical)
                         .foregroundColor(.blue)
                         .frame(width: 16, height: 16)
-                    RefdsText(MainApp.coin, size: .small)
+                    RefdsText(coin, size: .small)
                     Image(systemName: "dollarsign.square.fill")
                         .resizable()
                         .scaledToFit()
                         .symbolRenderingMode(.hierarchical)
                         .foregroundColor(.green)
                         .frame(width: 16, height: 16)
-                    RefdsText(MainApp.cash, size: .small)
+                    RefdsText(cash, size: .small)
+                }
+            }
+            .task {
+                let user = try? await makeUserPresenter().showUser(token: token)
+                if let user = user, user.response.email?.isEmpty == false {
+                    coin = "\(user.response.tabcoins)"
+                    cash = "\(user.response.tabcash)"
                 }
             }
         })

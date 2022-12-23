@@ -16,11 +16,13 @@ struct UserScene: View {
     @State private var username: String?
     @State private var isDeveloperTheme: Bool = false
     @State private var needNavigationToAddPostContent = false
+    @State private var needNavigationToFavorit = false
     
     @AppStorage("token") var token: String = ""
     @AppStorage("coin") var coin: String = ""
     @AppStorage("cash") var cash: String = ""
     @AppStorage("loggedUsername") var loggedUsername: String = ""
+    @AppStorage("favoritUsers") var favoritUsers = [UserViewModel]()
     
     init(presenter: UserPresenterProtocol, username: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -50,21 +52,35 @@ struct UserScene: View {
         .navigationTitle(token.isEmpty ? "" : username ?? "Usuário")
         .toolbar(content: {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                if !loggedUsername.isEmpty {
-                    Button { needNavigationToAddPostContent.toggle() } label: {
-                        Image(systemName: "square.and.pencil")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(.blue)
-                            .bold()
+                HStack {
+                    if !loggedUsername.isEmpty, loggedUsername == username {
+                        Button { needNavigationToAddPostContent.toggle() } label: {
+                            Image(systemName: "square.and.pencil")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, height: 20)
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.blue)
+                                .bold()
+                        }
+                    }
+                    if loggedUsername == username {
+                        Button { needNavigationToFavorit.toggle() } label: {
+                            Image(systemName: "heart.rectangle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.pink)
+                                .bold()
+                        }
                     }
                 }
             }
         })
         .navigationDestination(isPresented: $needNavigationToAddPostContent, destination: { makeAddPostScene(username: loggedUsername) })
-        .setTabMoney()
+        .navigationDestination(isPresented: $needNavigationToFavorit, destination: { FavoritScene() })
+        .setTabMoney(isPresented: loggedUsername == username)
     }
     
     private var sectionUserInformation: some View {
@@ -76,24 +92,27 @@ struct UserScene: View {
             if let createdDate = user?.response.created_at.replacingOccurrences(of: "T", with: " ").replacingOccurrences(of: "Z", with: "").asDate(withFormat: "yyyy-MM-dd HH:mm:ss.SSS") {
                 CardBasicDetailView(title: "Data de criação", description: createdDate.asString(withDateFormat: "dd MMMM, yyyy"), image: "calendar.badge.clock", imageColor: .orange)
             }
+            if loggedUsername != username {
+                sectionAddFavoritButton
+            }
         } header: {
             RefdsText("Informações do usuário", size: .extraSmall, color: .secondary)
         }
     }
     
     private var sectionPermissions: some View {
-        Section(content: { }, header: {
-            if let _ = user?.response.features {
-                RefdsText("Permissões", size: .extraSmall, color: .secondary)
-                    .padding(.bottom, 5)
-            }
-        }) {
+        Section(content: {
             if let features = user?.response.features {
                 FlexibleView(data: features, spacing: 10, alignment: .leading) { feature in
                     RefdsTag(feature.replacingOccurrences(of: ":", with: " ").replacingOccurrences(of: "_", with: " ").capitalized, color: .randomColor)
                 }
             }
-        }
+        }, header: {
+            if let _ = user?.response.features {
+                RefdsText("Permissões", size: .extraSmall, color: .secondary)
+                    .padding(.bottom, 5)
+            }
+        })
     }
     
     private var sectionTabMoney: some View {
@@ -109,6 +128,7 @@ struct UserScene: View {
     
     private var sectionOptions: some View {
         Section {
+            sectionFavorit
             if let username = username, !username.isEmpty {
                 HStack {
                     NavigationLink { makeInitContentScene(user: username) } label: {
@@ -140,6 +160,14 @@ struct UserScene: View {
         }
     }
     
+    private var sectionFavorit: some View {
+        NavigationLink {
+            FavoritScene()
+        } label: {
+            CardBasicDetailView(title: "Favoritos", description: "", image: "heart.rectangle.fill", imageColor: .pink)
+        }
+    }
+    
     private var sectionLoading: some View {
         Section(content: {}, header: { ProgressTabNewsView() })
             .frame(height: 350)
@@ -157,6 +185,17 @@ struct UserScene: View {
                 CardBasicDetailView(title: "Tema desenvolvedor", description: "", image: "paintbrush.fill", imageColor: .green)
             }
         }
+    }
+    
+    private var sectionAddFavoritButton: some View {
+        Button {
+            if let user = user, favoritUsers.firstIndex(where: { $0.id == user.id }) == nil {
+                favoritUsers.append(user)
+            }
+        } label: {
+            CardBasicDetailView(title: "Favoritar \(username ?? "")", description: "", image: "heart.rectangle.fill", imageColor: .pink)
+        }
+        .tint(.teal)
     }
     
     private func logout() {
@@ -182,7 +221,7 @@ struct UserScene: View {
 struct UserScene_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            UserScene(presenter: makeUserPresenter())
+            UserScene(presenter: makeUserPresenter(user: "lengo"))
         }
     }
 }

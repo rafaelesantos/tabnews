@@ -25,7 +25,6 @@ struct AnalyticsScene: View {
         }
         .task { await loadData() }
         .navigationTitle("Estatísticas e Status")
-        .setTabMoney()
     }
     
     private var analyticList: some View {

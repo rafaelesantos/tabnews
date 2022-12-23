@@ -110,7 +110,7 @@
 		6C8912832947EA2400648903 /* LoginScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912822947EA2400648903 /* LoginScene.swift */; };
 		6C8912852947EA2F00648903 /* UserScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912842947EA2F00648903 /* UserScene.swift */; };
 		6C89128729483BED00648903 /* LoginSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89128629483BED00648903 /* LoginSceneFactory.swift */; };
-		6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912892948417100648903 /* ApplicationExtension.swift */; };
+		6C89128A2948417100648903 /* ApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912892948417100648903 /* ApplicationExtensions.swift */; };
 		6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
 		6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A12945004700F16A01 /* CardInitContentView.swift */; };
 		6CCF6A2B294B72EA008FF8AF /* LoadingHourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */; };
@@ -133,6 +133,24 @@
 		6CD8D7E12950F9A600B92F14 /* PostContentPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */; };
 		6CD8D7E32950FAD100B92F14 /* DeletePostContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */; };
 		6CD8D7E5295100EE00B92F14 /* AddPostSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD8D7E4295100EE00B92F14 /* AddPostSceneFactory.swift */; };
+		6CE3C1B22954AAB4002BFEEF /* SignupRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1B12954AAB4002BFEEF /* SignupRequest.swift */; };
+		6CE3C1B42954AB0B002BFEEF /* AddSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1B32954AB0B002BFEEF /* AddSignup.swift */; };
+		6CE3C1B62954D262002BFEEF /* RemoteAddSignup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1B52954D262002BFEEF /* RemoteAddSignup.swift */; };
+		6CE3C1B82954D2C2002BFEEF /* SignupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1B72954D2C2002BFEEF /* SignupInteractor.swift */; };
+		6CE3C1BA2954D353002BFEEF /* AddSignupPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1B92954D353002BFEEF /* AddSignupPresenter.swift */; };
+		6CE3C1BC2954D41A002BFEEF /* RemoteAddSignupFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1BB2954D41A002BFEEF /* RemoteAddSignupFactory.swift */; };
+		6CE3C1BE2954D46A002BFEEF /* AddSignupInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1BD2954D46A002BFEEF /* AddSignupInteractorFactory.swift */; };
+		6CE3C1C02954D49D002BFEEF /* AddSignupPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1BF2954D49D002BFEEF /* AddSignupPresenterFactory.swift */; };
+		6CE3C1C22954E845002BFEEF /* AnswerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1C12954E845002BFEEF /* AnswerRequest.swift */; };
+		6CE3C1C42954EA1B002BFEEF /* AddAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1C32954EA1B002BFEEF /* AddAnswer.swift */; };
+		6CE3C1C62954EA4E002BFEEF /* RemoteAddAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1C52954EA4E002BFEEF /* RemoteAddAnswer.swift */; };
+		6CE3C1C82954EAB1002BFEEF /* AnswerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1C72954EAB1002BFEEF /* AnswerInteractor.swift */; };
+		6CE3C1CA2954EB5C002BFEEF /* AnswerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1C92954EB5C002BFEEF /* AnswerPresenter.swift */; };
+		6CE3C1CC29550A93002BFEEF /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1CB29550A93002BFEEF /* ArrayExtensions.swift */; };
+		6CE3C1CE295515DA002BFEEF /* FavoritScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1CD295515DA002BFEEF /* FavoritScene.swift */; };
+		6CE3C1D029556496002BFEEF /* CardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3C1CF29556496002BFEEF /* CardUser.swift */; };
+		6CE3C1D529556B0D002BFEEF /* NotFoundFloating.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CE3C1D429556B0D002BFEEF /* NotFoundFloating.json */; };
+		6CE3C1D629556B0D002BFEEF /* NotFoundFloating.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CE3C1D429556B0D002BFEEF /* NotFoundFloating.json */; };
 		6CF7534229463D1100A3B721 /* NetworkAdapterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534129463D1100A3B721 /* NetworkAdapterFactory.swift */; };
 		6CF7534429463D6200A3B721 /* RemoteGetInitContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534329463D6200A3B721 /* RemoteGetInitContentFactory.swift */; };
 		6CF7534729463E0700A3B721 /* InitContentPresenterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF7534629463E0700A3B721 /* InitContentPresenterFactory.swift */; };
@@ -389,7 +407,7 @@
 		6C8912822947EA2400648903 /* LoginScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScene.swift; sourceTree = "<group>"; };
 		6C8912842947EA2F00648903 /* UserScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScene.swift; sourceTree = "<group>"; };
 		6C89128629483BED00648903 /* LoginSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSceneFactory.swift; sourceTree = "<group>"; };
-		6C8912892948417100648903 /* ApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtension.swift; sourceTree = "<group>"; };
+		6C8912892948417100648903 /* ApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtensions.swift; sourceTree = "<group>"; };
 		6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentEndpoint.swift; sourceTree = "<group>"; };
 		6CAD31A12945004700F16A01 /* CardInitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInitContentView.swift; sourceTree = "<group>"; };
 		6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingHourglass.json; sourceTree = "<group>"; };
@@ -410,6 +428,23 @@
 		6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostContentPresenterFactory.swift; sourceTree = "<group>"; };
 		6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletePostContentPresenter.swift; sourceTree = "<group>"; };
 		6CD8D7E4295100EE00B92F14 /* AddPostSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostSceneFactory.swift; sourceTree = "<group>"; };
+		6CE3C1B12954AAB4002BFEEF /* SignupRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupRequest.swift; sourceTree = "<group>"; };
+		6CE3C1B32954AB0B002BFEEF /* AddSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSignup.swift; sourceTree = "<group>"; };
+		6CE3C1B52954D262002BFEEF /* RemoteAddSignup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddSignup.swift; sourceTree = "<group>"; };
+		6CE3C1B72954D2C2002BFEEF /* SignupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupInteractor.swift; sourceTree = "<group>"; };
+		6CE3C1B92954D353002BFEEF /* AddSignupPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSignupPresenter.swift; sourceTree = "<group>"; };
+		6CE3C1BB2954D41A002BFEEF /* RemoteAddSignupFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddSignupFactory.swift; sourceTree = "<group>"; };
+		6CE3C1BD2954D46A002BFEEF /* AddSignupInteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSignupInteractorFactory.swift; sourceTree = "<group>"; };
+		6CE3C1BF2954D49D002BFEEF /* AddSignupPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSignupPresenterFactory.swift; sourceTree = "<group>"; };
+		6CE3C1C12954E845002BFEEF /* AnswerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerRequest.swift; sourceTree = "<group>"; };
+		6CE3C1C32954EA1B002BFEEF /* AddAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnswer.swift; sourceTree = "<group>"; };
+		6CE3C1C52954EA4E002BFEEF /* RemoteAddAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAddAnswer.swift; sourceTree = "<group>"; };
+		6CE3C1C72954EAB1002BFEEF /* AnswerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerInteractor.swift; sourceTree = "<group>"; };
+		6CE3C1C92954EB5C002BFEEF /* AnswerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerPresenter.swift; sourceTree = "<group>"; };
+		6CE3C1CB29550A93002BFEEF /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		6CE3C1CD295515DA002BFEEF /* FavoritScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritScene.swift; sourceTree = "<group>"; };
+		6CE3C1CF29556496002BFEEF /* CardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardUser.swift; sourceTree = "<group>"; };
+		6CE3C1D429556B0D002BFEEF /* NotFoundFloating.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NotFoundFloating.json; sourceTree = "<group>"; };
 		6CF7534129463D1100A3B721 /* NetworkAdapterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapterFactory.swift; sourceTree = "<group>"; };
 		6CF7534329463D6200A3B721 /* RemoteGetInitContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGetInitContentFactory.swift; sourceTree = "<group>"; };
 		6CF7534629463E0700A3B721 /* InitContentPresenterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentPresenterFactory.swift; sourceTree = "<group>"; };
@@ -526,6 +561,7 @@
 				6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */,
 				6CCF6A35294BAF79008FF8AF /* NotFoundSpaceship.json */,
 				6C0AE21229491BBB00E9AB5C /* NotFoundAstrounaut.json */,
+				6CE3C1D429556B0D002BFEEF /* NotFoundFloating.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -646,6 +682,8 @@
 				6C2CB987294FAB6E00F5D286 /* PostRecoveryPassword.swift */,
 				6CD8D7CE2950F39C00B92F14 /* AddPostContent.swift */,
 				6CD8D7D02950F3B000B92F14 /* DeletePostContent.swift */,
+				6CE3C1B32954AB0B002BFEEF /* AddSignup.swift */,
+				6CE3C1C32954EA1B002BFEEF /* AddAnswer.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -682,6 +720,8 @@
 				6C2CB989294FAC4F00F5D286 /* RemotePostRecoveryPassword.swift */,
 				6CD8D7D22950F41A00B92F14 /* RemoteAddPostContent.swift */,
 				6CD8D7D42950F43200B92F14 /* RemoteDeletePostContent.swift */,
+				6CE3C1B52954D262002BFEEF /* RemoteAddSignup.swift */,
+				6CE3C1C52954EA4E002BFEEF /* RemoteAddAnswer.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -731,6 +771,8 @@
 				6C2CB98F294FAD0200F5D286 /* RecoveryPasswordPresenter.swift */,
 				6CD8D7DA2950F7C600B92F14 /* AddPostContentPresenter.swift */,
 				6CD8D7E22950FAD100B92F14 /* DeletePostContentPresenter.swift */,
+				6CE3C1B92954D353002BFEEF /* AddSignupPresenter.swift */,
+				6CE3C1C92954EB5C002BFEEF /* AnswerPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -747,6 +789,8 @@
 				6C2CB98D294FACF400F5D286 /* RecoveryPasswordInteractor.swift */,
 				6CD8D7D62950F65E00B92F14 /* AddPostContentInteractor.swift */,
 				6CD8D7D82950F66E00B92F14 /* DeletePostContentInteractor.swift */,
+				6CE3C1B72954D2C2002BFEEF /* SignupInteractor.swift */,
+				6CE3C1C72954EAB1002BFEEF /* AnswerInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -786,6 +830,7 @@
 				6C0AE1FE2948D62A00E9AB5C /* FlexibleView.swift */,
 				6C0AE218294920DE00E9AB5C /* ProgressTabNewsView.swift */,
 				6CCF6A30294BA757008FF8AF /* NotFoundTabNewsView.swift */,
+				6CE3C1CF29556496002BFEEF /* CardUser.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -797,6 +842,8 @@
 				6C2CB985294FAAAF00F5D286 /* RecoveryPasswordRequest.swift */,
 				6CD8D7CA2950F1F900B92F14 /* NewPostRequest.swift */,
 				6CD8D7CC2950F30200B92F14 /* DeletePostRequest.swift */,
+				6CE3C1B12954AAB4002BFEEF /* SignupRequest.swift */,
+				6CE3C1C12954E845002BFEEF /* AnswerRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -804,8 +851,9 @@
 		6C8912882948415900648903 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				6C8912892948417100648903 /* ApplicationExtension.swift */,
+				6C8912892948417100648903 /* ApplicationExtensions.swift */,
 				6CCF6A2D294B74F6008FF8AF /* NavigationStackExtensions.swift */,
+				6CE3C1CB29550A93002BFEEF /* ArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -856,6 +904,7 @@
 				6C8912762947E7FE00648903 /* RemoteGetUserFactory.swift */,
 				6C2CB993294FAF3E00F5D286 /* RemotePostRecoveryPasswordFactory.swift */,
 				6CD8D7DC2950F8A900B92F14 /* RemotePostContentFactory.swift */,
+				6CE3C1BB2954D41A002BFEEF /* RemoteAddSignupFactory.swift */,
 			);
 			path = Remotes;
 			sourceTree = "<group>";
@@ -871,6 +920,7 @@
 				6C89127E2947E93C00648903 /* UserPresenterFactory.swift */,
 				6C2CB997294FAFF400F5D286 /* RecoveryPasswordPresenterFactory.swift */,
 				6CD8D7E02950F9A600B92F14 /* PostContentPresenterFactory.swift */,
+				6CE3C1BF2954D49D002BFEEF /* AddSignupPresenterFactory.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -886,6 +936,7 @@
 				6C89127A2947E88400648903 /* UserInteractorFactory.swift */,
 				6C2CB995294FAF9800F5D286 /* RecoveryPasswordInteractorFactory.swift */,
 				6CD8D7DE2950F94100B92F14 /* PostContentInteractorFactory.swift */,
+				6CE3C1BD2954D46A002BFEEF /* AddSignupInteractorFactory.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -914,6 +965,7 @@
 				6C8912822947EA2400648903 /* LoginScene.swift */,
 				6C8912842947EA2F00648903 /* UserScene.swift */,
 				6C2CB99E2950DCA100F5D286 /* AddPostScene.swift */,
+				6CE3C1CD295515DA002BFEEF /* FavoritScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1186,6 +1238,7 @@
 				6C266BC029445B4B009236BB /* Assets.xcassets in Resources */,
 				6CCF6A2C294B72EA008FF8AF /* LoadingHourglass.json in Resources */,
 				6CCF6A37294BAF79008FF8AF /* NotFoundSpaceship.json in Resources */,
+				6CE3C1D629556B0D002BFEEF /* NotFoundFloating.json in Resources */,
 				6C0AE21429491BBB00E9AB5C /* NotFoundAstrounaut.json in Resources */,
 				6C0AE21029491A4500E9AB5C /* LoadingAirPlane.json in Resources */,
 			);
@@ -1227,6 +1280,7 @@
 				6C0AE21329491BBB00E9AB5C /* NotFoundAstrounaut.json in Resources */,
 				6CCF6A2B294B72EA008FF8AF /* LoadingHourglass.json in Resources */,
 				6CCF6A36294BAF79008FF8AF /* NotFoundSpaceship.json in Resources */,
+				6CE3C1D529556B0D002BFEEF /* NotFoundFloating.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1241,6 +1295,7 @@
 				6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */,
 				6C8912732947E79B00648903 /* UserEndpoint.swift in Sources */,
 				6CF753AA2946C94900A3B721 /* ContentDataInteractorFactory.swift in Sources */,
+				6CE3C1BC2954D41A002BFEEF /* RemoteAddSignupFactory.swift in Sources */,
 				6CF753902946725700A3B721 /* AnalyticsSceneFactory.swift in Sources */,
 				6CD8D7E12950F9A600B92F14 /* PostContentPresenterFactory.swift in Sources */,
 				6CD8D7DF2950F94100B92F14 /* PostContentInteractorFactory.swift in Sources */,
@@ -1261,6 +1316,7 @@
 				6CF7534229463D1100A3B721 /* NetworkAdapterFactory.swift in Sources */,
 				6C89125029477B2300648903 /* ContentChildSceneFactory.swift in Sources */,
 				6C89124A2947704E00648903 /* ContentChildrenPresenterFactory.swift in Sources */,
+				6CE3C1CC29550A93002BFEEF /* ArrayExtensions.swift in Sources */,
 				6CF7538729465D7F00A3B721 /* InitContentSceneFactory.swift in Sources */,
 				6C89128729483BED00648903 /* LoginSceneFactory.swift in Sources */,
 				6CD8D7DD2950F8A900B92F14 /* RemotePostContentFactory.swift in Sources */,
@@ -1274,16 +1330,19 @@
 				6C8912852947EA2F00648903 /* UserScene.swift in Sources */,
 				6C8912792947E87900648903 /* LoginInteractorFactory.swift in Sources */,
 				6CF7534A29463E8C00A3B721 /* InitContentInteractorFactory.swift in Sources */,
+				6CE3C1CE295515DA002BFEEF /* FavoritScene.swift in Sources */,
 				6CCF6A2F294B74F6008FF8AF /* NavigationStackExtensions.swift in Sources */,
 				6C89124429476F5E00648903 /* ContentChildrenEndpoint.swift in Sources */,
 				6C266BBC29445B4B009236BB /* MainApp.swift in Sources */,
 				6CF7538129465CB100A3B721 /* AnalyticsPresenterFactory.swift in Sources */,
+				6CE3C1BE2954D46A002BFEEF /* AddSignupInteractorFactory.swift in Sources */,
 				6C89124629476F9900648903 /* RemoteGetContentChildrenFactory.swift in Sources */,
-				6C89128A2948417100648903 /* ApplicationExtension.swift in Sources */,
+				6C89128A2948417100648903 /* ApplicationExtensions.swift in Sources */,
 				6CF7538929465F3B00A3B721 /* AnalyticsScene.swift in Sources */,
 				6CF7534729463E0700A3B721 /* InitContentPresenterFactory.swift in Sources */,
 				6C2CB99F2950DCA100F5D286 /* AddPostScene.swift in Sources */,
 				6CF7537D29465B2800A3B721 /* RemoteGetAnalyticsFactory.swift in Sources */,
+				6CE3C1C02954D49D002BFEEF /* AddSignupPresenterFactory.swift in Sources */,
 				6C8912772947E7FE00648903 /* RemoteGetUserFactory.swift in Sources */,
 				6C0AE1FD2948CC8200E9AB5C /* UserSceneFactory.swift in Sources */,
 				6C89124E294770A500648903 /* ContentChildrenScene.swift in Sources */,
@@ -1294,12 +1353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE3C1C42954EA1B002BFEEF /* AddAnswer.swift in Sources */,
+				6CE3C1B42954AB0B002BFEEF /* AddSignup.swift in Sources */,
 				6CF7536729464F5400A3B721 /* GetStatus.swift in Sources */,
 				6C8912582947DAC200648903 /* UserResponse.swift in Sources */,
 				6CD8D7CF2950F39C00B92F14 /* AddPostContent.swift in Sources */,
 				6C3FFC3C29442BD900B1918C /* GetInitContent.swift in Sources */,
 				6C2CB986294FAAAF00F5D286 /* RecoveryPasswordRequest.swift in Sources */,
 				6C89125D2947DC7E00648903 /* LoginRequest.swift in Sources */,
+				6CE3C1C22954E845002BFEEF /* AnswerRequest.swift in Sources */,
 				6C89125A2947DC1D00648903 /* AddLogin.swift in Sources */,
 				6C8912562947DA6500648903 /* LoginResponse.swift in Sources */,
 				6C2CB99D2950B29200F5D286 /* TabNewsError.swift in Sources */,
@@ -1315,6 +1377,7 @@
 				6CF7535F29464BBE00A3B721 /* AnalyticsRootContentPublishedResponse.swift in Sources */,
 				6CF7536529464E5800A3B721 /* GetAnalytics.swift in Sources */,
 				6C2CB99A2950B08F00F5D286 /* ErrorResponse.swift in Sources */,
+				6CE3C1B22954AAB4002BFEEF /* SignupRequest.swift in Sources */,
 				6CF7536129464C6A00A3B721 /* AnalyticsChildContentPublishedResponse.swift in Sources */,
 				6C89123C29476B3000648903 /* GetContentChildren.swift in Sources */,
 				6C2CB984294FAA9600F5D286 /* RecoveryPasswordResponse.swift in Sources */,
@@ -1336,9 +1399,11 @@
 				6C3FFC5529442D3600B1918C /* RemoteGetInitContent.swift in Sources */,
 				6C3FFC5029442CCD00B1918C /* Typealias.swift in Sources */,
 				6CD8D7D32950F41A00B92F14 /* RemoteAddPostContent.swift in Sources */,
+				6CE3C1C62954EA4E002BFEEF /* RemoteAddAnswer.swift in Sources */,
 				6CF753692946500900A3B721 /* RemoteGetAnalyticsUsersCreated.swift in Sources */,
 				6CF7536F2946527500A3B721 /* RemoteGetStatus.swift in Sources */,
 				6CF7536B2946517C00A3B721 /* RemoteGetAnalyticsChildContentPublished.swift in Sources */,
+				6CE3C1B62954D262002BFEEF /* RemoteAddSignup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,8 +1423,10 @@
 				6C3FFC912944358B00B1918C /* InitContentPresenter.swift in Sources */,
 				6C89126B2947DF6100648903 /* UserInteractor.swift in Sources */,
 				6C8912672947DF1800648903 /* UserViewModel.swift in Sources */,
+				6CE3C1CA2954EB5C002BFEEF /* AnswerPresenter.swift in Sources */,
 				6C3FFC8F2944327A00B1918C /* InitContentInteractor.swift in Sources */,
 				6CD8D7DB2950F7C600B92F14 /* AddPostContentPresenter.swift in Sources */,
+				6CE3C1C82954EAB1002BFEEF /* AnswerInteractor.swift in Sources */,
 				6C2CB990294FAD0200F5D286 /* RecoveryPasswordPresenter.swift in Sources */,
 				6C8912652947DEE600648903 /* LoginViewModel.swift in Sources */,
 				6C89126F2947DF7500648903 /* UserPresenter.swift in Sources */,
@@ -1367,6 +1434,7 @@
 				6CD8D7D92950F66E00B92F14 /* DeletePostContentInteractor.swift in Sources */,
 				6CF753772946595700A3B721 /* AnalyticsPresenter.swift in Sources */,
 				6C3FFC942944362300B1918C /* InitContentViewModel.swift in Sources */,
+				6CE3C1BA2954D353002BFEEF /* AddSignupPresenter.swift in Sources */,
 				6CF753A22946C74100A3B721 /* ContentDataPresenter.swift in Sources */,
 				6CF753752946561E00A3B721 /* AnalyticsInteractor.swift in Sources */,
 				6C89126D2947DF6A00648903 /* LoginPresenter.swift in Sources */,
@@ -1376,6 +1444,7 @@
 				6CF753A02946C70000A3B721 /* ContentDataInteractor.swift in Sources */,
 				6C2CB98C294FACCD00F5D286 /* RecoveryPasswordViewModel.swift in Sources */,
 				6CD8D7D72950F65E00B92F14 /* AddPostContentInteractor.swift in Sources */,
+				6CE3C1B82954D2C2002BFEEF /* SignupInteractor.swift in Sources */,
 				6CF753712946532500A3B721 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1390,6 +1459,7 @@
 				6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */,
 				6CF7538E2946715D00A3B721 /* ColorExtensions.swift in Sources */,
 				6C0AE1FF2948D62A00E9AB5C /* FlexibleView.swift in Sources */,
+				6CE3C1D029556496002BFEEF /* CardUser.swift in Sources */,
 				6CF7538B29465F5F00A3B721 /* CardBarChartView.swift in Sources */,
 				6C0AE219294920DE00E9AB5C /* ProgressTabNewsView.swift in Sources */,
 				6C0AE2082949171E00E9AB5C /* LottieView.swift in Sources */,

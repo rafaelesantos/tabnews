@@ -1,5 +1,5 @@
 //
-//  ApplicationExtension.swift
+//  ApplicationExtensions.swift
 //  Main
 //
 //  Created by Rafael Santos on 13/12/22.

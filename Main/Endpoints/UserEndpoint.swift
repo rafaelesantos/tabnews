@@ -17,7 +17,9 @@ struct UserEndpoint: TabNewsHttpEndpoint {
     var headers: [TabNewsHttpHeader]?
     var body: Data?
     
-    public init(user: String? = nil) {
-        if let user = user { path += "s/\(user)" }
+    public init(method: TabNewsHttpMethod = .get, user: String? = nil) {
+        if let user = user, method == .get { path += "s/\(user)" }
+        if method == .post { path += "s" }
+        self.method = method
     }
 }

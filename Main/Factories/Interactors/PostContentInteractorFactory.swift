@@ -15,3 +15,7 @@ func makeAddPostContentInteractor() -> AddPostContentInteractorProtocol {
 func makeDeletePostContentInteractor(user: String, slug: String) -> DeletePostContentInteractorProtocol {
     DeletePostContentInteractor(useCase: makeRemoteDeletePostContent(user: user, slug: slug))
 }
+
+func makeAnswerInteractor() -> AnswerInteractorProtocol {
+    AnswerInteractor(useCase: makeRemoteAnswer())
+}

@@ -15,3 +15,7 @@ func makeAddPostContentPresenter() -> AddPostContentPresenterProtocol {
 func makeDeletePostContentPresenter(user: String, slug: String) -> DeletePostContentPresenterProtocol {
     DeletePostContentPresenter(interactor: makeDeletePostContentInteractor(user: user, slug: slug))
 }
+
+func makeAnswerPresenter() -> AnswerPresenterProtocol {
+    AnswerPresenter(interactor: makeAnswerInteractor())
+}

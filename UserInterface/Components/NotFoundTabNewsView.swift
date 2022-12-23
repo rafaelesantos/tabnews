@@ -24,11 +24,13 @@ extension NotFoundTabNewsView {
     public enum Style: String {
         case spaceship = "NotFoundSpaceship"
         case astronaut = "NotFoundAstrounaut"
+        case floating = "NotFoundFloating"
         
         var height: CGFloat {
             switch self {
             case .spaceship: return 350
             case .astronaut: return 350
+            case .floating: return 350
             }
         }
     }

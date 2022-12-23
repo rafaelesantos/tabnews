@@ -8,8 +8,9 @@
 import Foundation
 import Domain
 
-public struct InitContentViewModel {
+public struct InitContentViewModel: Hashable, Identifiable, Codable {
     public var id: UUID = UUID()
+    public let post_id: String?
     public let title: String?
     public let updated_at: Date?
     public let tabcoins: Int?
@@ -19,7 +20,8 @@ public struct InitContentViewModel {
     public var body: String?
     public let children: [InitContentViewModel]?
     
-    public init(title: String?, updated_at: Date?, tabcoins: Int?, owner_username: String?, children_deep_count: Int?, slug: String?, body: String? = nil, children: [InitContentViewModel]? = nil) {
+    public init(post_id: String? = nil, title: String?, updated_at: Date?, tabcoins: Int?, owner_username: String?, children_deep_count: Int?, slug: String?, body: String? = nil, children: [InitContentViewModel]? = nil) {
+        self.post_id = post_id
         self.title = title
         self.updated_at = updated_at
         self.tabcoins = tabcoins
@@ -40,6 +42,7 @@ public struct InitContentViewModel {
         let updatedAtDate = dateFormatter.date(from: updatedAt ?? "")
         self.updated_at = updatedAtDate
         
+        self.post_id = response.id
         self.tabcoins = response.tabcoins
         self.owner_username = response.owner_username
         self.children_deep_count = response.children_deep_count

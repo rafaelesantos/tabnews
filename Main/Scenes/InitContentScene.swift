@@ -12,6 +12,7 @@ import RefdsUI
 
 public struct InitContentScene: View {
     @State private var presenter: InitContentPresenterProtocol
+    @State private var presenterDeletePost: DeletePostContentPresenterProtocol?
     @State private var initContents: [InitContentViewModel] = []
     @State private var canChangeToNextPage: Bool = false
     @State private var notFoundData: Bool = false
@@ -28,8 +29,12 @@ public struct InitContentScene: View {
     }
     @State private var needLoading: Bool = false
     @AppStorage("loggedUsername") var loggedUsername: String = ""
+    @State @AppStorage("favoritContents") var favoritContents = [InitContentViewModel]()
     @State private var needNavigationToAddPostContent = false
     private var user: String?
+    @State private var queryString: String = ""
+    @State private var shareSheetItems: [Any] = []
+    @State private var needNavigationShare = false
     
     public init(presenter: InitContentPresenterProtocol, user: String? = nil) {
         self._presenter = State(initialValue: presenter)
@@ -60,11 +65,13 @@ public struct InitContentScene: View {
             }
         })
         .navigationTitle(user == nil ? "TabNews" : user ?? "")
-        .setTabMoney()
+        .setTabMoney(isPresented: user == nil)
         .navigationDestination(isPresented: $needNavigationToAddPostContent, destination: { makeAddPostScene(username: loggedUsername) })
         .task {
             await loadData()
         }
+        .searchable(text: $queryString, prompt: "Busque por conteúdo carregado")
+        .sheet(isPresented: $needNavigationShare, content: { ActivityViewController(activityItems: $shareSheetItems) })
     }
     
     public func relevantContents() -> some View {
@@ -98,17 +105,41 @@ public struct InitContentScene: View {
                 if needLoading {
                     
                 } else {
-                    ForEach(initContents, id: \.id) { content in
+                    ForEach(initContents.filter({ searchContents(content: $0) }), id: \.id) { content in
                         if let user = content.owner_username, let slug = content.slug {
                             NavigationLink(destination: makeContentDataScene(user: user, slug: slug)) {
                                 if let _ = content.body {
                                     CardContentChildrenView(viewModel: content)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            if loggedUsername == user { swipeDeleteButton(user: user, slug: slug) }
+                                        }
+                                        .swipeActions(edge: .leading, allowsFullSwipe: false) { swipeAddFavoritButton(content: content) }
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            if let username = content.owner_username, let slug = content.slug, let url = URL(string: "https://tabnews.com.br/\(username)/\(slug)") {
+                                                swipeShareButton(url: url)
+                                            }
+                                        }
                                 } else {
                                     CardInitContentView(viewModel: content)
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            if loggedUsername == user { swipeDeleteButton(user: user, slug: slug) }
+                                        }
+                                        .swipeActions(edge: .leading, allowsFullSwipe: false) { swipeAddFavoritButton(content: content) }
+                                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                            if let username = content.owner_username, let slug = content.slug, let url = URL(string: "https://tabnews.com.br/\(username)/\(slug)") {
+                                                swipeShareButton(url: url)
+                                            }
+                                        }
                                 }
                             }
                         } else {
                             CardInitContentView(viewModel: content)
+                                .swipeActions(edge: .leading, allowsFullSwipe: false) { swipeAddFavoritButton(content: content) }
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    if let username = content.owner_username, let slug = content.slug, let url = URL(string: "https://tabnews.com.br/\(username)/\(slug)") {
+                                        swipeShareButton(url: url)
+                                    }
+                                }
                         }
                     }
                 }
@@ -117,7 +148,7 @@ public struct InitContentScene: View {
                 if needLoading {
                     ProgressTabNewsView().frame(height: 60)
                 } else if initContents.isEmpty && notFoundData {
-                    NotFoundTabNewsView(style: .astronaut)
+                    NotFoundTabNewsView(style: .floating)
                 }
                 else {
                     RefdsText("página \(currentPage) com \(currentPerPage) por página ordenado por \(currentStrategy.rawValue)", size: .extraSmall, color: .secondary)
@@ -164,6 +195,59 @@ public struct InitContentScene: View {
             canChangeToNextPage = currentPerPage <= initContents.count
             needLoading.toggle()
         }
+    }
+    
+    private func deletePost(username: String, slug: String) async {
+        needLoading.toggle()
+        presenterDeletePost = makeDeletePostContentPresenter(user: username, slug: slug)
+        let _ = try? await presenterDeletePost?.deletePostContent()
+        needLoading.toggle()
+        await loadData()
+    }
+    
+    private func swipeDeleteButton(user: String, slug: String) -> some View {
+        Button {
+            Task { await deletePost(username: user, slug: slug) }
+        } label: {
+            Image(systemName: "trash.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.pink)
+    }
+    
+    private func swipeAddFavoritButton(content: InitContentViewModel) -> some View {
+        Button {
+            if favoritContents.firstIndex(where: { $0.post_id == content.post_id }) == nil {
+                favoritContents.append(content)
+            }
+        } label: {
+            Image(systemName: "heart.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.teal)
+    }
+    
+    private func swipeShareButton(url: URL) -> some View {
+        Button {
+            shareSheetItems = [url]
+            needNavigationShare.toggle()
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.orange)
+    }
+    
+    private func searchContents(content: InitContentViewModel) -> Bool {
+        let queryString = queryString.lowercased()
+        if queryString.isEmpty { return true }
+        let username = content.owner_username?.lowercased().contains(by: queryString) ?? false
+        let title = content.title?.lowercased().contains(by: queryString) ?? false
+        let body = content.body?.lowercased().contains(by: queryString) ?? false
+        return username || title || body
     }
 }
 
