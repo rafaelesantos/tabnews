@@ -9,7 +9,7 @@ import SwiftUI
 import RefdsUI
 import Presentation
 import UserInterface
-import Markdown
+import MarkdownView
 
 struct ContentDataScene: View {
     @State private var isPreview = false
@@ -21,6 +21,7 @@ struct ContentDataScene: View {
     @AppStorage("loggedUsername") var loggedUsername: String = ""
     @State private var needLoadingAnswer: Bool = false
     @State private var needNavigationComments: Bool = false
+    @State private var bodyContent: String = ""
     
     @Environment(\.dismiss) var dismiss
     
@@ -77,18 +78,15 @@ struct ContentDataScene: View {
     
     private var sectionBody: some View {
         Section {
-            if let body = viewModel?.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
-                MarkdownView(text: body) { element in
-                    ElementView(element: element)
-                    
-                }
-            }
+            MarkdownView(text: $bodyContent)
+                .lineSpacing(10)
+                .font(.custom("Moderat-Regular", size: 16))
         } header: {
             if needLoading {
                 Spacer()
                 ProgressTabNewsView()
             } else if let date = viewModel?.updated_at?.asString(withDateFormat: "dd MMMM - HH:mm") {
-                Text(date)
+                RefdsText(date, size: .extraSmall, color: .secondary)
             }
         }
     }
@@ -106,7 +104,9 @@ struct ContentDataScene: View {
     private var sectionAnswer: some View {
         Section {
             if isPreview {
-                MarkdownView(text: postBody, content: { ElementView(element: $0) })
+                MarkdownView(text: postBody)
+                    .lineSpacing(10)
+                    .font(.custom("Moderat-Regular", size: 16))
             } else {
                 TextField("Informe a resposta da postagem", text: $postBody, axis: .vertical)
                     .font(.refds(size: 15, scaledSize: 1.2 * 15, weight: .regular, style: .body))
@@ -132,9 +132,10 @@ struct ContentDataScene: View {
     }
     
     private func loadData() async {
-        viewModel?.body = nil
+        bodyContent = ""
         needLoading.toggle()
         viewModel = try? await presenter.showContentData()
+        bodyContent = viewModel?.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? ""
         needLoading.toggle()
     }
     
@@ -160,8 +161,8 @@ struct ContentDataScene: View {
 }
 
 struct ContentDataScene_Previews: PreviewProvider {
-    static let user = "joelcarneiro"
-    static let slug = "duvida-como-importar-um-banco-de-dados-para-meu-localhost-mysql"
+    static let user = "GabrielSozinho"
+    static let slug = "documentacao-da-api-do-tabnews"
     static var previews: some View {
         NavigationStack {
             ContentDataScene(presenter: makeContentDataPresenter(endpoint: ContentDataEndpoint(user: user, slug: slug)))

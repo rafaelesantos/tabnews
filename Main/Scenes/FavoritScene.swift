@@ -32,7 +32,9 @@ struct FavoritScene: View {
             }
             
             if favoritUsers.count == 0 && favoritContents.count == 0 {
-                NotFoundTabNewsView(style: .floating)
+                Section {} footer: {
+                    NotFoundTabNewsView(style: .floating)
+                }
             }
         }
         .navigationTitle("Favoritos")
@@ -41,7 +43,7 @@ struct FavoritScene: View {
     }
     
     private var sectionPosts: some View {
-        ForEach(favoritContents.filter({ searchContents(content: $0) }), id: \.id) { content in
+        ForEach(favoritContents.filter({ searchContents(content: $0) }).reversed(), id: \.id) { content in
             if let user = content.owner_username, let slug = content.slug {
                 NavigationLink(destination: makeContentDataScene(user: user, slug: slug)) {
                     if let _ = content.body {
@@ -75,7 +77,7 @@ struct FavoritScene: View {
     }
     
     private var sectionUsers: some View {
-        ForEach(favoritUsers.filter({ searchUsers(user: $0) }), id: \.id) { user in
+        ForEach(favoritUsers.filter({ searchUsers(user: $0) }).reversed(), id: \.id) { user in
             NavigationLink {
                 makeInitContentScene(user: user.response.username)
             } label: {
@@ -151,17 +153,17 @@ struct FavoritScene: View {
     private func searchContents(content: InitContentViewModel) -> Bool {
         let queryString = queryString.lowercased()
         if queryString.isEmpty { return true }
-        let username = content.owner_username?.lowercased().contains(by: queryString) ?? false
-        let title = content.title?.lowercased().contains(by: queryString) ?? false
-        let body = content.body?.lowercased().contains(by: queryString) ?? false
+        let username = content.owner_username?.lowercased().contains(queryString) ?? false
+        let title = content.title?.lowercased().contains(queryString) ?? false
+        let body = content.body?.lowercased().contains(queryString) ?? false
         return username || title || body
     }
     
     private func searchUsers(user: UserViewModel) -> Bool {
         let queryString = queryString.lowercased()
         if queryString.isEmpty { return true }
-        let username = user.response.username.contains(by: queryString)
-        let email = user.response.email?.contains(by: queryString) ?? false
+        let username = user.response.username.contains(queryString)
+        let email = user.response.email?.contains(queryString) ?? false
         return username || email
     }
 }

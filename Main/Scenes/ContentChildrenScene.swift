@@ -9,7 +9,6 @@ import SwiftUI
 import RefdsUI
 import Presentation
 import UserInterface
-import Markdown
 
 struct ContentChildrenScene: View {
     @State private var presenter: ContentChildrenPresenterProtocol
@@ -17,6 +16,11 @@ struct ContentChildrenScene: View {
     @State private var viewModel: [InitContentViewModel] = []
     @State private var needLoading: Bool = false
     @State private var needPresent: Bool = false
+    @State private var queryString: String = ""
+    @AppStorage("loggedUsername") var loggedUsername: String = ""
+    @State @AppStorage("favoritContents") var favoritContents = [InitContentViewModel]()
+    @State private var needNavigationShare = false
+    @State private var shareSheetItems: [Any] = []
     
     init(previous: InitContentViewModel) throws {
         guard let user = previous.owner_username, let slug = previous.slug else { throw NSError(domain: "content.child", code: 1) }
@@ -26,25 +30,20 @@ struct ContentChildrenScene: View {
     
     var body: some View {
         List {
-            Section("tópico anterior") {
+            Section {
                 if let body = previousViewModel.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
                     HStack(spacing: 15) {
                         VStack {
                             Image(systemName: "chevron.up")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.yellow.opacity(0.5))
                             Spacer()
-                            Text("\(previousViewModel.tabcoins ?? 0)")
-                                .font(.footnote)
-                                .bold()
-                                .foregroundColor(.yellow)
+                            RefdsText("\(previousViewModel.tabcoins ?? 0)", size: .extraSmall, color: .yellow, weight: .bold)
                             Spacer()
                             Image(systemName: "chevron.down")
-                                .foregroundColor(.secondary)
+                                .foregroundColor(.yellow.opacity(0.5))
                         }.padding(.vertical, 10)
                         
-                        Text(body.replacingOccurrences(of: "*", with: ""))
-                            .lineLimit(3)
-                            .bold()
+                        RefdsText(body.replacingOccurrences(of: "*", with: ""), lineLimit: 3)
                     }.disabled(true)
                 }
                 
@@ -52,28 +51,35 @@ struct ContentChildrenScene: View {
                     CardBasicDetailView(title: "Data", description: date)
                         .disabled(true)
                 }
+            } header: {
+                RefdsText("tópico anterior", size: .extraSmall, color: .secondary)
             }
             
             if needLoading {
                 Section(content: { }, header: { ProgressTabNewsView() })
             }
             
-            ForEach(viewModel, id: \.id) { content in
-                Section {
+            Section {
+                ForEach(viewModel.filter({ searchContents(content: $0) }), id: \.id) { content in
                     if let username = content.owner_username, let slug = content.slug {
                         NavigationLink {
                             makeContentDataScene(user: username, slug: slug)
                         } label: {
                             CardContentChildrenView(viewModel: content)
-                        }
-                    }
-                    
-                    if let commentsAmount = content.children_deep_count, commentsAmount > 0, let contentChildrenView = try? makeContentChildrenScene(viewModel: content) {
-                        NavigationLink(destination: contentChildrenView) {
-                            commentsView(amount: commentsAmount)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    if loggedUsername == username { swipeDeleteButton(user: username, slug: slug) }
+                                }
+                                .swipeActions(edge: .leading, allowsFullSwipe: false) { swipeAddFavoritButton(content: content) }
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    if let url = URL(string: "https://tabnews.com.br/\(username)/\(slug)") {
+                                        swipeShareButton(url: url)
+                                    }
+                                }
                         }
                     }
                 }
+            } header: {
+                RefdsText("comentários", size: .extraSmall, color: .secondary)
             }
         }
         .refreshable { Task { await loadData() } }
@@ -85,6 +91,8 @@ struct ContentChildrenScene: View {
             }
         }
         .navigationDestination(isPresented: $needPresent, destination: { makeInitContentScene(user: previousViewModel.owner_username) })
+        .searchable(text: $queryString, prompt: "Busque por comentário")
+        .sheet(isPresented: $needNavigationShare, content: { ActivityViewController(activityItems: $shareSheetItems) })
     }
     
     private func commentsView(amount: Int) -> some View {
@@ -96,6 +104,58 @@ struct ContentChildrenScene: View {
         needLoading.toggle()
         viewModel = (try? await presenter.showContentChildren()) ?? []
         needLoading.toggle()
+    }
+    
+    private func searchContents(content: InitContentViewModel) -> Bool {
+        let queryString = queryString.lowercased()
+        if queryString.isEmpty { return true }
+        let username = content.owner_username?.lowercased().contains(queryString) ?? false
+        let body = content.body?.lowercased().contains(queryString) ?? false
+        return username || body
+    }
+    
+    private func deletePost(username: String, slug: String) async {
+        needLoading.toggle()
+        let presenterDeletePost = makeDeletePostContentPresenter(user: username, slug: slug)
+        let _ = try? await presenterDeletePost.deletePostContent()
+        needLoading.toggle()
+        await loadData()
+    }
+    
+    private func swipeDeleteButton(user: String, slug: String) -> some View {
+        Button {
+            Task { await deletePost(username: user, slug: slug) }
+        } label: {
+            Image(systemName: "trash.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.pink)
+    }
+    
+    private func swipeAddFavoritButton(content: InitContentViewModel) -> some View {
+        Button {
+            if favoritContents.firstIndex(where: { $0.post_id == content.post_id }) == nil {
+                favoritContents.append(content)
+            }
+        } label: {
+            Image(systemName: "heart.fill")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.teal)
+    }
+    
+    private func swipeShareButton(url: URL) -> some View {
+        Button {
+            shareSheetItems = [url]
+            needNavigationShare.toggle()
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+                .symbolRenderingMode(.hierarchical)
+                .foregroundColor(.white)
+        }
+        .tint(.orange)
     }
 }
 

@@ -7,12 +7,13 @@
 
 import SwiftUI
 import Presentation
-import Markdown
 import RefdsUI
+import MarkdownView
 
 public struct CardContentChildrenView: View {
     private let viewModel: InitContentViewModel
     private let color: Color
+    @State private var bodyContent: String = ""
     
     public init(viewModel: InitContentViewModel) {
         self.viewModel = viewModel
@@ -43,10 +44,8 @@ public struct CardContentChildrenView: View {
                     }
                 }
                 
-                if let body = viewModel.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) {
-                    MarkdownView(text: body) { element in
-                        ElementView(element: element)
-                    }
+                if let bodyContent = viewModel.body?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil).replacingOccurrences(of: "\n", with: " ") {
+                    RefdsText(bodyContent, lineLimit: 3)
                 }
             }
         }

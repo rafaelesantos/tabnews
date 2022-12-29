@@ -7,9 +7,9 @@
 
 import SwiftUI
 import RefdsUI
-import Markdown
 import Presentation
 import UserInterface
+import MarkdownView
 
 struct AddPostScene: View {
     @State private var isPreview = false
@@ -75,7 +75,9 @@ struct AddPostScene: View {
     private var editPostBodyScene: some View {
         Section {
             if isPreview {
-                MarkdownView(text: postBody, content: { ElementView(element: $0) })
+                MarkdownView(text: postBody)
+                    .lineSpacing(10)
+                    .font(.custom("Moderat-Regular", size: 16))
             } else {
                 TextField("Informe o conteúdo da postagem", text: $postBody, axis: .vertical)
                     .font(.refds(size: 15, scaledSize: 1.2 * 15, weight: .regular, style: .body))

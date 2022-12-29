@@ -47,7 +47,6 @@
 		6C2CB99F2950DCA100F5D286 /* AddPostScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2CB99E2950DCA100F5D286 /* AddPostScene.swift */; };
 		6C307355294449A100D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307354294449A100D38F35 /* RefdsCore */; };
 		6C307357294449B700D38F35 /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C307356294449B700D38F35 /* RefdsCore */; };
-		6C38A4A12946E8B4002982F8 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 6C38A4A02946E8B4002982F8 /* Markdown */; };
 		6C3FFC3329442A4600B1918C /* InitContentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3229442A4600B1918C /* InitContentResponse.swift */; };
 		6C3FFC3629442A6D00B1918C /* RefdsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 6C3FFC3529442A6D00B1918C /* RefdsCore */; };
 		6C3FFC3929442A9D00B1918C /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3FFC3829442A9D00B1918C /* Typealias.swift */; };
@@ -84,7 +83,6 @@
 		6C89124E294770A500648903 /* ContentChildrenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89124D294770A500648903 /* ContentChildrenScene.swift */; };
 		6C89125029477B2300648903 /* ContentChildSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89124F29477B2300648903 /* ContentChildSceneFactory.swift */; };
 		6C89125229478FF800648903 /* CardContentChildrenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C89125129478FF800648903 /* CardContentChildrenView.swift */; };
-		6C8912542947900500648903 /* Markdown in Frameworks */ = {isa = PBXBuildFile; productRef = 6C8912532947900500648903 /* Markdown */; };
 		6C8912562947DA6500648903 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912552947DA6500648903 /* LoginResponse.swift */; };
 		6C8912582947DAC200648903 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912572947DAC200648903 /* UserResponse.swift */; };
 		6C89125A2947DC1D00648903 /* AddLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912592947DC1D00648903 /* AddLogin.swift */; };
@@ -113,6 +111,8 @@
 		6C89128A2948417100648903 /* ApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8912892948417100648903 /* ApplicationExtensions.swift */; };
 		6CAD319F2944FF2600F16A01 /* InitContentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */; };
 		6CAD31A22945004700F16A01 /* CardInitContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD31A12945004700F16A01 /* CardInitContentView.swift */; };
+		6CC691C62957777F00C00FB3 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 6CC691C52957777F00C00FB3 /* MarkdownView */; };
+		6CC691C829577EA200C00FB3 /* MarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 6CC691C729577EA200C00FB3 /* MarkdownView */; };
 		6CCF6A2B294B72EA008FF8AF /* LoadingHourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */; };
 		6CCF6A2C294B72EA008FF8AF /* LoadingHourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */; };
 		6CCF6A2F294B74F6008FF8AF /* NavigationStackExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCF6A2D294B74F6008FF8AF /* NavigationStackExtensions.swift */; };
@@ -410,6 +410,7 @@
 		6C8912892948417100648903 /* ApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtensions.swift; sourceTree = "<group>"; };
 		6CAD319E2944FF2600F16A01 /* InitContentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitContentEndpoint.swift; sourceTree = "<group>"; };
 		6CAD31A12945004700F16A01 /* CardInitContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInitContentView.swift; sourceTree = "<group>"; };
+		6CC691C42957776E00C00FB3 /* MarkdownView-main */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "MarkdownView-main"; path = "../MarkdownView-main"; sourceTree = "<group>"; };
 		6CCF6A2A294B72EA008FF8AF /* LoadingHourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoadingHourglass.json; sourceTree = "<group>"; };
 		6CCF6A2D294B74F6008FF8AF /* NavigationStackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackExtensions.swift; sourceTree = "<group>"; };
 		6CCF6A30294BA757008FF8AF /* NotFoundTabNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFoundTabNewsView.swift; sourceTree = "<group>"; };
@@ -493,9 +494,9 @@
 				6CF75391294672D600A3B721 /* Domain.framework in Frameworks */,
 				6C266BCE29445B63009236BB /* Infrastructure.framework in Frameworks */,
 				6C266BD629445B63009236BB /* UserInterface.framework in Frameworks */,
-				6C38A4A12946E8B4002982F8 /* Markdown in Frameworks */,
 				6C266BCA29445B63009236BB /* Data.framework in Frameworks */,
 				6C266BD229445B63009236BB /* Presentation.framework in Frameworks */,
+				6CC691C62957777F00C00FB3 /* MarkdownView in Frameworks */,
 				6C2CB974294EB72100F5D286 /* RefdsUI in Frameworks */,
 				6C266BC929445B63009236BB /* RefdsCore in Frameworks */,
 				6C0AE202294913DD00E9AB5C /* Lottie in Frameworks */,
@@ -545,7 +546,7 @@
 				6C2CB976294EB7A800F5D286 /* RefdsUI in Frameworks */,
 				6C3FFCB029443DAD00B1918C /* Data.framework in Frameworks */,
 				6C307357294449B700D38F35 /* RefdsCore in Frameworks */,
-				6C8912542947900500648903 /* Markdown in Frameworks */,
+				6CC691C829577EA200C00FB3 /* MarkdownView in Frameworks */,
 				6C3FFCAB29443C7900B1918C /* Presentation.framework in Frameworks */,
 				6C0AE20A2949172900E9AB5C /* Lottie in Frameworks */,
 			);
@@ -601,6 +602,7 @@
 		6C3FFC04294427D600B1918C = {
 			isa = PBXGroup;
 			children = (
+				6CC691C1295776DE00C00FB3 /* Packages */,
 				6C3FFC4329442CAE00B1918C /* Data */,
 				6C3FFC252944280A00B1918C /* Domain */,
 				6C3FFC5129442CD700B1918C /* Frameworks */,
@@ -884,6 +886,14 @@
 			path = Endpoints;
 			sourceTree = "<group>";
 		};
+		6CC691C1295776DE00C00FB3 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				6CC691C42957776E00C00FB3 /* MarkdownView-main */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		6CF7533F29463CEC00A3B721 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,9 +1050,9 @@
 			name = Main;
 			packageProductDependencies = (
 				6C266BC829445B63009236BB /* RefdsCore */,
-				6C38A4A02946E8B4002982F8 /* Markdown */,
 				6C0AE201294913DD00E9AB5C /* Lottie */,
 				6C2CB973294EB72100F5D286 /* RefdsUI */,
+				6CC691C52957777F00C00FB3 /* MarkdownView */,
 			);
 			productName = Main;
 			productReference = 6C266BB929445B4A009236BB /* Main.app */;
@@ -1157,9 +1167,9 @@
 			name = UserInterface;
 			packageProductDependencies = (
 				6C307356294449B700D38F35 /* RefdsCore */,
-				6C8912532947900500648903 /* Markdown */,
 				6C0AE2092949172900E9AB5C /* Lottie */,
 				6C2CB975294EB7A800F5D286 /* RefdsUI */,
+				6CC691C729577EA200C00FB3 /* MarkdownView */,
 			);
 			productName = UserInterface;
 			productReference = 6C3FFC9C29443B8300B1918C /* UserInterface.framework */;
@@ -1211,7 +1221,6 @@
 			mainGroup = 6C3FFC04294427D600B1918C;
 			packageReferences = (
 				6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */,
-				6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */,
 				6C0AE200294913DD00E9AB5C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				6C2CB972294EB72100F5D286 /* XCRemoteSwiftPackageReference "refds-design-system" */,
 			);
@@ -2190,14 +2199,6 @@
 				kind = branch;
 			};
 		};
-		6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RainbowTalaxy/RoomTime.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/refdsenterprise/refds-core.git";
@@ -2244,11 +2245,6 @@
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
 			productName = RefdsCore;
 		};
-		6C38A4A02946E8B4002982F8 /* Markdown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */;
-			productName = Markdown;
-		};
 		6C3FFC3529442A6D00B1918C /* RefdsCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
@@ -2264,10 +2260,13 @@
 			package = 6C3FFC3429442A6D00B1918C /* XCRemoteSwiftPackageReference "refds-core" */;
 			productName = RefdsCore;
 		};
-		6C8912532947900500648903 /* Markdown */ = {
+		6CC691C52957777F00C00FB3 /* MarkdownView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6C38A49F2946E8B4002982F8 /* XCRemoteSwiftPackageReference "RoomTime" */;
-			productName = Markdown;
+			productName = MarkdownView;
+		};
+		6CC691C729577EA200C00FB3 /* MarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MarkdownView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

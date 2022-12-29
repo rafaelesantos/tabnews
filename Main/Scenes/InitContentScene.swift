@@ -244,9 +244,9 @@ public struct InitContentScene: View {
     private func searchContents(content: InitContentViewModel) -> Bool {
         let queryString = queryString.lowercased()
         if queryString.isEmpty { return true }
-        let username = content.owner_username?.lowercased().contains(by: queryString) ?? false
-        let title = content.title?.lowercased().contains(by: queryString) ?? false
-        let body = content.body?.lowercased().contains(by: queryString) ?? false
+        let username = content.owner_username?.lowercased().contains(queryString) ?? false
+        let title = content.title?.lowercased().contains(queryString) ?? false
+        let body = content.body?.lowercased().contains(queryString) ?? false
         return username || title || body
     }
 }
